@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import HomePage from './Pages/HomePage';
 
 function App() {
   return (
     <div className="App">
-    <h1>apple tv</h1>
+     
+     <HomePage/>
    
     </div>
   );

@@ -1,9 +1,11 @@
 import React from 'react'
+import Faq from '../Components/Faq'
 
 const HomePage = () => {
   return (
     <div>
-      HomePage
+      <h1>Home page</h1>
+      <Faq/>
     </div>
   )
 }

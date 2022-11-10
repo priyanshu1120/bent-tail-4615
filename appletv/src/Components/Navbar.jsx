@@ -1,13 +1,26 @@
 import React from 'react'
-import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter } from '@chakra-ui/react';
+import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, Spacer, extendTheme, ChakraProvider } from '@chakra-ui/react';
 import {  CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
 import { Link, NavLink, } from 'react-router-dom';
 import Weblogo from "../Img/mytv.jpg"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { MdOutlineManageAccounts } from "react-icons/md";
+import { RiAdminLine } from "react-icons/ri";
+const modaltheme = extendTheme({
+  components: {
+    Modal: {
+      baseStyle: (props) => ({
+        dialog: {
+          bg: "teal.600"
+        }
+      })
+    }
+  }
+});
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+
 
   return (
     <>
@@ -27,7 +40,7 @@ const Navbar = () => {
             <Box pb={9} display={{ md: 'none' }}>
               <Stack as={'nav'} spacing={4}>
                <Flex justify={"center"} align={"center"}> 
-                <Link to="/signin"><Button leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' size='xs' variant='solid'>Sign in mob</Button></Link></Flex>
+                <Link to="/signup"><Button leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' size='xs' variant='solid'>Sign in mob</Button></Link></Flex>
               </Stack>
             </Box>
           ) : null}
@@ -42,10 +55,34 @@ const Navbar = () => {
               <InputLeftElement pointerEvents='none' children={<SearchIcon/>} />
               <Input color={"whiteAlpha.900"}  type='text' htmlSize={5} width="auto" placeholder='Search' />
               </InputGroup>
-                <Link to="/signin"><Button leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' variant='solid'>Sign in</Button></Link>
+                <Link ><Button onClick={onOpen} leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' variant='solid'>Sign in</Button></Link>
+                <Button  ><RiAdminLine color='black' size={50}/></Button>
                 <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button>
               </HStack>
             </Flex>
+            <>
+    
+  <ChakraProvider theme={modaltheme }>
+    <Modal isOpen={isOpen} onClose={onClose} size={["xs","xl","xl"]}  >
+      <ModalOverlay  bg='blackAlpha.300' backdropFilter='blur(10px) hue-rotate(90deg)'/>
+      <ModalContent>
+        <ModalHeader mt={[5,10,20]} textAlign={"center"}>Choose your Dashboard panel</ModalHeader>
+        <ModalCloseButton  color={"red.500"} />
+        <ModalBody mb={[5,10,20]} >
+        <ModalFooter justifyContent={"center"} gap={3} >
+          <Link to={"/"}><Button colorScheme='green'  onClick={onClose}>
+            User
+          </Button></Link>
+          <Link to={"/admin"}><Button colorScheme='twitter'  onClick={onClose}>
+            Admin
+          </Button></Link>
+
+        </ModalFooter>
+        </ModalBody>
+      </ModalContent>
+    </Modal>
+    </ChakraProvider>
+  </>
           </Flex>
 
           {isOpen ? (

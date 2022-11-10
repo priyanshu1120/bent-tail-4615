@@ -1,8 +1,9 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
+import Admin from '../Pages/Admin'
 import HomePage from '../Pages/HomePage'
-import Signin from '../Pages/Signin'
+import  { Signup } from '../Pages/Signup'
 
 const MainRoutes = () => {
   return (
@@ -10,7 +11,8 @@ const MainRoutes = () => {
       <Navbar/>
       <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/signin" element={<Signin/>} />
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/admin" element={<Admin/>} />
       </Routes>
       
     </div>

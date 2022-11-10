@@ -11,7 +11,7 @@ export const Routing = () => {
     <div>
         <Routes>
             <Route path="/" element={<Future/>} ></Route>
-         <Route path="/:id" element={<Nextpage/>} ></Route>
+            <Route path="/:id" element={<Nextpage/>} ></Route>
 
         </Routes>
     </div>

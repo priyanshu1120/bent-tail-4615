@@ -1,0 +1,190 @@
+
+.mask{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.base-img{
+    width:100%;
+    height: 100%;
+    background-size:cover ;
+    background-position:center ;
+    object-fit: cover;
+}
+
+.mask::after{
+    content :"";
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color: #000;
+    opacity:0.6;
+ 
+ }
+
+ .title-video-container {
+    height:100vh;
+    width:100%;
+}
+
+.title-video-container .content{
+    position:relative;
+    height:auto;
+    color:white;
+    transform: translate(-50%,-50%);
+    width:30%;
+    height: 40%;
+    top:-28%;
+    left:20%;
+    text-align:left;
+}
+
+.title-video-container > .content h1{
+    font-size: 2.4vw;
+    font-weight: 600;
+
+}
+
+.title-video-container > .content h4{
+    font-size: 1vw;
+    
+
+}
+
+.title-video-container > .content h3{
+    font-size: 1.6vw;
+    font-weight: 400;
+    margin-top: 5px;
+    color:#ebebec;
+    line-height: 22px;
+
+}
+
+
+.title-video-container > .content button{
+    width:90%;
+    height:18%;
+    padding: 10px;
+    background-color: white;
+    font-size: 1.6vw;
+    font-weight: 600;
+    margin-top: 20px;
+    border-radius: 10px;
+    color:black;
+
+}
+
+
+.title-video-container > .content p{
+   color:white;
+   margin-left: 60px;
+   margin-top: 8px;
+
+
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+    }
+
+
+
+    @media screen and (max-width:980px) {
+          
+
+        .title-video-container .content{
+            width:100%;
+            height:40%;
+            top:-40%;
+            left:50%;
+            text-align: center;
+        }
+
+        .title-video-container > .content h1{
+            font-size: 4.4vw;
+            font-weight: 600;
+        
+        }
+        
+        .title-video-container > .content h4{
+            font-size: 3vw;
+            
+        
+        }
+        
+        .title-video-container > .content h3{
+            font-size: 3vw;
+            line-height: 30px;
+        
+        }
+        
+        
+        .title-video-container > .content button{
+            width:30%;
+            height:22%;     
+            font-size: 2.4vw;
+        }
+        
+        
+        .title-video-container > .content p{
+           margin-left: 0px;
+           margin-top: 10px;
+        }
+
+
+
+
+    }
+
+
+    
+    @media screen and (max-width:520px) {
+          
+
+        .title-video-container .content{
+            width:100%;
+            height:40%;
+            top:-40%;
+            left:50%;
+            text-align: center;
+        }
+
+        .title-video-container > .content h1{
+            font-size: 6vw;
+            font-weight: 600;
+        
+        }
+        
+        .title-video-container > .content h4{
+            font-size: 3vw;
+            
+        
+        }
+        
+        .title-video-container > .content h3{
+            font-size: 5vw;
+            line-height: 30px;
+        
+        }
+        
+        
+        .title-video-container > .content button{
+            width:50%;
+            height:30%;     
+            font-size: 3.4vw;
+        }
+        
+        
+        .title-video-container > .content p{
+           margin-left: 0px;
+           margin-top: 10px;
+        }
+
+
+
+
+    }

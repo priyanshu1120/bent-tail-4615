@@ -1,52 +1,122 @@
-.static-slide-show{
-    position:relative;
-    border:none;
-    width:99%;
-    height:200px;
-    margin: auto;
-    margin-top: 40px;
-    border:1px solid red;
-}
 
-.static-slider {
-    width:95%;
-    height:100%;
-    display:flex;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    border:1px solid blue;
-}
 
-.slide {
-    border:1px solid green;
-} 
+/* .title-video-container{
+    border: 1px solid yellow;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+} */
 
-.right-arrow{
-    /* position: absolute;
-    top:50%; */
-    /* right:32px; */
-    font-size: 3rem;
-    color:black;
-    z-index:10;
-    cursor:pointer;
-    user-select: none;
 
-}
 
-.static-slide-images{
-    width:100px;
-    height:100px;
-    border-radius:10px;
-}
-
-.left-arrow{
+    /* .title-video-container  {
+    z-index: -1;
     position: absolute;
-    top:50%;
-    /* left:32px; */
-    font-size: 3rem;
-    color:black;
-    z-index:10;
-    cursor:pointer;
-    user-select: none;   
+    width:100%;
+   height:100%;
+   object-fit: cover;
+   margin: auto;
+   min-width: 50%;
+   min-height: 50%;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,-50%);
+   
+} */
+
+
+
+
+/* 
+
+.video-text-content{
+    width:40%;
+    border:1px solid green;
+    position: relative;
+    top:-50%;
+    left:40px;
+    z-index: 300;
+    background-color: transparent;
+    color:rgba(255, 255, 255, 0.92);
+    text-align: left;
+   
+ 
+   
+} */
+/* .video-text-content ,h4 ,h3, h1,p{
+    background-color: transparent; 
+    z-index: 300;
+}
+
+.video-text-content >h4{
+     margin-top: 8px; 
+} */
+
+
+/* .video-text-content >h1{
+    font-size: 3vw;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.video-text-content >h3{
+   line-height: 30px;
+    z-index: 300;
+    font-size: 2vw;
+
+} */
+
+/* .video-text-content > button{
+    width:50%;
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.92);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: black;
+} */
+
+
+/* .video-text-content > p{
+margin-left: 20px;
+color: #535353;
+} */
+
+
+
+
+
+@media screen and (max-width:480px) {
+    /* .static-slide-show{
+        border:none;
+        width:99%;
+        height:auto;
+        margin: auto;
+        margin-top: 40px;
+        cursor: pointer;
+        border:1px solid red;
+    } 
+    
+    .title-video-container{
+        border: 1px solid yellow;
+        width: 99%;
+    
+    }
+
+    .video-text-content{
+        width:100%;
+        border:1px solid green;
+        position: relative;
+        top:-50%;
+        left:0px;
+        z-index: 300;
+        background-color: transparent;
+        color:rgba(255, 255, 255, 0.92);
+        text-align: left;
+       
+     
+       
+    } */
+     
 }

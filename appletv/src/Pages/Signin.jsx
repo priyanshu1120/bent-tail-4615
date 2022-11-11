@@ -17,57 +17,43 @@ import {
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { FcGoogle } from 'react-icons/fc';
-import { Link,  useNavigate } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { GOOGLE_SIGN_UP_FIREBASE, SIGN_UP_FIREBASE } from '../Redux/Auth/action';
-import { useEffect } from 'react';
-export const Signup =()=> {
+import { LOGIN_FIREBASE, SIGN_UP_FIREBASE } from '../Redux/Auth/action';
+export const Signin =()=> {
   const [showPassword, setShowPassword] = useState(false);
-  const [confirmshowPassword, setconfirmShowPassword] = useState(false);
+  const dispatch = useDispatch()
 const [state, setState] = useState({
 email: "",
 password: "",
-displayName:"",
-confirmpassword:""
 })
-const dispatch = useDispatch();
-const {currentUser} = useSelector((state)=> state.user)
-const {email, password,confirmpassword,displayName} = state;
-const handleGoogleSignIn = () => {
-  dispatch(GOOGLE_SIGN_UP_FIREBASE())
-}
+const {email, password,} = state;
+const handleGoogleSignIn = () => {}
 const handleSubmit = (e) => {
-  e.preventDefault();
-  dispatch(SIGN_UP_FIREBASE(email,password,displayName))
- setState({email: "",
-  password: "",
-  displayName:"",
-  confirmpassword:""})
-};
-const handleChange = (e) => {
-  let {name,value} =e.target ;
-  setState({...state,[name]:value})
-};
-// const history = useNavigate();
-// useEffect(()=>{
-// if(currentUser){
-//   history("/")
-// }
-// },[currentUser,history])
-console.log(currentUser,state,"currentuser")
+    e.preventDefault();
+    dispatch(LOGIN_FIREBASE(email,password))
+    setState({email: "",
+    password: "",
+    displayName:"",
+    confirmpassword:""})
+  };
+  const handleChange = (e) => {
+    let {name,value} =e.target ;
+    setState({...state,[name]:value})
+  };
   return (
     <Flex backdropBlur={50}
-      minH={'50vh'}
+      minH={'5vh'}
       align={'center'}
       justify={'center'}
    >
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
-            Sign up
+            Sign In
           </Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-          You will be signed in to My TV and My Music
+          Wellcome Back.
           </Text>
         </Stack>
         <Box
@@ -76,11 +62,7 @@ console.log(currentUser,state,"currentuser")
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-          <form>
-            <FormControl id="firstName" isRequired>
-                  <FormLabel>Full Name</FormLabel>
-                  <Input type="text" onChange={handleChange} name="displayName" value={displayName} />
-                </FormControl>
+          <form >
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
               <Input type="email" onChange={handleChange} name="email" value={email} />
@@ -100,21 +82,6 @@ console.log(currentUser,state,"currentuser")
                 </InputRightElement>
               </InputGroup>
             </FormControl>
-            <FormControl id="Confirm password" isRequired>
-              <FormLabel>Confirm Password</FormLabel>
-              <InputGroup>
-                <Input type={confirmshowPassword? 'text' : 'password'}  onChange={handleChange} name="confirmpassword"  value={confirmpassword}/>
-                <InputRightElement h={'full'}>
-                  <Button
-                    variant={'ghost'}
-                    onClick={() =>
-                      setconfirmShowPassword((confirmshowPassword) => !confirmshowPassword)
-                    }>
-                    {confirmshowPassword ? <ViewIcon /> : <ViewOffIcon />}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
             <Stack spacing={10} pt={2}>
               <Button
                 loadingText="Submitting"
@@ -124,8 +91,8 @@ console.log(currentUser,state,"currentuser")
                 _hover={{
                   bg: 'blue.500',
                 }}  
-                 type="submit"  onClick={handleSubmit}   >
-                Sign up
+                 type="submit"  onClick={handleSubmit}  >
+                Log In
               </Button>
             </Stack>
             </form>
@@ -137,12 +104,12 @@ console.log(currentUser,state,"currentuser")
         variant={'outline'}
         leftIcon={<FcGoogle />} onClick={handleGoogleSignIn}>
         <Center>
-          <Text>Sign in with Google</Text>
+          <Text>Log in with Google</Text>
         </Center>
       </Button>
     </Center>
             <HStack justifyContent={"center"} pt={2}>
-              <Text align={'center'}> Already Register with us?</Text><Link to="/login" ><Text align={'center'} color={'blue.400'}>Login</Text></Link>
+              <Text align={'center'}> Click here to Register with us?</Text><Link to="/signup" ><Text align={'center'} color={'blue.400'}>Sign Up</Text></Link>
             </HStack>
           </Stack>
         </Box>

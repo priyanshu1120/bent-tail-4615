@@ -1,0 +1,18 @@
+{
+  "movies": [
+    {
+      "titel": "AAAAABBBAkash",
+      "image": "https://m.media-amazon.com/images/I/81XyIoZ8+HL._SL1500_.jpg",
+      "description": "jk",
+      "time": "44",
+      "id": 1
+    },
+    {
+      "titel": "AAAAABBBAkash",
+      "image": "https://m.media-amazon.com/images/I/81XyIoZ8+HL._SL1500_.jpg",
+      "description": "jk",
+      "time": "44",
+      "id": 2
+    }
+  ]
+}

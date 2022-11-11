@@ -2,7 +2,7 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Carausel2 = ({data}) => {
 
@@ -12,11 +12,12 @@ const handleclick =(id)=>{
 navigate(`/${id}`)
 
 }
-
+const params = useParams()
+    let category =params.category
 
 return(
   <div className='pre-wrapper'>
-    <h2 className='ppp'>Future Movies</h2>
+    <h2 className='ppp'>{category} Movies</h2>
   <div className="wrapper">
  
 

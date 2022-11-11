@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { Nextpage } from '../component/nextpage'
 import Navbar from '../Components/Navbar'
 import Admin from '../Pages/Admin'
 import HomePage from '../Pages/HomePage'
@@ -13,6 +14,7 @@ const MainRoutes = () => {
         <Route path="/" element={<HomePage/>} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/admin" element={<Admin/>} />
+        <Route path="/:category/:id" element={<Nextpage/>} />
       </Routes>
       
     </div>

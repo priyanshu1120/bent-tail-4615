@@ -1,4 +1,5 @@
 import React from 'react'
+import { Comedy } from '../component/comedy'
 import Faq from '../Components/Faq'
 import Herovideo from '../Components/Herovideo'
 import Static from '../Components/StaticSlider/Static'
@@ -15,7 +16,7 @@ const HomePage = () => {
          <StaticSlider2 data = { sliderdata2 } />
       <StaticSlider2 data = { sliderdata3 } />
       <Static/>
-
+      
       <Faq/>
     </div>
   )

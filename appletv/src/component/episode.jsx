@@ -2,28 +2,34 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { Carausel } from './carausel'
 
-export const Episode = ({id}) => {
+export const Episode = ({data}) => {
 
-const[data,setData] = useState()
+const params = useParams()
+    let category =params.category
+// const Episodedata=()=>{
+//     axios.get(`https://appletv-server.vercel.app/${category}/${id}`)
+//     .then((res)=>{setData(res.data)})
+//     .catch((err)=>console.log(err))
+// }
 
-const Episodedata=()=>{
-    axios.get(`https://appletv-server.vercel.app/futureRelease/${id}`)
-    .then((res)=>{setData(res.data)})
-    .catch((err)=>console.log(err))
-}
-
-console.log(data?.episode)
 
 useEffect(()=>{
-    Episodedata()
-
+    // Episodedata()
+    // console.log(data)
 },[])
 
   return (
     <div>
-<Carausel  data ={data?.episode} />
+      
+      {/* {
+        data.length>0 && data.map((ele)=>(
+          <h1>{ele.episode.time}</h1>
+        ))
+      } */}
+<Carausel  data ={data} />
     </div>
   )
 }

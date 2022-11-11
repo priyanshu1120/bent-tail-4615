@@ -6,20 +6,23 @@ import { useParams } from 'react-router-dom'
 import {background, Box,Button,Image, VStack} from "@chakra-ui/react"
 import { Episode } from './episode'
 import { Cast } from './cast'
+import { Carausel } from './carausel'
 
 export const Nextpage = () => {
     const [singlepagedata,setSinglepagedata] = useState({})
+    
     const params = useParams()
     let id =params.id
+    let category =params.category
 
 const SingleData =()=>{
-axios.get(`https://appletv-server.vercel.app/futureRelease/${id}`)
+axios.get(`https://appletv-server.vercel.app/${category}/${id}`)
 .then((res)=>{setSinglepagedata(res.data)})
 .catch((err)=>{console.log(err)})
 }
 
 
-
+console.log(singlepagedata.episode)
 useEffect(()=>{
 SingleData()
 
@@ -64,7 +67,7 @@ mt="-100px" color="white"
 
 
 <Box>
-    <Episode  id={id}  />
+<Carausel  data ={singlepagedata.episode} />
 </Box>
 
 <Box>

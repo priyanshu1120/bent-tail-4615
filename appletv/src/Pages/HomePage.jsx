@@ -2,6 +2,7 @@ import { Box,Text } from '@chakra-ui/react'
 import React from 'react'
 import { Comedy } from '../component/comedy'
 import Faq from '../Components/Faq'
+import { Footer } from '../Components/Footer'
 import Herovideo from '../Components/Herovideo'
 import Static from '../Components/StaticSlider/Static'
 import { sliderdata2, sliderdata3 } from '../Components/StaticSlider/StaticData'
@@ -87,6 +88,7 @@ const HomePage = () => {
       <Static/>
      </Box>
       <Faq/>
+      <Footer/>
     </div>
   )
 }

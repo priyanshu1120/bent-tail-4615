@@ -18,33 +18,33 @@ const HomePage = () => {
       <Herovideo />
       <Box mt="10px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Watch Premieres for free </Text>
-      <CommonDetailSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/watchPremiers"  />
+      <CommonDetailSlider url="/watchPremiers"  />
       </Box>
       <Box mt="60px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Most Popular </Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/mostPopular"  />
+      <CommonSlider url="/mostPopular"  />
       </Box>
 
       <Box mt="15px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Watch Entire Seasons </Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/allFeatureFilms"  />
+      <CommonSlider url="/allFeatureFilms"  />
       </Box>
         
       <Box mt="15px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Entire Originals</Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/watchPremiers"  />
+      <CommonSlider url="/watchPremiers"  />
       </Box>
     
 
       <Box mt="15px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> Latest Originals </Text>
-      <CommonDetailSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/allDramaFilms"  />
+      <CommonDetailSlider url="/allDramaFilms"  />
       </Box>
 
       <Box mt={"100px"}>
       <Text fontSize="22px" fontWeight={700} pl="40px">Included with apple TV+</Text>
       <Text fontSize="19px" fontWeight={400} pl="40px">Watch unforgotable hits as a limited time subscriber bonus </Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/futureRelease"  />
+      <CommonSlider url="/futureRelease"  />
       </Box>
 
       <Box mt="15px">
@@ -59,23 +59,23 @@ const HomePage = () => {
          
      <Box mt="15px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> Like a Boss </Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/drama"  />
+      <CommonSlider url="/drama"  />
       </Box>
      
       <Box mt="15px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> Nail-Biting Thrills </Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/latestOriginals"  />
+      <CommonSlider url="/latestOriginals"  />
       </Box>
 
       <Box mt="15px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> Defining Moment </Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/allDramaFilms"  />
+      <CommonSlider url="/allDramaFilms"  />
       </Box>
 
       
       <Box mt="15px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> Mystery & Mischief </Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/allComedyFilms"  />
+      <CommonSlider url="/allComedyFilms"  />
       </Box>
 
       <Box mt="15px">

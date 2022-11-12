@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import {background, Box,Button,Image, VStack} from "@chakra-ui/react"
+import { background, Box, Button, Image, VStack } from "@chakra-ui/react"
 import { Episode } from './episode'
 import { Cast } from './cast'
 import { Carausel } from './carausel'

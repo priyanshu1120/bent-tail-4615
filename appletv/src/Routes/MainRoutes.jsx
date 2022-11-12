@@ -7,7 +7,7 @@ import HomePage from '../Pages/HomePage'
 import { Signin } from '../Pages/Signin'
 import  { Signup } from '../Pages/Signup'
 
-const MainRoutes = () => {
+export const MainRoutes = () => {
   return (
     <div>
       <Navbar/>
@@ -24,4 +24,3 @@ const MainRoutes = () => {
   )
 }
 
-export default MainRoutes

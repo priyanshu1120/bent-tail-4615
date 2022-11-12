@@ -32,7 +32,6 @@ const Navbar = () => {
     dispatch(LOG_OUT_FIREBASE())
   }
 
-
   return (
     <>
     

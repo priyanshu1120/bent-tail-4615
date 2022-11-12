@@ -17,17 +17,50 @@ import {
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
-
+import { Link,  useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { GOOGLE_SIGN_UP_FIREBASE, SIGN_UP_FIREBASE } from '../Redux/Auth/action';
+import { useEffect } from 'react';
 export const Signup =()=> {
   const [showPassword, setShowPassword] = useState(false);
-
+  const [confirmshowPassword, setconfirmShowPassword] = useState(false);
+const [state, setState] = useState({
+email: "",
+password: "",
+displayName:"",
+confirmpassword:""
+})
+const dispatch = useDispatch();
+const {currentUser} = useSelector((state)=> state.user)
+const {email, password,confirmpassword,displayName} = state;
+const handleGoogleSignIn = () => {
+  dispatch(GOOGLE_SIGN_UP_FIREBASE())
+}
+const handleSubmit = (e) => {
+  e.preventDefault();
+  dispatch(SIGN_UP_FIREBASE(email,password,displayName))
+ setState({email: "",
+  password: "",
+  displayName:"",
+  confirmpassword:""})
+};
+const handleChange = (e) => {
+  let {name,value} =e.target ;
+  setState({...state,[name]:value})
+};
+// const history = useNavigate();
+// useEffect(()=>{
+// if(currentUser){
+//   history("/")
+// }
+// },[currentUser,history])
+console.log(currentUser,state,"currentuser")
   return (
-    <Flex backdropBlur="6px"
-      minH={'100vh'}
+    <Flex backdropBlur={50}
+      minH={'50vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
+   >
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
@@ -43,28 +76,19 @@ export const Signup =()=> {
           boxShadow={'lg'}
           p={8}>
           <Stack spacing={4}>
-            <HStack>
-              <Box>
-                <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+          <form>
+            <FormControl id="firstName" isRequired>
+                  <FormLabel>Full Name</FormLabel>
+                  <Input type="text" onChange={handleChange} name="displayName" value={displayName} />
                 </FormControl>
-              </Box>
-              <Box>
-                <FormControl id="lastName" isRequired>
-                  <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
-                </FormControl>
-              </Box>
-            </HStack>
             <FormControl id="email" isRequired>
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email" onChange={handleChange} name="email" value={email} />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
+                <Input type={showPassword ? 'text' : 'password'}  onChange={handleChange} name="password" value={password}/>
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -72,6 +96,21 @@ export const Signup =()=> {
                       setShowPassword((showPassword) => !showPassword)
                     }>
                     {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+            </FormControl>
+            <FormControl id="Confirm password" isRequired>
+              <FormLabel>Confirm Password</FormLabel>
+              <InputGroup>
+                <Input type={confirmshowPassword? 'text' : 'password'}  onChange={handleChange} name="confirmpassword"  value={confirmpassword}/>
+                <InputRightElement h={'full'}>
+                  <Button
+                    variant={'ghost'}
+                    onClick={() =>
+                      setconfirmShowPassword((confirmshowPassword) => !confirmshowPassword)
+                    }>
+                    {confirmshowPassword ? <ViewIcon /> : <ViewOffIcon />}
                   </Button>
                 </InputRightElement>
               </InputGroup>
@@ -84,17 +123,19 @@ export const Signup =()=> {
                 color={'white'}
                 _hover={{
                   bg: 'blue.500',
-                }}>
+                }}  
+                 type="submit"  onClick={handleSubmit}   >
                 Sign up
               </Button>
             </Stack>
+            </form>
             <Text textAlign={"center"}>or</Text>
             <Center px={8}>
-      <Button
+      <Button 
         w={'full'}
         maxW={'md'}
         variant={'outline'}
-        leftIcon={<FcGoogle />}>
+        leftIcon={<FcGoogle />} onClick={handleGoogleSignIn}>
         <Center>
           <Text>Sign in with Google</Text>
         </Center>

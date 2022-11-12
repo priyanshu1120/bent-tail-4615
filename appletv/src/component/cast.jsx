@@ -1,11 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Carausel2 } from './carosel2'
-
-
-
-
-
 export const Cast = ({id}) => {
     const [data,setData] = useState([])
     

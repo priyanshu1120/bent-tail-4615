@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import axios from "axios";
 import { Img } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+
 const CustomSlider = ({ url }) => {
   const [data, setData] = useState([]);
   const [pathurl, setPathurl] = useState("");

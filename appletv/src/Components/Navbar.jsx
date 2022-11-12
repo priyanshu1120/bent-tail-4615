@@ -6,6 +6,8 @@ import Weblogo from "../Img/mytv.jpg"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
+import { useDispatch } from 'react-redux';
+import { LOG_OUT_FIREBASE } from '../Redux/Auth/action';
 const modaltheme = extendTheme({
   components: {
     Modal: {
@@ -20,12 +22,16 @@ const modaltheme = extendTheme({
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const dispatch = useDispatch();
+  const HandleLogOut =()=>{
+    dispatch(LOG_OUT_FIREBASE())
+  }
 
 
   return (
     <>
       <div >
-        <Box zIndex={"999"} position="sticky" bg={useColorModeValue('black', 'red.900')} px={4} as="header"  >
+        <Box zIndex={"10"} position="sticky" bg={useColorModeValue('black', 'red.900')} px={4} as="header"  >
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'} px={[2, 3, 2]} >
           <IconButton
             size={'md'}
@@ -35,7 +41,7 @@ const Navbar = () => {
             onClick={isOpen ? onClose : onOpen}
           />
             <HStack spacing={8} alignItems={'center'}>
-              <Box><NavLink to="/"><Image pl={[50,null,null]} w={200} src={Weblogo} alt='LOGO' /></NavLink></Box>
+              <Box><NavLink to="/"><Image overflow={"hidden"} h={10} pl={[50,null,null]} w={"auto"} src={Weblogo} alt='LOGO' /></NavLink></Box>
               {onOpen ? (
             <Box pb={9} display={{ md: 'none' }}>
               <Stack as={'nav'} spacing={4}>
@@ -53,7 +59,7 @@ const Navbar = () => {
 
               <InputGroup >
               <InputLeftElement pointerEvents='none' children={<SearchIcon/>} />
-              <Input color={"whiteAlpha.900"}  type='text' htmlSize={5} width="auto" placeholder='Search' />
+              <Input color={"whiteAlpha.900"}  type='text' htmlSize={12} width="auto" placeholder='Search' />
               </InputGroup>
                 <Link ><Button onClick={onOpen} leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' variant='solid'>Sign in</Button></Link>
                 <Button  ><RiAdminLine color='black' size={50}/></Button>
@@ -70,13 +76,13 @@ const Navbar = () => {
         <ModalCloseButton  color={"red.500"} />
         <ModalBody mb={[5,10,20]} >
         <ModalFooter justifyContent={"center"} gap={3} >
-          <Link to={"/"}><Button colorScheme='green'  onClick={onClose}>
+          <Link to={"/"}><Button colorScheme='green'  onClick={onClose} >
             User
           </Button></Link>
           <Link to={"/admin"}><Button colorScheme='twitter'  onClick={onClose}>
             Admin
           </Button></Link>
-
+<Button onClick={HandleLogOut}>LOGOUT</Button>
         </ModalFooter>
         </ModalBody>
       </ModalContent>

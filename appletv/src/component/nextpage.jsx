@@ -12,10 +12,11 @@ import tv from "../video/tv.mp4"
 
 export const Nextpage = () => {
     const [singlepagedata,setSinglepagedata] = useState({})
-    
+    const kali = "tv.mp4"
     const params = useParams()
     let id =params.id
     let category =params.category
+    console.log(category)
 
 const SingleData =()=>{
 axios.get(`https://appletv-server.vercel.app/${category}/${id}`)
@@ -48,6 +49,10 @@ marginTop:"40px" ,color:"white"
     singlepagedata.video ?   <iframe  style={{height :"500px", width:"100%",padding:"10px"}}   src= {tv} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
 }
 
+  
+
+
+
 
 
 
@@ -74,10 +79,8 @@ mt="-100px" color="white"
 
 <Box>
     <Cast  id={id} />
-
-
-
 </Box>
+
    </Box>
       
 

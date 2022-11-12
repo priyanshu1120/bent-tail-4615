@@ -16,7 +16,8 @@ const MainRoutes = () => {
         <Route path="/signup" element={<Signup/>} />
         <Route path="/login" element={<Signin/>} />
         <Route path="/admin" element={<Admin/>} />
-        <Route path="/:category/:id" element={<Nextpage/>} />
+        
+      <Route path="/:category/:id" element={<Nextpage/>} />
       </Routes>
       
     </div>

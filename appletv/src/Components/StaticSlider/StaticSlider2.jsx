@@ -8,13 +8,40 @@ import './StaticSlider2.css';
 
 function StaticSlider2({data}) {
 
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block" }}
+        onClick={onClick}
+      
+      />
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block"}}
+        onClick={onClick}
+      />
+    );
+  }
+
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
+    prevArrow: <SampleNextArrow/> ,
+    nextArrow: <SamplePrevArrow />,
+   
+
     responsive: [
       {
         breakpoint: 1024,
@@ -22,7 +49,9 @@ function StaticSlider2({data}) {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
-          dots: true,
+          dots: false,
+          prevArrow: <SampleNextArrow/> ,
+          nextArrow: <SamplePrevArrow />,
         },
       },
       {
@@ -31,6 +60,8 @@ function StaticSlider2({data}) {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          prevArrow: <SampleNextArrow/> ,
+          nextArrow: <SamplePrevArrow />,
         },
       },
       {

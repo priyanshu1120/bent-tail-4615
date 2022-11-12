@@ -1,7 +1,7 @@
 .slider2 {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 10px;
   }
   
   .slick-slide > div {
@@ -10,6 +10,22 @@
   .slick-list {
     margin: 0 -10px;
   }
+
+
+.slick-next:before {
+  content: ">";
+  color: black;
+  font-weight: 600;
+  font-size: 30px;
+  }
+
+  .slick-prev:before {
+    content: "<";
+    color: black;
+    font-size: 30px;
+    }
+
+
   
   .card {
     border: 1px solid #fff;
@@ -38,15 +54,3 @@
     margin: 10px 20px;
   }
   
-  .category {
-    position: relative;
-  }
-  .category::before {
-    content: '';
-    background: rgb(255, 61, 61);
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    right: 0;
-    height: 2px;
-  }

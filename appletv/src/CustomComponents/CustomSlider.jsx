@@ -60,7 +60,7 @@ const CustomSlider = ({ url }) => {
       }}>
         {
           data.map(({ image, id }) => (
-            <SplideSlide>
+            <SplideSlide key={id}>
               <Link to={`/${pathurl}/${id}`}>
                 <Img src={image} />
               </Link>

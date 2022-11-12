@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <div>
       <Herovideo />
-      <CustomSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/watchPremiers"  />
+      <CustomSlider url="/watchPremiers"  />
       <Static/>
       <Faq/>
     </div>

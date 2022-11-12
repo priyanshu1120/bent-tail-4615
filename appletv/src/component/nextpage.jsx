@@ -8,6 +8,8 @@ import { Episode } from './episode'
 import { Cast } from './cast'
 import { Carausel } from './carausel'
 
+import tv from "../video/tv.mp4"
+
 export const Nextpage = () => {
     const [singlepagedata,setSinglepagedata] = useState({})
     const kali = "tv.mp4"
@@ -30,7 +32,7 @@ SingleData()
 },[])
 const style={
     height :"30px",
-    width : "150px",
+    width : "180px",
 background :"white",
 borderRadius :"7px",
 color :"black",
@@ -44,7 +46,7 @@ marginTop:"40px" ,color:"white"
 }}   
 ><h2>{singlepagedata.title}</h2></Box>
 {
-    singlepagedata.video ?   <iframe src={"tv.mp4"} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
+    singlepagedata.video ?   <iframe  style={{height :"500px", width:"100%",padding:"10px"}}   src= {tv} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
 }
 
   
@@ -55,7 +57,7 @@ marginTop:"40px" ,color:"white"
 
 
     <VStack display="flex" margin="auto" direction='column'
-     mr="50%" position="absolute" mt ="-100px" ml="70px"
+     mr="50%" position="absolute" mt ="-140px" ml="50px"
     
      >
         
@@ -77,9 +79,6 @@ mt="-100px" color="white"
 
 <Box>
     <Cast  id={id} />
-
-
-
 </Box>
 
    </Box>

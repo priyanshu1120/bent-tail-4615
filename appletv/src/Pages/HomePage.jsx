@@ -1,5 +1,6 @@
 import { Box,Text } from '@chakra-ui/react'
 import React from 'react'
+import { Comedy } from '../component/comedy'
 import Faq from '../Components/Faq'
 import Herovideo from '../Components/Herovideo'
 import Static from '../Components/StaticSlider/Static'
@@ -84,30 +85,7 @@ const HomePage = () => {
 
       <Box>
       <Static/>
-      </Box>
-
-      <Box mt="15px">
-      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> MyThic Quest New Season </Text>
-      <Text fontSize="19px" fontWeight={400} pl="40px">lan Poppy and the MQ crew navigate new oppoptunites</Text>
-      <StaticSlider2 data = { sliderdata2 } />
-      </Box>
-
-      <Box mt="15px">
-      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> All Comedy </Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/allComedyFilms"  />
-      </Box>
-
-      <Box mt="15px">
-      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> All Darama Series </Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/drama"  />
-      </Box>
-
-      
-      <Box mt="15px">
-      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> All Nonfication series</Text>
-      <CommonSlider url="https://appletv-server-cljhqn6xz-nrishav007.vercel.app/allDramaFilms"  />
-      </Box>
-      
+     </Box>
       <Faq/>
     </div>
   )

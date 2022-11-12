@@ -18,6 +18,30 @@ function CommonSlider({ url }) {
                 if(url.includes("watchPremiers")){
                   setPathurl("watchPremiers");
                 }
+                else if (url.includes("latestOriginals")) {
+                  setPathurl("latestOriginals");
+                }
+                else if (url.includes("mostPopular")) {
+                  setPathurl("mostPopular");
+                }
+                else if (url.includes("futureRelease")) {
+                  setPathurl("futureRelease");
+                }
+                else if (url.includes("comedy")) {
+                  setPathurl("comedy");
+                }
+                else if (url.includes("drama")) {
+                  setPathurl("drama");
+                }
+                else if (url.includes("allFeatureFilms")) {
+                  setPathurl("allFeatureFilms");
+                }
+                else if (url.includes("allDramaFilms")) {
+                  setPathurl("allDramaFilms");
+                }
+                else if (url.includes("watchPremiers")) {
+                  setPathurl("allComedyFilms");
+                }
             });
     }, [])
 

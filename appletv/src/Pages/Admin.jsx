@@ -22,10 +22,10 @@ import { useEffect } from 'react';
 import { ADD_DATA } from '../Redux/App/action';
 export const Admin =()=> {
 const [form, setForm]= useState({
-titel: "",
-image: "",
-description:"",
-time:""
+  title: "",
+  image: "",
+  description:"",
+  season: null
 })
 const dispatch = useDispatch();
 const {currentData} = useSelector((state)=> state.AppReducer)
@@ -44,10 +44,10 @@ const OnsubmitPress =(e)=>{
     dispatch(ADD_DATA({...form})).then((r)=>{
     })
     setForm({
-      titel: "",
+      title: "",
       image: "",
       description:"",
-      time:""
+      season: ""
     })}
 
 console.log(currentData,"currentData")
@@ -60,7 +60,7 @@ console.log(currentData,"currentData")
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
-            Addmim Add PRoduct
+            Admin Add Product
           </Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
           item will be added
@@ -75,7 +75,7 @@ console.log(currentData,"currentData")
           <form>
             <FormControl id="Title" isRequired>
                   <FormLabel>Title</FormLabel>
-                  <Input type="text"onChange={OnChangeValue} name="titel" />
+                  <Input type="text"onChange={OnChangeValue} name="title" />
                 </FormControl>
             <FormControl id="Image" isRequired>
               <FormLabel>Image</FormLabel>
@@ -87,7 +87,7 @@ console.log(currentData,"currentData")
                 </FormControl>
             <FormControl id="Time" isRequired>
               <FormLabel>Time</FormLabel>
-              <Input type="text" onChange={OnChangeValue} name="time"/>
+              <Input type="text" onChange={OnChangeValue} name="season"/>
             </FormControl>   
             <Stack spacing={10} pt={2}>
               <Button

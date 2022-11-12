@@ -31,13 +31,13 @@ export const DELETE_PRODUCT_FAILURE_fn=()=>{
 
 export const GET_PRODUCTS =(params) =>(dispatch)=>{
     dispatch(GET_MOVIES_LOADING_fn())
-   return axios.get("http://localhost:8080/movies",params)
+   return axios.get("https://appletv-server-cljhqn6xz-nrishav007.vercel.app/watchPremiers",params)
     .then((r)=> {dispatch(GET_MOVIES_SUCESS_fn(r.data))})
     .catch((e)=>{GET_MOVIES_FAILURE_fn(e)})
 }
 export const ADD_DATA=(payload)=>(dispatch)=>{
     dispatch(ADD_PRODUCT_REQUESTfn)
-   return axios.post("http://localhost:8080/movies",payload)
+   return axios.post("https://appletv-server-cljhqn6xz-nrishav007.vercel.app/watchPremiers",payload)
     .then((r)=>{ 
       dispatch(ADD_PRODUCT__SUCESS_fn(r.data))
     //   dispatch(GET_PRODUCTS())

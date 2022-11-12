@@ -1,5 +1,6 @@
-.slider2 {
+.slider3 {
     width: 95%;
+    max-height:250px;
     margin: 0 auto;
     margin-top: 10px;
   }
@@ -27,30 +28,29 @@
 
 
   
-  .card {
-    border: 1px solid #fff;
-    background: black;
+ .common-slider-card {
     border-radius: 8px;
     overflow: hidden;
-  
+
     height: auto;
-    color: white;
+
     cursor: pointer;
   }
   
-  .card-top h1 {
+ .common-slider-card-top h1 {
     font-size: 0.9rem;
     margin: 20px;
   }
   
-  .card-top > img {
+ .common-slider-card-top > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     background: black;
   }
   
-  .card-bottom {
+ .common-slider-card-bottom {
     margin: 10px 20px;
   }
   
+ 

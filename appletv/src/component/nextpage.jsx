@@ -10,10 +10,11 @@ import { Carausel } from './carausel'
 
 export const Nextpage = () => {
     const [singlepagedata,setSinglepagedata] = useState({})
-    
+    const kali = "tv.mp4"
     const params = useParams()
     let id =params.id
     let category =params.category
+    console.log(category)
 
 const SingleData =()=>{
 axios.get(`https://appletv-server.vercel.app/${category}/${id}`)
@@ -43,8 +44,12 @@ marginTop:"40px" ,color:"white"
 }}   
 ><h2>{singlepagedata.title}</h2></Box>
 {
-    singlepagedata.video ?   <iframe src="https://www.youtube.com/watch?v=ydkhfToAEcQ" allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
+    singlepagedata.video ?   <iframe src={"tv.mp4"} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
 }
+
+  
+
+
 
 
 
@@ -76,6 +81,7 @@ mt="-100px" color="white"
 
 
 </Box>
+
    </Box>
       
 

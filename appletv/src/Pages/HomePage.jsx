@@ -17,10 +17,10 @@ const HomePage = () => {
     <div>
       <Herovideo />
       <Box mt="10px">
-      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Watch Premieres for free </Text>
+      <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1 , 2, 4]}>Watch Premieres for free </Text>
       <CommonDetailSlider url="/watchPremiers"  />
       </Box>
-      <Box mt="60px">
+      <Box mt="15px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Most Popular </Text>
       <CommonSlider url="/mostPopular"  />
       </Box>
@@ -41,7 +41,7 @@ const HomePage = () => {
       <CommonDetailSlider url="/allDramaFilms"  />
       </Box>
 
-      <Box mt={"100px"}>
+      <Box mt={"20px"}>
       <Text fontSize="22px" fontWeight={700} pl="40px">Included with apple TV+</Text>
       <Text fontSize="19px" fontWeight={400} pl="40px">Watch unforgotable hits as a limited time subscriber bonus </Text>
       <CommonSlider url="/futureRelease"  />
@@ -91,6 +91,23 @@ const HomePage = () => {
       <Box>
       <Static/>
      </Box>
+
+     <Box mt="60px">
+      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Most Popular </Text>
+      <CommonSlider url="/mostPopular"  />
+      </Box>
+
+      <Box mt="15px">
+      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Watch Entire Seasons </Text>
+      <CommonSlider url="/allFeatureFilms"  />
+      </Box>
+        
+      <Box mt="15px">
+      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Entire Originals</Text>
+      <CommonSlider url="/watchPremiers"  />
+      </Box>
+
+     <Footer />
       <Faq/>
     </div>
   )

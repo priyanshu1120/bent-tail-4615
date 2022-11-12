@@ -1,56 +1,20 @@
-import {
-  Box,
-  chakra,
-  Container,
-  Image,
-  Link,
-  Stack,
-  Text,
-  useColorModeValue,
-  VisuallyHidden,
-} from '@chakra-ui/react';
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { Box,Container,Flex, Image,SimpleGrid,Stack,Text,useColorModeValue,VStack,} from '@chakra-ui/react';
 import {  NavLink, } from 'react-router-dom';
 import Weblogo from "../Img/mytv.jpg"
 import { BiMobileLandscape } from "react-icons/bi"
-import { FcIpad } from "react-icons/fc" 
-import { RiMacbookLine } from "react-icons/ri" 
+import {  RiMacbookLine } from "react-icons/ri" 
 import { MdAirplay } from "react-icons/md"
 import { GiConsoleController } from "react-icons/gi"
-
-const SocialButton = ({
-  children,
-  label,
-  href,
-}) => {
-  return (
-    <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
-      as={'a'}
-      href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
-      _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      }}>
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </chakra.button>
-  );
-};
-
+import { FiMonitor } from "react-icons/fi"
+import { CiStreamOn } from "react-icons/ci"
+import {  TbDeviceMobileRotated } from "react-icons/tb"
 export const Footer =()=> {
   return (
-    <Box
+    <Box mt={10} pt={50} borderTopRightRadius={"25px"}
+    borderTopLeftRadius={"25px"}
       bg={useColorModeValue('black', 'black')}
       color={useColorModeValue('white', 'white')}>
-      <Container
+      <Container 
         as={Stack}
         maxW={'6xl'}
         py={4}
@@ -59,50 +23,27 @@ export const Footer =()=> {
         align={'center'}>
         <Box><NavLink to="/"><Image overflow={"hidden"} h={10} pl={[50,null,null]} w={"auto"} src={Weblogo} alt='LOGO' /></NavLink></Box>
         <Box>
-          <Text>Watch My TV+ here or anywhere </Text>
-          <Text>Find My TV+ on the My TV app,available on Appel devices,smart TVs, and more.</Text>
-          <Box>
-            <BiMobileLandscape/>
-            <FcIpad/>
-            <RiMacbookLine/>
-            <MdAirplay/>
-            <GiConsoleController/>
-          </Box>
+          <Text textAlign={"center"} fontSize={["2xl","5xl","5xl"]}  >Watch My TV+ here or anywhere </Text>
+          <Text textAlign={"center"} fontSize={["lg","2xl","2xl"]}>Find My TV+ on the My TV app,available on Appel devices,smart TVs, and more.</Text>
+          <Flex alignItems={"center"} justifyContent={"center"}>
+          <SimpleGrid as='abbr' columns={[2,4,4]} spacing={10}>
+          <VStack> <BiMobileLandscape size={90}/><Text >Mobile Phone</Text></VStack>
+            <VStack> <TbDeviceMobileRotated  size={90}/><Text >iPad</Text></VStack>
+            <VStack><RiMacbookLine size={90}/><Text >Laptop</Text></VStack>
+            <VStack><MdAirplay size={90}/><Text >AirPlay</Text></VStack>
+           </SimpleGrid >
+          </Flex>
         </Box>
-        <Stack direction={'row'} spacing={6}>
-          <Link href={'#'}>Home</Link>
-          <Link href={'#'}>About</Link>
-          <Link href={'#'}>Blog</Link>
-          <Link href={'#'}>Contact</Link>
-        </Stack>
+        <VStack alignItems={"center"} justifyContent={"center"}>
+        <Text fontSize={["2xl","3xl","3xl"]}>See it on you big screen</Text>
+          <SimpleGrid pl={[null,20,20]}  columns={[2,4,4]} spacing={5}>
+          <VStack><CiStreamOn size={60}/><Text as='b'>Streamin Devices</Text><VStack Text color={"gray.500"}><>Roku</><Text>Fire TV</Text><Text>Apple Tv</Text></VStack></VStack>
+          <VStack ><FiMonitor  size={60}/><Text as='b' >Smart TVs</Text><VStack color={"gray.500"}><Text>Samsung</Text><Text>Sony</Text><Text>LG</Text></VStack></VStack>
+         <VStack><GiConsoleController size={60}/><Text as='b'> Gaming Console</Text><VStack Text color={"gray.500"}><Text>PlayStation</Text><Text>Xbox</Text></VStack></VStack>
+        </SimpleGrid>
+        </VStack>
+        <Text textAlign={"center"} fontSize='xs'  >Device availability varies by country or region. </Text>
       </Container>
-
-      <Box
-        borderTopWidth={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.700')}>
-        <Container
-          as={Stack}
-          maxW={'6xl'}
-          py={4}
-          direction={{ base: 'column', md: 'row' }}
-          spacing={4}
-          justify={{ base: 'center', md: 'space-between' }}
-          align={{ base: 'center', md: 'center' }}>
-          <Text>© 2022 My TV+. All rights reserved</Text>
-          <Stack direction={'row'} spacing={6}>
-            <SocialButton label={'Twitter'} href={'#'}>
-              <FaTwitter />
-            </SocialButton>
-            <SocialButton label={'YouTube'} href={'#'}>
-              <FaYoutube />
-            </SocialButton>
-            <SocialButton label={'Instagram'} href={'#'}>
-              <FaInstagram />
-            </SocialButton>
-          </Stack>
-        </Container>
-      </Box>
     </Box>
   );
 }

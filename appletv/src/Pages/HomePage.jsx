@@ -87,8 +87,8 @@ const HomePage = () => {
       <Box>
       <Static/>
      </Box>
-      <Faq/>
       <Footer/>
+      <Faq/>
     </div>
   )
 }

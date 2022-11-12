@@ -25,7 +25,7 @@ const myimage ={
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-  const [avatar,setAvatra] =useState(false);
+  const [avatar,setAvatar] =useState(false);
   
   const dispatch = useDispatch();
   const HandleLogOut =()=>{

@@ -26,7 +26,7 @@ export default function Payment({ price, label }) {
       prefill: {
         name: "John Doe",
         email: "youremail@example.com",
-        contact: "9999999999",
+        contact: "912345678",
       },
       notes: {
         address: "Razorpay Corporate Office",

@@ -1,4 +1,4 @@
-import { Box,Text } from '@chakra-ui/react'
+import { Box,Img,Text } from '@chakra-ui/react'
 import React from 'react'
 import { Comedy } from '../component/comedy'
 import Faq from '../Components/Faq'
@@ -47,12 +47,16 @@ const HomePage = () => {
       <CommonSlider url="/futureRelease"  />
       </Box>
 
-      <Box mt="15px">
+      <Box mt={"20px"} >
+      <Box>
+      <Img  src="https://is4-ssl.mzstatic.com/image/thumb/Features122/v4/b5/aa/57/b5aa5705-1a39-af37-805b-257af57ad42a/db917410-1e16-4f3a-96f6-4f11a8f78fa2.png/2638x988sr.webp" alt="img"/>
+      </Box>
+      <Box >
       <Text fontSize="22px" fontWeight={700} pl="40px">Future Releases</Text>
       <Text fontSize="19px" fontWeight={400} pl="40px">Add to Up Next now</Text>
       <StaticSlider2  data = { sliderdata2 } />
       </Box>
-
+      </Box>
      {/* <=========videospace========> */}
 
 
@@ -87,7 +91,6 @@ const HomePage = () => {
       <Box>
       <Static/>
      </Box>
-      <Footer/>
       <Faq/>
     </div>
   )

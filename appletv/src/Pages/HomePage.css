@@ -1,0 +1,23 @@
+.hero2{
+    width:100%;
+    height:500px;
+    /* background-image: url("https://is4-ssl.mzstatic.com/image/thumb/Features122/v4/b5/aa/57/b5aa5705-1a39-af37-805b-257af57ad42a/db917410-1e16-4f3a-96f6-4f11a8f78fa2.png/2638x988sr.webp");
+    background-size: cover; */
+    position: relative;
+    z-index: 2;
+    opacity: 0.8;
+
+}
+
+.text{
+    border:1px solid red;
+    width:100%;
+  height:100%;
+  position: relative;
+  top:"100px";
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;;
+  color: white;
+}

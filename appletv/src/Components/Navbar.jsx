@@ -1,5 +1,5 @@
-import React from 'react'
-import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, Spacer, extendTheme, ChakraProvider } from '@chakra-ui/react';
+import React, { useState } from 'react'
+import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, Spacer, extendTheme, ChakraProvider, Menu, MenuButton, Avatar, MenuList, Center, MenuDivider, MenuItem } from '@chakra-ui/react';
 import {  CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
 import { Link, NavLink, } from 'react-router-dom';
 import Weblogo from "../Img/mytv.jpg"
@@ -19,9 +19,14 @@ const modaltheme = extendTheme({
     }
   }
 });
+const myimage ={
+  image:"https://media-exp1.licdn.com/dms/image/C4D03AQGG0QJOuu9Lng/profile-displayphoto-shrink_800_800/0/1640068567052?e=1673481600&v=beta&t=gi5Q9nnVkAw2e6oA2FyWsTHkYztNQjxQPrGB9IK2iFs"
+}
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const [avatar,setAvatra] =useState(false);
+  
   const dispatch = useDispatch();
   const HandleLogOut =()=>{
     dispatch(LOG_OUT_FIREBASE())
@@ -30,8 +35,9 @@ const Navbar = () => {
 
   return (
     <>
+    
       <div >
-        <Box zIndex={"10"} position="sticky" bg={useColorModeValue('black', 'red.900')} px={4} as="header"  >
+        <Box zIndex={"10"} position="sticky" bg={useColorModeValue('black', 'red.900')} px={10} as="header"  >
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'} px={[2, 3, 2]} >
           <IconButton
             size={'md'}
@@ -62,8 +68,40 @@ const Navbar = () => {
               <Input color={"whiteAlpha.900"}  type='text' htmlSize={12} width="auto" placeholder='Search' />
               </InputGroup>
                 <Link ><Button onClick={onOpen} leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' variant='solid'>Sign in</Button></Link>
-                <Button  ><RiAdminLine color='black' size={50}/></Button>
-                <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button>
+           
+                <Menu>
+                <MenuButton 
+                  as={Button} 
+                  variant={'link'}
+                  cursor={'pointer'}
+                  minW={0}>{avatar?<Avatar
+                    size={'sm'}
+                    src={myimage.image}
+                  />:<Button ><RiAdminLine color='black' size={30}/></Button>}
+                  
+                </MenuButton>
+                <MenuList alignItems={'center'}>
+                  <br />
+                  <Center>
+                    <Avatar
+                      size={'2xl'}
+                      src={myimage.image}
+                    />
+                  </Center>
+                  <br />
+                  <Center>
+                    <p>Username</p>
+                  </Center>
+                  <br />
+                  <MenuDivider />
+                  <MenuItem>Profile</MenuItem>
+                  <MenuItem>App Settings</MenuItem>
+                  <MenuItem><Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button></MenuItem>
+                  <MenuItem>Logout</MenuItem>
+                </MenuList>
+              </Menu>
+              
+                
               </HStack>
             </Flex>
             <>

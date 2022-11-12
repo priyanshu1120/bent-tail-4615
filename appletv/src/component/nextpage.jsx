@@ -9,6 +9,7 @@ import { Cast } from './cast'
 import { Carausel } from './carausel'
 
 import tv from "../video/tv.mp4"
+import { SinglepageFooter } from './singlepagefooter'
 
 export const Nextpage = () => {
     const [singlepagedata,setSinglepagedata] = useState({})
@@ -80,6 +81,12 @@ mt="-100px" color="white"
 <Box>
     <Cast  id={id} />
 </Box>
+
+
+<Box border ="1px solid transparent " backgroundColor="#f0f0f3"   >
+    <SinglepageFooter />
+</Box>
+
 
    </Box>
       

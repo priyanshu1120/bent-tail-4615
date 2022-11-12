@@ -67,7 +67,7 @@ const Navbar = () => {
               <Input color={"whiteAlpha.900"}  type='text' htmlSize={12} width="auto" placeholder='Search' />
               </InputGroup>
                 <Link ><Button onClick={onOpen} leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' variant='solid'>Sign in</Button></Link>
-           
+                
                 <Menu>
                 <MenuButton 
                   as={Button} 
@@ -77,7 +77,6 @@ const Navbar = () => {
                     size={'sm'}
                     src={myimage.image}
                   />:<Button ><RiAdminLine color='black' size={30}/></Button>}
-                  
                 </MenuButton>
                 <MenuList alignItems={'center'}>
                   <br />
@@ -99,8 +98,6 @@ const Navbar = () => {
                   <MenuItem>Logout</MenuItem>
                 </MenuList>
               </Menu>
-              
-                
               </HStack>
             </Flex>
             <>

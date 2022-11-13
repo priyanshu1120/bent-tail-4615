@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Nextpage } from '../component/nextpage'
 import Navbar from '../Components/Navbar'
+import Payment from '../Components/Payment'
 import HomePage from '../Pages/HomePage'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
@@ -21,10 +22,9 @@ export const MainRoutes = () => {
         <Route path="/login" element={<SigninPage/>} />
         <Route path="/admin" element={<Admin/>} />
         <Route path="/reset-password" element={<ResetPassword/>} />
-        <Route path="/editdata/:title" element={<EditCartData/>} />
-
-        
+        <Route path="/editdata/:title" element={<EditCartData/>} /> 
       <Route path="/:category/:id" element={<Nextpage/>} />
+      <Route path="/payment" element={<Payment />} />
       </Routes>
       
     </div>

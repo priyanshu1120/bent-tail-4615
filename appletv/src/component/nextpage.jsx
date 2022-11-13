@@ -55,7 +55,7 @@ marginTop:"40px" ,color:"white"
 }}   
 ><h2>{singlepagedata.title}</h2></Box>
 {
-    singlepagedata.video ?   <Video /> :  <Image src={singlepagedata.image} w={"100%"}  />     
+    singlepagedata.video ?   <iframe  style={{height :"500px", width:"100%",padding:"10px"}}   src= {tv} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
 }
 
     <VStack display="flex" margin="auto" direction='column'

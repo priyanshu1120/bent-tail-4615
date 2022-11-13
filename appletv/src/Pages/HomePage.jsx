@@ -1,6 +1,5 @@
 import { Box,Img,Text } from '@chakra-ui/react'
 import React from 'react'
-import { Comedy } from '../component/comedy'
 import Faq from '../Components/Faq'
 import { Footer } from '../Components/Footer'
 import Herovideo from '../Components/Herovideo'

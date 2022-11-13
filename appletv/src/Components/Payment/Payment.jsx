@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import useRazorpay from "react-razorpay";
 import logo from "../../Img/mytv.jpg";
 import SuccessAlert from "./SuccessAlert";
@@ -6,6 +6,10 @@ import SuccessAlert from "./SuccessAlert";
 export default function Payment({ price, label }) {
   const Razorpay = useRazorpay();
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    handlePayment();
+  }, []);
 
   const handlePayment = useCallback(async () => {
     const order = {
@@ -16,7 +20,7 @@ export default function Payment({ price, label }) {
 
     const options = {
       key: "rzp_test_qho4K1vu3eyRqY",
-      amount: 99 * 100,
+      amount: 560 * 100,
       currency: "INR",
       name: "MY TV+ Subscription",
       description: "Test Transaction",
@@ -45,27 +49,5 @@ export default function Payment({ price, label }) {
     rzpay.open();
   }, [Razorpay]);
   console.log(success);
-  return (
-    <div className="App">
-      {success ? (
-        <SuccessAlert />
-      ) : (
-        <button
-          style={{
-            width: "200px",
-            height: "50px",
-            padding: "10px",
-            textAlign: "center",
-            border: "1px solid blue",
-            backgroundColor: "skyblue",
-            fontSize: "17px",
-            color: "white",
-          }}
-          onClick={handlePayment}
-        >
-          {label}
-        </button>
-      )}
-    </div>
-  );
+  return <div className="App">{success ? <SuccessAlert /> : null}</div>;
 }

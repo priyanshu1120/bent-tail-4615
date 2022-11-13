@@ -9,14 +9,51 @@ import { Link } from 'react-router-dom';
 
 
 function CommonSlider({ url }) {
+  const [defaultImage, setDefaultImage] = useState({});
     const [data, setData] = useState([]);
     const [pathurl,setPathurl]=useState("");
+
+    const handleErrorImage = (data) => {
+      setDefaultImage((prev) => ({
+        ...prev,
+        [data.target.alt]: data.target.alt,
+        linkDefault: "https://is1-ssl.mzstatic.com/image/thumb/kjrFHClZ3Bt-pT0MJnwdFw/738x416.webp",
+      }));
+    };
+
     useEffect(() => {
         axios.get(url)
             .then((r) => {
                 setData(r.data);
                 if(url.includes("watchPremiers")){
                   setPathurl("watchPremiers");
+                }
+                else if (url.includes("latestOriginals")) {
+                  setPathurl("latestOriginals");
+                }
+                else if (url.includes("mostPopular")) {
+                  setPathurl("mostPopular");
+                }
+                else if (url.includes("futureRelease")) {
+                  setPathurl("futureRelease");
+                }
+                else if (url.includes("comedy")) {
+                  setPathurl("comedy");
+                }
+                else if (url.includes("drama")) {
+                  setPathurl("drama");
+                }
+                else if (url.includes("allFeatureFilms")) {
+                  setPathurl("allFeatureFilms");
+                }
+                else if (url.includes("allDramaFilms")) {
+                  setPathurl("allDramaFilms");
+                }
+                else if (url.includes("watchPremiers")) {
+                  setPathurl("allComedyFilms");
+                }
+                else if (url.includes("funForAll")) {
+                  setPathurl("funForAll");
                 }
             });
     }, [])
@@ -94,11 +131,14 @@ function CommonSlider({ url }) {
         {data.map((item,i) => (
           <div className="common-slider-card" key={i}>
             <div className="common-slider-card-top">
-            <Link to={`/${pathurl}/${item.id}`}> <img
+            <Link to={`/${pathurl}/${item.id}`}> 
+            <img
                 src={
-                    item.image
+                  defaultImage[item.title] === item.title ? 
+                  defaultImage.linkDefault : item.image
                 }
                 alt={item.title}
+                onError={handleErrorImage}
               /></Link>
             </div>
           </div>

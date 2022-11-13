@@ -4,8 +4,18 @@ import {
   AlertTitle,
   AlertDescription,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SuccessAlert = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  }, []);
+
   return (
     <Alert
       status="success"

@@ -123,13 +123,11 @@ function CommonSlider({ url }) {
       },
     ],
   };
-
-
   return (
     <div className="slider3">
       <Slider {...settings}>
-        {data.map((item,i) => (
-          <div className="common-slider-card" key={i}>
+        {data.map((item) => (
+          <div className="common-slider-card" key={item.id}>
             <div className="common-slider-card-top">
             <Link to={`/${pathurl}/${item.id}`}> 
             <img
@@ -143,6 +141,7 @@ function CommonSlider({ url }) {
             </div>
           </div>
         ))}
+        <h1>Slider need to update</h1>
       </Slider>
     </div>
   );

@@ -1,45 +1,47 @@
-import { ADD_PRODUCT_FAILURE, ADD_PRODUCT_SUCCESS, DELETE_PRODUCT_FAILURE, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, GET_MOVIES_FAILURE, GET_MOVIES_LOADING, GET_MOVIES_SUCESS } from "./actionType";
-const initialState={
-    isloading:false,
-    movies:[],
-    isError:false
-}
-export const reducer =(oldstate=initialState,action)=>{
-    switch(action.type){
-        case GET_MOVIES_LOADING:{
-            return({
-                ...oldstate,isloading:true
-            })
-        }
-        case GET_MOVIES_SUCESS:{
-            return({
-                ...oldstate,isloading:false,movies:action.payload
-            })
-        }
-        case GET_MOVIES_FAILURE:{
-            return({
-                ...oldstate,isError:false
-            })
-        }
-        case ADD_PRODUCT_SUCCESS: {
-            return { ...oldstate, isLoading: true, isError: false, movies: action.payload };
-          }
-      
-          case ADD_PRODUCT_FAILURE: {
-            return { ...oldstate, isLoading: false, isError: true };
-          }
-      
-          case DELETE_PRODUCT_REQUEST: {
-            return { isLoading: true, isError: false };
-          }
-      
-          case DELETE_PRODUCT_SUCCESS: {
-            return { ...oldstate, isLoading: false, movies: action.payload, isError: false };
-          }
-      
-          case DELETE_PRODUCT_FAILURE: {
-            return { isLoading: false, isError: true };
-          }
-        default: return oldstate ;
+import * as types from "./actionType";
+const initialState = {
+    products: [],
+    isLoading: false,
+    isError: false,
+    basket: [],
+  };
+  
+  export const reducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+      case types.GET_PRODUCTS_REQUEST: {
+        return { ...state, isLoading: true, isError: false };
+      }
+      case types.GET_PRODUCTS_SUCCESS: {
+        return { ...state, isLoading: false, products: payload, isError: false };
+      }
+      case types.GET_PRODUCTS_FAILURE: {
+        return { ...state, isLoading: false, isError: true };
+      }
+      case types.ADD_PRODUCT_REQUEST: {
+        return { ...state, isLoading: true, isError: false };
+      }
+  
+      case types.ADD_PRODUCT_SUCCESS: {
+        return { ...state, isLoading: true, isError: false, products: payload };
+      }
+  
+      case types.ADD_PRODUCT_FAILURE: {
+        return { ...state, isLoading: false, isError: true };
+      }
+  
+      case types.DELETE_PRODUCT_REQUEST: {
+        return { isLoading: true, isError: false };
+      }
+  
+      case types.DELETE_PRODUCT_SUCCESS: {
+        return { ...state, isLoading: false, basket: payload, isError: false };
+      }
+  
+      case types.DELETE_PRODUCT_FAILURE: {
+        return { isLoading: false, isError: true };
+      }
+  
+      default:
+        return state;
     }
-}
+  };

@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
-import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, Spacer, extendTheme, ChakraProvider, Menu, MenuButton, Avatar, MenuList, Center, MenuDivider, MenuItem } from '@chakra-ui/react';
+import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, Spacer, extendTheme, ChakraProvider, Menu, MenuButton, Avatar, MenuList, Center, MenuDivider, MenuItem, Tooltip, VStack, MenuGroup, AccordionPanel, AccordionItem, AccordionButton, AccordionIcon, Accordion } from '@chakra-ui/react';
 import {  CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
-import { Link, NavLink, } from 'react-router-dom';
+import { Link, NavLink, useNavigate, } from 'react-router-dom';
 import Weblogo from "../Img/mytv.jpg"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { MdOutlineManageAccounts } from "react-icons/md";
-import { RiAdminLine } from "react-icons/ri";
-import { useDispatch } from 'react-redux';
-import { LOG_OUT_FIREBASE } from '../Redux/Auth/action';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { UserAuth } from '../Utils/firebase';
+import { toast } from 'react-toastify';
+import { GiPowerButton } from 'react-icons/gi';
+import { Drawers } from './Drawer';
+import { Footer } from './Footer';
+import Faq from './Faq';
+import { useEffect } from 'react';
 const modaltheme = extendTheme({
   components: {
     Modal: {
@@ -19,22 +24,37 @@ const modaltheme = extendTheme({
     }
   }
 });
-const myimage ={
-  image:"https://media-exp1.licdn.com/dms/image/C4D03AQGG0QJOuu9Lng/profile-displayphoto-shrink_800_800/0/1640068567052?e=1673481600&v=beta&t=gi5Q9nnVkAw2e6oA2FyWsTHkYztNQjxQPrGB9IK2iFs"
-}
+
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const [diplayName,setDisplayName]=useState('');
+  const navigate =useNavigate();
   const [avatar,setAvatar] =useState(false);
   
-  const dispatch = useDispatch();
   const HandleLogOut =()=>{
-    dispatch(LOG_OUT_FIREBASE())
-  }
+  signOut(UserAuth).then(() => {
+  toast.success("Logout Sucessfull")
+  navigate("/admin")
+}).catch((error) => {
+  toast.error(error.massege)
+})};
+
+useEffect(()=>{
+  onAuthStateChanged(UserAuth, (user) => {
+    if (user) {
+      const uid = user.uid;
+      setDisplayName(user.displayName)
+      setAvatar(true);
+    } else {
+      setDisplayName('')
+      setAvatar(false)
+    }
+  });
+},[])
 
   return (
     <>
-    
       <div >
         <Box zIndex={"10"} position="sticky" bg={useColorModeValue('black', 'red.900')} px={10} as="header"  >
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'} px={[2, 3, 2]} >
@@ -48,11 +68,12 @@ const Navbar = () => {
             <HStack spacing={8} alignItems={'center'}>
               <Box><NavLink to="/"><Image overflow={"hidden"} h={10} pl={[50,null,null]} w={"auto"} src={Weblogo} alt='LOGO' /></NavLink></Box>
               {onOpen ? (
-            <Box pb={9} display={{ md: 'none' }}>
+            <Box  display={{ md: 'none' }}>
               <Stack as={'nav'} spacing={4}>
                <Flex justify={"center"} align={"center"}> 
-                <Link to="/signup"><Button leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' size='xs' variant='solid'>Sign in mob</Button></Link></Flex>
+               {avatar?"":<HStack ><Link to="/signup"><Button leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' size='md' variant='solid'>Sign Up</Button></Link></HStack>} </Flex>
               </Stack>
+
             </Box>
           ) : null}
             </HStack>
@@ -63,41 +84,11 @@ const Navbar = () => {
                 display={{ base: 'none', md: 'flex' }}>
 
               <InputGroup >
-              <InputLeftElement pointerEvents='none' children={<SearchIcon/>} />
+              <InputLeftElement pointerEvents='none' children={<SearchIcon/>} /> 
               <Input color={"whiteAlpha.900"}  type='text' htmlSize={12} width="auto" placeholder='Search' />
               </InputGroup>
-                <Link ><Button onClick={onOpen} leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' variant='solid'>Sign in</Button></Link>
-                
-                <Menu>
-                <MenuButton 
-                  as={Button} 
-                  variant={'link'}
-                  cursor={'pointer'}
-                  minW={0}>{avatar?<Avatar
-                    size={'sm'}
-                    src={myimage.image}
-                  />:<Button ><RiAdminLine color='black' size={30}/></Button>}
-                </MenuButton>
-                <MenuList alignItems={'center'}>
-                  <br />
-                  <Center>
-                    <Avatar
-                      size={'2xl'}
-                      src={myimage.image}
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Profile</MenuItem>
-                  <MenuItem>App Settings</MenuItem>
-                  <MenuItem><Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button></MenuItem>
-                  <MenuItem>Logout</MenuItem>
-                </MenuList>
-              </Menu>
+              {avatar?"":<InputGroup><Link ><Button onClick={onOpen} leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' variant='solid'>Sign up</Button></Link></InputGroup>}
+              <Menu><Drawers/></Menu>
               </HStack>
             </Flex>
             <>
@@ -116,7 +107,7 @@ const Navbar = () => {
           <Link to={"/admin"}><Button colorScheme='twitter'  onClick={onClose}>
             Admin
           </Button></Link>
-<Button onClick={HandleLogOut}>LOGOUT</Button>
+          <Button onClick={HandleLogOut}><Tooltip hasArrow label='Phone number' fontSize='md'><GiPowerButton/></Tooltip></Button>
         </ModalFooter>
         </ModalBody>
       </ModalContent>

@@ -1,25 +1,11 @@
 {
-  "product": [
+  "products": [
     {
-      "titel": "AAAAABBBAkash",
-      "image": "https://m.media-amazon.com/images/I/81XyIoZ8+HL._SL1500_.jpg",
-      "description": "jk",
-      "time": "44",
+      "title": "Thor Love and Thunder",
+      "image": "https://bloximages.chicago2.vip.townnews.com/utdailybeacon.com/content/tncms/assets/v3/editorial/7/e5/7e5da006-015b-11ed-94a6-f7d6d4dcdb02/62cc8dd9dda6b.image.jpg?crop=1000%2C525%2C0%2C477&resize=1000%2C525&order=crop%2Cresize",
+      "description": "Thor enlists the help of Valkyrie, Korg and ex-girlfriend Jane Foster to fight Gorr the God Butcher, who intends to make the gods extinct.",
+      "season": "1",
       "id": 1
-    },
-    {
-      "titel": "AAAAABBBAkash",
-      "image": "https://m.media-amazon.com/images/I/81XyIoZ8+HL._SL1500_.jpg",
-      "description": "jk",
-      "time": "44",
-      "id": 2
-    },
-    {
-      "title": "thor",
-      "image": "https://cdni.autocarindia.com/utils/imageresizer.ashx?n=https://cms.haymarketindia.net/model/uploads/modelimages/Mahindra-Scorpio-N-300620221053.jpg&w=872&h=578&q=75&c=1",
-      "description": "The powerful but arrogant god Thor is cast out of Asgard to live amongst humans in Midgard (Earth), where he soon becomes one of their finest defenders.",
-      "season": "2",
-      "id": 3
     }
   ]
 }

@@ -91,6 +91,7 @@ const HomePage = () => {
       <Box>
       <Static/>
      </Box>
+     <Footer/>
       <Faq/>
     </div>
   )

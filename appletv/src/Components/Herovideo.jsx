@@ -8,7 +8,8 @@ const Herovideo = () => {
   return (
     <div className="title-video-container">
       <div className="mask">
-        <video className="base-img"  autoPlay   playsinline muted preload="auto">
+        
+        <video className="base-img" autoPlay playsInline >
           <source src={src} type="video/mp4" />
         </video>
       </div>

@@ -16,11 +16,11 @@ const AdmindataManage = () => {
        navigate(`/editdata/${id}`)
     }
     useEffect(()=>{
-        if(PRODUCTS.length===0){
-        
-            dispatch(GET_PRODUCTS())
-        }
-    },[])
+      if(PRODUCTS.length===0){
+          dispatch(GET_PRODUCTS())
+      }
+  },[])
+  console.log(PRODUCTS,"prog")
   return (
     <Container position={"relative"} p={0} m={0} border={0}>
     <Flex 
@@ -35,7 +35,7 @@ const AdmindataManage = () => {
             Admin's added Products
           </Heading>
           {/* maping----------------------------------> */}
-          {PRODUCTS.map((item)=>
+          {PRODUCTS.length> 0 && PRODUCTS.map((item)=>
                     <VStack key={item.id} bg={"whiteAlpha.800"} color={"blackAlpha.900"} p={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
                     <Image m={0} width={100} height={57} src={item.image} alt={item.title}/>
                     <VStack>

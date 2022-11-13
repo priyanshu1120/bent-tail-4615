@@ -1,5 +1,5 @@
 import {  MoonIcon, SunIcon } from "@chakra-ui/icons"
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Avatar, Box, Button, Center, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex, FormLabel, HStack, Input, InputGroup, InputLeftAddon, InputRightAddon, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Select, Spacer, Stack, Text, Textarea, Tooltip, useColorMode, useColorModeValue, useDisclosure, VStack } from "@chakra-ui/react"
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Avatar, Box, Button, Center, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Flex,  HStack,  Spacer,  Stack,  Text,  Tooltip, useColorMode, useColorModeValue, useDisclosure, VStack } from "@chakra-ui/react"
 import { useEffect, useRef, useState } from "react"
 import { RiAdminLine } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,9 +9,6 @@ import { toast } from "react-toastify";
 import { GiPowerButton } from "react-icons/gi";
 import { FiSettings } from "react-icons/fi";
 import { BsBoxArrowInUpRight, BsFillCreditCard2FrontFill } from "react-icons/bs";
-  const myimage ={
-    image:"https://media-exp1.licdn.com/dms/image/C4D03AQGG0QJOuu9Lng/profile-displayphoto-shrink_800_800/0/1640068567052?e=1673481600&v=beta&t=gi5Q9nnVkAw2e6oA2FyWsTHkYztNQjxQPrGB9IK2iFs"
-  }
 
 export const  Drawers =()=> {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -20,19 +17,19 @@ export const  Drawers =()=> {
     const [avatar,setAvatar] =useState(true);
     const [userEmail,setUserEmail]=useState('')
     const[userPhoto,setUserPhoto]=useState('')
+
     const navigate =useNavigate();
     const firstField = useRef()
     const HandleLogOut =()=>{
         signOut(UserAuth).then(() => {
         toast.success("Logout Sucessfull")
-        navigate("/admin")
+        navigate("/")
       }).catch((error) => {
         toast.error(error.massege)
       })};
       useEffect(()=>{
         onAuthStateChanged(UserAuth, (user) => {
           if (user) {
-            const uid = user.uid;
             setAvatar(true)
             setDisplayName(user.displayName)
             setUserEmail(user.email)
@@ -86,10 +83,10 @@ export const  Drawers =()=> {
                             <Box flex='1' color={"blackAlpha.700"} as={"b"} textAlign="left">For Admins</Box>
                             <Spacer/>
                             <Spacer/>
-                           <Link to={"/signup"}> <Button colorScheme='green' size={"lg"} variant='outline'>SignUp as a Admin</Button></Link><Spacer/>
-                           <Link to={"/login"}> <Button colorScheme='green' size={"lg"} variant='outline'>Sign In as a Admin</Button></Link>
+                           <Link to={"/adminsignup"}> <Button colorScheme='green' size={"lg"} variant='outline'>SignUp as a Admin</Button></Link><Spacer/>
+                           <Link to={"/adminlogin"}> <Button colorScheme='green' size={"lg"} variant='outline'>Sign In as a Admin</Button></Link>
                         </VStack>}
-                    <Accordion allowToggle>
+                  {avatar?  <Accordion allowToggle>
                         <AccordionItem>
                             <h2>
                             <AccordionButton>
@@ -101,9 +98,9 @@ export const  Drawers =()=> {
                             </h2>
                             <AccordionPanel pb={4}>
                                 <VStack>
-                                <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"}>Name :{diplayName}  {"Akash Mondal"}</Text>
+                                <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"}>Name :{diplayName} </Text>
                                 <Spacer/>
-                                <Text textAlign={"left"} as="b" color={"blackAlpha.600"}>Email id: {userEmail}    {"Email Id"}</Text>
+                                <Text textAlign={"left"} as="b" color={"blackAlpha.600"}>Email id: {userEmail}</Text>
                                 </VStack>
                             </AccordionPanel>
                         </AccordionItem>
@@ -124,12 +121,12 @@ export const  Drawers =()=> {
                             </VStack>
                             </AccordionPanel>
                         </AccordionItem>
-                        </Accordion>
+                        </Accordion>:""}
                         <HStack  alignItems={"center"} justifyContent={"center"}><Text as={"b"} fontSize={"1xl"} >Change Theme</Text> <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button></HStack>
                         <Divider/>
-                        <HStack  alignItems={"center"} justifyContent={"center"}><Text as={"b"} color={"blackAlpha.800"} fontSize={"lg"} >Subscripe our plan</Text>
-                         <Button p={0} m={0} bg={"transparent"} color={"blackAlpha.700"}><BsFillCreditCard2FrontFill size={20}/></Button></HStack> <Divider/>
-                        <HStack  alignItems={"center"} justifyContent={"center"}><Text as={"b"} color={"red.500"} fontSize={"3xl"} >Logout</Text> <Button bg={"gray.300"} color={"red.500"}  onClick={HandleLogOut}><Tooltip hasArrow label='Logout' bg='red.600'><GiPowerButton size={20} color={"red.500"}/></Tooltip></Button></HStack>
+                        <Link to={"/payment"}><HStack  alignItems={"center"} justifyContent={"center"}><Text as={"b"} color={"blackAlpha.800"} fontSize={"lg"} >Subscripe our plan</Text>
+                         <Button p={0} m={0} bg={"transparent"} color={"blackAlpha.700"}><BsFillCreditCard2FrontFill size={20}/></Button></HStack></Link> <Divider/>
+                        {avatar?<HStack   alignItems={"center"} justifyContent={"center"}><Text as={"b"} color={"red.500"} fontSize={"3xl"} >Logout</Text><Link to={"/"}> <Button   bg={"gray.300"} color={"red.500"}  onClick={HandleLogOut} onClose={onClose}><Tooltip hasArrow label='Logout' bg='red.600'><GiPowerButton size={20} color={"red.500"}/></Tooltip></Button></Link></HStack>:""}
                         <Divider/>
               </Stack>
             </DrawerBody>

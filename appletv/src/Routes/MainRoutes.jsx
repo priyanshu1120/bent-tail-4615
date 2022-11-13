@@ -11,7 +11,10 @@ import { EditCartData } from '../Components/EditAdmindata'
 import ResetPassword from '../Pages/ResetPassword'
 import SignupPage from '../Pages/SignupPage'
 import SigninPage from '../Pages/SigninPage'
-import Payment from '../Components/Payment/Payment'
+import { SigninAdmin } from '../Components/SigninAdmin'
+import { SignupAdmin } from '../Components/SignupAdmin'
+import Payments from '../Components/Payment/Payment'
+import PrivateRoute from '../Auth/PrivateRoutes'
 export const MainRoutes = () => {
   return (
     <div>
@@ -22,10 +25,12 @@ export const MainRoutes = () => {
         <Route path="/signup" element={<SignupPage/>} />
         <Route path="/login" element={<SigninPage/>} />
         <Route path="/admin" element={<Admin/>} />
+        <Route path="/adminlogin" element={<SigninAdmin/>} />
+        <Route path="/adminsignup" element={<SignupAdmin/>} />
         <Route path="/reset-password" element={<ResetPassword/>} />
         <Route path="/editdata/:title" element={<EditCartData/>} /> 
       <Route path="/:category/:id" element={<Nextpage/>} />
-      <Route path="/payment" element={<Payment/>} />
+      <Route path="/payment" element={<PrivateRoute><Payments/></PrivateRoute>} />
       </Routes>
     </div>
   );

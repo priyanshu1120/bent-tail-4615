@@ -3,10 +3,22 @@ import useRazorpay from "react-razorpay";
 import logo from "../../Img/mytv.jpg";
 import SuccessAlert from "./SuccessAlert";
 import swal from "sweetalert";
+import { onAuthStateChanged } from "firebase/auth";
+import { UserAuth } from "../../Utils/firebase";
 
-export default function Payment({ price, label }) {
+export default function Payments({ price, label }) {
   const Razorpay = useRazorpay();
   const [success, setSuccess] = useState(false);
+  const [avatar,setAvatar] =useState(true);
+  useEffect(()=>{
+    onAuthStateChanged(UserAuth, (user) => {
+      if (user) {
+        setAvatar(true)
+      } else {
+        setAvatar(false)
+      }
+    });
+  },[])
 
   useEffect(() => {
     // setTimeout(() => {

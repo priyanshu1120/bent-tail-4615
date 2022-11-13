@@ -50,7 +50,7 @@ const handleSubmit = (e) => {
     console.log(user,"user");
     setisSigninLoading(false);
     toast.success("Acoout created Sucessfull")
-    navigate("/adminlogin")
+    navigate("/admin")
     // ...
   })
   .catch((error) => {

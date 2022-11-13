@@ -115,8 +115,8 @@ function CommonDetailSlider({ url }) {
   return (
     <div className="slider4">
       <Slider {...settings}>
-        {data.map((item, i) => (
-          <div className="common-detail-slider-card" key={i}>
+        {data.map((item, ) => (
+          <div className="common-detail-slider-card" key={item.id}>
             <div className="common-detail-slider-card-top">
               <Link to={`/${pathurl}/${item.id}`}>
                 <img

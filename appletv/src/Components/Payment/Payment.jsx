@@ -1,9 +1,11 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import useRazorpay from "react-razorpay";
-import logo from "../Img/mytv.jpg";
+import logo from "../../Img/mytv.jpg";
+import SuccessAlert from "./SuccessAlert";
 
 export default function Payment({ price, label }) {
   const Razorpay = useRazorpay();
+  const [success, setSuccess] = useState(false);
 
   const handlePayment = useCallback(async () => {
     const order = {
@@ -14,19 +16,22 @@ export default function Payment({ price, label }) {
 
     const options = {
       key: "rzp_test_qho4K1vu3eyRqY",
-      amount: price * 100,
+      amount: 99 * 100,
       currency: "INR",
       name: "MY TV+ Subscription",
       description: "Test Transaction",
       image: logo,
       order_id: order.id,
       handler: (res) => {
-        console.log(res);
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 3000);
       },
       prefill: {
         name: "John Doe",
         email: "youremail@example.com",
-        contact: "912345678",
+        contact: "9999999999",
       },
       notes: {
         address: "Razorpay Corporate Office",
@@ -39,24 +44,28 @@ export default function Payment({ price, label }) {
     const rzpay = new Razorpay(options);
     rzpay.open();
   }, [Razorpay]);
-
+  console.log(success);
   return (
     <div className="App">
-      <button
-        style={{
-          width: "200px",
-          height: "50px",
-          padding: "10px",
-          textAlign: "center",
-          border: "1px solid blue",
-          backgroundColor: "skyblue",
-          fontSize: "17px",
-          color: "white",
-        }}
-        onClick={handlePayment}
-      >
-        {label}
-      </button>
+      {success ? (
+        <SuccessAlert />
+      ) : (
+        <button
+          style={{
+            width: "200px",
+            height: "50px",
+            padding: "10px",
+            textAlign: "center",
+            border: "1px solid blue",
+            backgroundColor: "skyblue",
+            fontSize: "17px",
+            color: "white",
+          }}
+          onClick={handlePayment}
+        >
+          {label}
+        </button>
+      )}
     </div>
   );
 }

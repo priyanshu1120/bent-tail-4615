@@ -22,7 +22,8 @@ import { Link,  useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, GoogleAuthProvider,  signInWithPopup } from 'firebase/auth';
 import {  toast } from 'react-toastify';
 import { UserAuth } from '../Utils/firebase';
-export const Signup =()=> {
+import { useEffect } from 'react';
+export const SignupAdmin =()=> {
   const [showPassword, setShowPassword] = useState(false);
   const [isSigninLoading, setisSigninLoading] = useState(false);
   const [confirmshowPassword, setconfirmShowPassword] = useState(false);
@@ -49,7 +50,7 @@ const handleSubmit = (e) => {
     console.log(user,"user");
     setisSigninLoading(false);
     toast.success("Acoout created Sucessfull")
-    navigate("/login")
+    navigate("/adminlogin")
     // ...
   })
   .catch((error) => {
@@ -69,7 +70,7 @@ const handleGoogleSignIn =()=>{
     const token = credential.accessToken;
     const user = result.user;
     toast.success("Login Sucessfull")
-    navigate("/")
+    navigate("/admin")
     // ...
   }).catch((error) => {
     const errorCode = error.code;

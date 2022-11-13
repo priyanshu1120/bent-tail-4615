@@ -131,7 +131,7 @@ function CommonDetailSlider({ url }) {
                 <p style={{ fontWeight: "600" }}>
                   {item.title}{" "}
                   <span style={{ fontWeight: "500" }}>
-                    S{item.season} E{item.id}
+                   | S{item.season} | E{item.id}
                   </span>
                 </p>
                 <p style={{ color: "light", fontWeight: "600" }}>

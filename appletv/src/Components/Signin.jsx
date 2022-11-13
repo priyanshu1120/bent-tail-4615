@@ -1,47 +1,71 @@
 import React,{ useState }  from 'react'
-import {
-  Flex,
-  Box,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  HStack,
-  InputRightElement,
-  Stack,
-  Button,
-  Heading,
-  Text,
-  useColorModeValue,
-  Center,
-} from '@chakra-ui/react';
+import {Flex, Box,FormControl,FormLabel, Input,InputGroup, HStack,InputRightElement,Stack,Button,Heading, Text,useColorModeValue, Center, Spinner,} from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { FcGoogle } from 'react-icons/fc';
-import { Link,useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { LOGIN_FIREBASE, SIGN_UP_FIREBASE } from '../Redux/Auth/action';
+import { Link, useNavigate} from 'react-router-dom';
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { Googleprovider, UserAuth } from '../Utils/firebase';
+import { ToastContainer, toast } from 'react-toastify';
+
+
+
 export const Signin =()=> {
   const [showPassword, setShowPassword] = useState(false);
-  const dispatch = useDispatch()
+  const [isSigninLoading, setisSigninLoading] = useState(false);
+  const navigate =useNavigate();
 const [state, setState] = useState({
 email: "",
 password: "",
 })
 const {email, password,} = state;
-const handleGoogleSignIn = () => {}
+const handleGoogleSignIn = () => {
+  signInWithPopup(UserAuth, Googleprovider)
+  .then((result) => {
+    toast.success("Login Sucessfull")
+    navigate("/")
+  }).catch((error) => {
+ 
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    toast.error("Login Failed")
+    toast.error(errorCode,errorMessage)
+  })
+}
 const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(LOGIN_FIREBASE(email,password))
+    setisSigninLoading(true)
+signInWithEmailAndPassword(UserAuth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const Loguser = userCredential.user;
+    console.log(Loguser)
+    setisSigninLoading(false);
+    toast.success("Login Sucessfull")
+    navigate("/")
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    toast.error(errorCode,errorMessage)
+    setisSigninLoading(false);
+  });
     setState({email: "",
-    password: "",
-    displayName:"",
-    confirmpassword:""})
+    password: "",})
   };
   const handleChange = (e) => {
     let {name,value} =e.target ;
     setState({...state,[name]:value})
   };
   return (
+    <> <Flex alignItems={"center"} justifyContent={"center"}>{isSigninLoading &&   
+      <Spinner
+      thickness='4px'
+      speed='0.65s'
+      emptyColor='gray.200'
+      color='black'
+      size='xl'
+    />}
+    </Flex>
     <Flex backdropBlur={50}
       minH={'5vh'}
       align={'center'}
@@ -115,5 +139,6 @@ const handleSubmit = (e) => {
         </Box>
       </Stack>
     </Flex>
+    </>
   );
 }

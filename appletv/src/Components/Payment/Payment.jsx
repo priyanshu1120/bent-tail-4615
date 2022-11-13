@@ -2,13 +2,18 @@ import { useCallback, useState, useEffect } from "react";
 import useRazorpay from "react-razorpay";
 import logo from "../../Img/mytv.jpg";
 import SuccessAlert from "./SuccessAlert";
+import swal from "sweetalert";
 
 export default function Payment({ price, label }) {
   const Razorpay = useRazorpay();
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    handlePayment();
+    // setTimeout(() => {
+    //   handlePayment();
+    // }, 100);
+
+    console.log("somehting");
   }, []);
 
   const handlePayment = useCallback(async () => {
@@ -27,10 +32,11 @@ export default function Payment({ price, label }) {
       image: logo,
       order_id: order.id,
       handler: (res) => {
-        setSuccess(true);
-        setTimeout(() => {
-          setSuccess(false);
-        }, 3000);
+        swal({
+          title: "Payment Successful",
+          text: "Enjoy MY TV+ for 30 days",
+          icon: "success",
+        });
       },
       prefill: {
         name: "John Doe",
@@ -49,5 +55,15 @@ export default function Payment({ price, label }) {
     rzpay.open();
   }, [Razorpay]);
   console.log(success);
-  return <div className="App">{success ? <SuccessAlert /> : null}</div>;
+  return (
+    <div className="App">
+      <button
+        onClick={() => {
+          handlePayment();
+        }}
+      >
+        Start Free Trial
+      </button>
+    </div>
+  );
 }

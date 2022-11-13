@@ -15,7 +15,7 @@ const HomePage = () => {
   return (
     <div>
       <Herovideo />
-      <Box mt="10px">
+      {/* <Box mt="10px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1 , 2, 4,7]}>Watch Premieres for free </Text>
       <CommonDetailSlider url="/watchPremiers"  />
       </Box>
@@ -55,11 +55,11 @@ const HomePage = () => {
       <Text fontSize="19px" fontWeight={400} pl={[1,2,4,7]}>Add to Up Next now</Text>
       <StaticSlider2  data = { sliderdata2 } />
       </Box>
-      </Box>
+      </Box> */}
      {/* <=========videospace========> */}
 
 
-         
+{/*          
      <Box mt="15px">
       <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Like a Boss </Text>
       <CommonSlider url="/drama"  />
@@ -110,7 +110,7 @@ const HomePage = () => {
       <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Kids & Family</Text>
       <Text fontSize="19px" fontWeight={400} pl={[1,2,4,7]}>Discover Shows And Movies Filled With Wonder and Series</Text>
       <CommonSlider url="/funForAll"/>
-      </Box>
+      </Box> */}
 
      <Footer />
       <Faq/>

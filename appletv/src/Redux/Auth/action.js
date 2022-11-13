@@ -1,4 +1,4 @@
-import { auth ,googleAuthProvider} from "../../Utils/firebase"
+import { UserAuth ,googleAuthProvider} from "../../Utils/firebase"
 import {  GET_AUTH_LOGIN_FAILURE, GET_AUTH_LOGIN_LOADING, GET_AUTH_LOGIN_SUCESS, GET_AUTH_LOGOUT_FAILURE, GET_AUTH_LOGOUT_LOADING, GET_AUTH_LOGOUT_SUCESS, GET_AUTH_SIGNUP_FAILURE, GET_AUTH_SIGNUP_LOADING, GET_AUTH_SIGNUP_SUCESS } from "./actionType"
 export const GET_AUTH__SIGNUPLOADING_fn=()=>{
     return {type: GET_AUTH_SIGNUP_LOADING}
@@ -33,7 +33,7 @@ export const GET_AUTH_LOGOUT_FAILURE_fn=()=>{
 export const SIGN_UP_FIREBASE =(email,password,displayName)=>{
     return function (dispatch){
     dispatch ( GET_AUTH__SIGNUPLOADING_fn()) ;
-    auth
+    UserAuth
     .createUserWithEmailAndPassword(email, password)
     .then(({ user }) => {
     user.updateProfile({
@@ -48,8 +48,8 @@ export const SIGN_UP_FIREBASE =(email,password,displayName)=>{
 export const LOGIN_FIREBASE =(email,password)=>{
     return function (dispatch){
     dispatch ( GET_AUTH_LOGIN_LOADING_fn()) ;
-    auth
-    .signInWithEmailAndPassword(email,password)
+    UserAuth
+    .s(email,password)
     .then(({ user }) => {
     dispatch (GET_AUTH_LOGIN_SUCESS_fn(user)) ;
     })
@@ -57,31 +57,31 @@ export const LOGIN_FIREBASE =(email,password)=>{
     }
 }
 //Function For GOOGLE Sign up ---------------------------------------------------------------------->
-export const GOOGLE_SIGN_UP_FIREBASE =()=>{
-    return function (dispatch){
-    dispatch ( GET_AUTH__SIGNUPLOADING_fn()) ;
-    auth
-    .signInWithPopup(googleAuthProvider)
-    .then(({ user }) => {
-    dispatch (GET_AUTH_SIGNUP_SUCESS(user)) ;
-    })
-    .catch((error) => dispatch (GET_AUTH__SIGNUPFAILURE_fn()) ) ;
-    }
-}
-//Function For LOGOUT---------------------------------------------------------------------->
-export const LOG_OUT_FIREBASE = () => {
-    return function (dispatch) {
-    dispatch (GET_AUTH_LOGOUT_LOADING_fn());
-    auth
-    .signOut()
-    .then ((resp) => dispatch (GET_AUTH_LOGOUT_SUCESS_fn ()))
-   . catch ((error) => dispatch(GET_AUTH_LOGIN_FAILURE_fn()))
-    }}
-//Function For LOGOUT---------------------------------------------------------------------->
-export const LOG_IN_FIREBASE = () => {
-    return function (dispatch) {
-    dispatch (GET_AUTH_LOGOUT_LOADING_fn());
-    auth.signInWithEmailLink()
-    .then ((resp) => dispatch (GET_AUTH_LOGOUT_SUCESS_fn ()))
-   . catch ((error) => dispatch(GET_AUTH_LOGIN_FAILURE_fn()))
-    }}
+// export const GOOGLE_SIGN_UP_FIREBASE =()=>{
+//     return function (dispatch){
+//     dispatch ( GET_AUTH__SIGNUPLOADING_fn()) ;
+//     UserAuth
+//     .signInWithPopup(googleAuthProvider)
+//     .then(({ user }) => {
+//     dispatch (GET_AUTH_SIGNUP_SUCESS(user)) ;
+//     })
+//     .catch((error) => dispatch (GET_AUTH__SIGNUPFAILURE_fn()) ) ;
+//     }
+// }
+// //Function For LOGOUT---------------------------------------------------------------------->
+// export const LOG_OUT_FIREBASE = () => {
+//     return function (dispatch) {
+//     dispatch (GET_AUTH_LOGOUT_LOADING_fn());
+//     UserAuth
+//     .signOut()
+//     .then ((resp) => dispatch (GET_AUTH_LOGOUT_SUCESS_fn ()))
+//    . catch ((error) => dispatch(GET_AUTH_LOGIN_FAILURE_fn()))
+//     }}
+// //Function For LOGOUT---------------------------------------------------------------------->
+// export const LOG_IN_FIREBASE = () => {
+//     return function (dispatch) {
+//     dispatch (GET_AUTH_LOGOUT_LOADING_fn());
+//     UserAuth.signInWithEmailLink()
+//     .then ((resp) => dispatch (GET_AUTH_LOGOUT_SUCESS_fn ()))
+//    . catch ((error) => dispatch(GET_AUTH_LOGIN_FAILURE_fn()))
+//     }}

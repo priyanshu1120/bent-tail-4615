@@ -14,6 +14,7 @@ import {
   Text,
   useColorModeValue,
   Center,
+  Spinner,
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { FcGoogle } from 'react-icons/fc';
@@ -21,41 +22,74 @@ import { Link,  useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { GOOGLE_SIGN_UP_FIREBASE, SIGN_UP_FIREBASE } from '../Redux/Auth/action';
 import { useEffect } from 'react';
+import { createUserWithEmailAndPassword, sendSignInLinkToEmail } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import { UserAuth } from '../Utils/firebase';
 export const Signup =()=> {
   const [showPassword, setShowPassword] = useState(false);
+  const [isSigninLoading, setisSigninLoading] = useState(false);
   const [confirmshowPassword, setconfirmShowPassword] = useState(false);
+  const navigate =useNavigate();
 const [state, setState] = useState({
 email: "",
 password: "",
 displayName:"",
 confirmpassword:""
 })
-const dispatch = useDispatch();
-const {currentUser} = useSelector((state)=> state.user)
 const {email, password,confirmpassword,displayName} = state;
-const handleGoogleSignIn = () => {
-  dispatch(GOOGLE_SIGN_UP_FIREBASE())
-}
+
 const handleSubmit = (e) => {
   e.preventDefault();
-  dispatch(SIGN_UP_FIREBASE(email,password,displayName))
- setState({email: "",
-  password: "",
-  displayName:"",
-  confirmpassword:""})
+  if(password !== confirmpassword){
+    toast.error("Passwors do not match")
+    return;
+  }
+  setisSigninLoading(true);
+  createUserWithEmailAndPassword(UserAuth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user,"user");
+    setisSigninLoading(false);
+    toast.success("Acoout created Sucessfull")
+    navigate("/login")
+    // ...
+  })
+  .catch((error) => {
+    toast.error(error.message)
+    setisSigninLoading(false);
+    // ..
+  });
+
 };
+const handleGoogleSignIn =()=>{
+  sendSignInLinkToEmail(UserAuth, email, )
+    .then(() => {
+      window.localStorage.setItem('emailForSignIn', email);
+      setisSigninLoading(false);
+      toast.success("Acoout created Sucessfull")
+        navigate("/login")
+    })
+    .catch((error) => {
+      toast.error(error.code,error.message)
+      setisSigninLoading(false);
+    });
+}
 const handleChange = (e) => {
   let {name,value} =e.target ;
   setState({...state,[name]:value})
 };
-// const history = useNavigate();
-// useEffect(()=>{
-// if(currentUser){
-//   history("/")
-// }
-// },[currentUser,history])
-console.log(currentUser,state,"currentuser")
+
   return (
+    <>
+    {isSigninLoading &&   
+    <Spinner
+    thickness='4px'
+    speed='0.65s'
+    emptyColor='gray.200'
+    color='blue.500'
+    size='xl'
+  />}
     <Flex backdropBlur={50}
       minH={'50vh'}
       align={'center'}
@@ -115,19 +149,27 @@ console.log(currentUser,state,"currentuser")
                 </InputRightElement>
               </InputGroup>
             </FormControl>
-            <Stack spacing={10} pt={2}>
-              <Button
-                loadingText="Submitting"
-                size="lg"
-                bg={'blue.400'}
-                color={'white'}
-                _hover={{
-                  bg: 'blue.500',
-                }}  
-                 type="submit"  onClick={handleSubmit}   >
-                Sign up
-              </Button>
-            </Stack>
+            <Stack pt={5} spacing={6} direction={['column', 'row']}>
+          <Box><Link to={"/"}><Button
+            bg={'red.400'}
+            color={'white'}
+            w="full"
+            _hover={{
+              bg: 'red.500',
+            }}>
+            Cancel
+          </Button></Link></Box>
+          <Button
+            bg={'blue.400'}
+            color={'white'}
+            w="full"
+            _hover={{
+              bg: 'blue.500',
+            }}
+            type="submit"  onClick={handleSubmit} >
+            Sing Up
+          </Button>
+        </Stack>
             </form>
             <Text textAlign={"center"}>or</Text>
             <Center px={8}>
@@ -148,5 +190,6 @@ console.log(currentUser,state,"currentuser")
         </Box>
       </Stack>
     </Flex>
+    </>
   );
 }

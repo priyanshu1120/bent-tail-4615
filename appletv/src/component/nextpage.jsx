@@ -7,8 +7,9 @@ import { background, Box, Button, Image, VStack } from "@chakra-ui/react"
 import { Episode } from './episode'
 import { Cast } from './cast'
 import { Carausel } from './carausel'
-import "../Components/herovideo.css"
 import tv from "../video/tv.mp4"
+import { SinglepageFooter } from './singlepagefooter'
+import Video from './NextPage_video';
 
 export const Nextpage = () => {
     const [singlepagedata,setSinglepagedata] = useState({})
@@ -19,7 +20,7 @@ export const Nextpage = () => {
     console.log(category)
 
 const SingleData =()=>{
-axios.get(`https://appletv-server.vercel.app/${category}/${id}`)
+axios.get(`/${category}/${id}`)
 .then((res)=>{setSinglepagedata(res.data)})
 .catch((err)=>{console.log(err)})
 }
@@ -39,6 +40,14 @@ color :"black",
 borderColor :"transparent",
 fontWeight : "600"
 }
+const sty={
+    frameborder:"0" ,
+            marginheight:"0" ,
+            marginwidth:"0", 
+            width:"100%" ,
+            height:"100%" ,
+            scrolling:"auto"
+}
   return (
    <Box  >
     <Box  style={{border  : "1px solid transparent" , position:"absolute" ,marginLeft :"100px",
@@ -46,18 +55,8 @@ marginTop:"40px" ,color:"white"
 }}   
 ><h2>{singlepagedata.title}</h2></Box>
 {
-    singlepagedata.video ?      <iframe  style={{height :"500px", width:"100%",padding:"10px"}} allow="autoplay" src= {tv} allowFullScreen />   :  <Image src={singlepagedata.image} w={"100%"}  />   
-    
-
-
+    singlepagedata.video ?   <iframe  style={{height :"500px", width:"100%",padding:"10px"}}   src= {tv} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
 }
-
-  
-
-
-
-
-
 
     <VStack display="flex" margin="auto" direction='column'
      mr="50%" position="absolute" mt ="-140px" ml="50px"
@@ -83,6 +82,12 @@ mt="-100px" color="white"
 <Box>
     <Cast  id={id} />
 </Box>
+
+
+<Box border ="1px solid transparent " backgroundColor="#f0f0f3"   >
+    <SinglepageFooter />
+</Box>
+
 
    </Box>
       

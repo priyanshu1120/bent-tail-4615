@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Nextpage } from "../component/nextpage";
 import Navbar from "../Components/Navbar";
-import Payment from "../Components/Payment/Payment";
 import HomePage from "../Pages/HomePage";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -11,6 +10,7 @@ import { EditCartData } from "../Components/EditAdmindata";
 import ResetPassword from "../Pages/ResetPassword";
 import SignupPage from "../Pages/SignupPage";
 import SigninPage from "../Pages/SigninPage";
+import Payment from "../Components/Payment/Payment";
 export const MainRoutes = () => {
   return (
     <div>

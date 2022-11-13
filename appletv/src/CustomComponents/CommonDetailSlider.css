@@ -3,7 +3,7 @@
     max-height:250px;
     margin: 0 auto;
     margin-top: 10px;
-    overflow:hidden;
+    /* overflow:hidden; */
   }
   
   .slick-slide > div {
@@ -34,7 +34,7 @@
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    line-height: 1.3rem;
+    line-height: 1.4rem;
   
     height: 300px;
     color: black;

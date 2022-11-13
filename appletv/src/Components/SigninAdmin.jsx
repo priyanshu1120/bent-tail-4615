@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 
 
 
-export const Signin =()=> {
+export const SigninAdmin =()=> {
   const [showPassword, setShowPassword] = useState(false);
   const [isSigninLoading, setisSigninLoading] = useState(false);
   const navigate =useNavigate();
@@ -28,7 +28,7 @@ signInWithPopup(UserAuth, provider)
     const token = credential.accessToken;
     const user = result.user;
     toast.success("Login Sucessfull")
-    navigate("/")
+    navigate("/admin")
     // ...
   }).catch((error) => {
     const errorCode = error.code;

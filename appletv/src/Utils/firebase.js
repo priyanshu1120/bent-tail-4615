@@ -4,13 +4,13 @@ import{getAuth, GoogleAuthProvider} from "firebase/auth"
 import{getStorage} from "firebase/storage"
 import{getFirestore} from "firebase/firestore"
 export const firebaseConfig = {
-  apiKey: "AIzaSyBKrW57mHkPIxxCInrMtXRB_sznijOPs3c",
-  authDomain: "mytv-app-user-signup.firebaseapp.com",
-  projectId: "mytv-app-user-signup",
-  storageBucket: "mytv-app-user-signup.appspot.com",
-  messagingSenderId: "1024275903120",
-  appId: "1:1024275903120:web:cf8028a9e06b944a5bde15",
-  measurementId: "G-WB60BY5KC8"
+  apiKey: "AIzaSyBfYXAB8Rh5aegw0pGi9aPabxkSxrL76MM",
+  authDomain: "my-app-tv-user.firebaseapp.com",
+  projectId: "my-app-tv-user",
+  storageBucket: "my-app-tv-user.appspot.com",
+  messagingSenderId: "206951734006",
+  appId: "1:206951734006:web:10e2d09b0c472ae290ead7",
+  measurementId: "G-7GV22D87RT"
 };
 
 // Initialize Firebase

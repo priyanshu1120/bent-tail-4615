@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, Spacer, extendTheme, ChakraProvider, Menu, MenuButton, Avatar, MenuList, Center, MenuDivider, MenuItem, Tooltip, VStack, MenuGroup, AccordionPanel, AccordionItem, AccordionButton, AccordionIcon, Accordion } from '@chakra-ui/react';
+import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, extendTheme, ChakraProvider, Menu,   Center, MenuDivider, MenuItem, Tooltip, VStack, MenuGroup, AccordionPanel, AccordionItem, AccordionButton, AccordionIcon, Accordion } from '@chakra-ui/react';
 import {  CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
 import { Link, NavLink, useNavigate, } from 'react-router-dom';
 import Weblogo from "../Img/mytv.jpg"
@@ -10,8 +10,6 @@ import { UserAuth } from '../Utils/firebase';
 import { toast } from 'react-toastify';
 import { GiPowerButton } from 'react-icons/gi';
 import { Drawers } from './Drawer';
-import { Footer } from './Footer';
-import Faq from './Faq';
 import { useEffect } from 'react';
 const modaltheme = extendTheme({
   components: {
@@ -28,7 +26,7 @@ const modaltheme = extendTheme({
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-  const [diplayName,setDisplayName]=useState('');
+  const [displayName,setDisplayName]=useState('');
   const navigate =useNavigate();
   const [avatar,setAvatar] =useState(false);
   
@@ -52,7 +50,6 @@ useEffect(()=>{
     }
   });
 },[])
-
   return (
     <>
       <div >
@@ -101,13 +98,12 @@ useEffect(()=>{
         <ModalCloseButton  color={"red.500"} />
         <ModalBody mb={[5,10,20]} >
         <ModalFooter justifyContent={"center"} gap={3} >
-          <Link to={"/"}><Button colorScheme='green'  onClick={onClose} >
+          <Link to={"/signup"}><Button colorScheme='green'  onClick={onClose} >
             User
           </Button></Link>
-          <Link to={"/admin"}><Button colorScheme='twitter'  onClick={onClose}>
+          <Link to={"/adminsignup"}><Button colorScheme='twitter'  onClick={onClose}>
             Admin
           </Button></Link>
-          <Button onClick={HandleLogOut}><Tooltip hasArrow label='Phone number' fontSize='md'><GiPowerButton/></Tooltip></Button>
         </ModalFooter>
         </ModalBody>
       </ModalContent>

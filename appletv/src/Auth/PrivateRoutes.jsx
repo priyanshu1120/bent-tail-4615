@@ -1,15 +1,29 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import { onAuthStateChanged } from 'firebase/auth'
+import React, { useEffect, useState } from 'react'
+import {} from 'react-redux'
 import { Navigate, useLocation } from 'react-router-dom'
+import { UserAuth } from '../Utils/firebase'
 
 const PrivateRoute = ({children}) => {
-    const Auth = useSelector(state=> state.Auth.isAuth)
+  const [auth,setAuth] =useState(false);
+  const [userEmail,setUserEmail]=useState('')
+  useEffect(()=>{
+    onAuthStateChanged(UserAuth, (user) => {
+      if (user) {
+        setAuth(true)
+        setUserEmail(user.email)
+      } else {
+        setAuth(false)
+      }
+    });
+  },[])
+  
     const location =useLocation();
-    console.log(Auth,"auth")
-    if(!Auth){
-       return  <Navigate to="/Signin" replace state={{data:location.pathname}}/>
+    console.log(auth,"auth")
+    if(!auth){
+       return  <Navigate to="/signup" replace state={{data:location.pathname}}/>
     }
-  return children;
+  return <Navigate to="/payment"/> ;
 }
 
 export default PrivateRoute

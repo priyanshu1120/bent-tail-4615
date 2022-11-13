@@ -93,7 +93,7 @@ const HomePage = () => {
      </Box>
 
      <Box mt="60px">
-      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Most Popular </Text>
+      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Major League Baseball </Text>
       <CommonSlider url="/mostPopular"  />
       </Box>
 
@@ -103,8 +103,14 @@ const HomePage = () => {
       </Box>
         
       <Box mt="15px">
-      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Entire Originals</Text>
+      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px">Ted Lesso:Winner of 4 Emmey Awards</Text>
       <CommonSlider url="/watchPremiers"  />
+      </Box>
+     
+      <Box mt="15px">
+      <Text pt="10px" fontSize="22px" fontWeight={700} pl="40px"> Kids & Family</Text>
+      <Text fontSize="19px" fontWeight={400} pl="40px">Discover Shows And Movies Filled With Wonder and Series</Text>
+      <CommonSlider url="/funForAll"/>
       </Box>
 
      <Footer />

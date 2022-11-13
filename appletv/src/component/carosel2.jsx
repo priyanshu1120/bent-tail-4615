@@ -1,12 +1,22 @@
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+import { useState } from 'react';
 
 import { useNavigate, useParams } from 'react-router-dom';
 
 const Carausel2 = ({data}) => {
 
   const navigate = useNavigate()
+  const [defaultImage, setDefaultImage] = useState({});
+  const handleErrorImage = (data) => {
+    setDefaultImage((prev) => ({
+      ...prev,
+      [data.target.alt]: data.target.alt,
+      linkDefault: "https://is2-ssl.mzstatic.com/image/thumb/jODJoTupFqLDOuCggnUuAw/492x492ve.webp",
+    }));
+  };
+
 
 const handleclick =(id)=>{
 navigate(`/${id}`)
@@ -42,7 +52,15 @@ return(
      
       <SplideSlide key={ slide.id }>
      <div style={{height :"100px" , width :"100px", border :"1px solid transparent"}}  key={slide.id} onClick={ ()=>  handleclick(slide.id)} >
-      <img  src={slide.image}  style={{height:"100%" , width :"100%" , borderRadius:"50%"}}/>
+      <img  
+           src={
+            defaultImage[slide.name] === slide.name ? 
+            defaultImage.linkDefault : slide.image
+          }
+          alt={slide.name}
+          onError={handleErrorImage}
+      
+      style={{height:"100%" , width :"100%" , borderRadius:"50%"}}/>
       
       <h3 >{slide.name}</h3>
       <h3 >{slide.subname}</h3>

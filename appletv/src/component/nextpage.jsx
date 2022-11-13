@@ -7,7 +7,7 @@ import { background, Box, Button, Image, VStack } from "@chakra-ui/react"
 import { Episode } from './episode'
 import { Cast } from './cast'
 import { Carausel } from './carausel'
-
+import "../Components/herovideo.css"
 import tv from "../video/tv.mp4"
 
 export const Nextpage = () => {
@@ -46,7 +46,10 @@ marginTop:"40px" ,color:"white"
 }}   
 ><h2>{singlepagedata.title}</h2></Box>
 {
-    singlepagedata.video ?   <iframe  style={{height :"500px", width:"100%",padding:"10px"}}   src= {tv} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
+    singlepagedata.video ?      <iframe  style={{height :"500px", width:"100%",padding:"10px"}} allow="autoplay" src= {tv} allowFullScreen />   :  <Image src={singlepagedata.image} w={"100%"}  />   
+    
+
+
 }
 
   

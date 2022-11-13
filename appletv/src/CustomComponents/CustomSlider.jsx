@@ -49,6 +49,9 @@ const CustomSlider = ({ url }) => {
         else if (url.includes("watchPremiers")) {
           setPathurl("allComedyFilms");
         }
+        else if (url.includes("funForAll")) {
+          setPathurl("funForAll");
+        }
       });
   }, [])
   return (

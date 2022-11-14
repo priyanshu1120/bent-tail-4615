@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Carausel2 } from './carosel2'
-export const Cast = ({id}) => {
+export const Cast = () => {
     const [data,setData] = useState([])
-    
+    const params = useParams()
+    let id =params.id
+    let category =params.category
     const Getdata =()=>{
-        axios.get(`https://appletv-server.vercel.app/futureRelease/${id}`)
+        axios.get(`https://jewel-sneaky-dingo.glitch.me/${category}/${id}`)
     .then((res)=>{setData(res.data)})
     .catch((err)=>{console.log(err)})
     }

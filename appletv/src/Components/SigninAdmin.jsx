@@ -28,6 +28,7 @@ signInWithPopup(UserAuth, provider)
     const token = credential.accessToken;
     const user = result.user;
     toast.success("Login Sucessfull")
+    toast.success("Wellcome to your admin panel")
     navigate("/admin")
     // ...
   }).catch((error) => {
@@ -48,8 +49,9 @@ signInWithEmailAndPassword(UserAuth, email, password)
     const Loguser = userCredential.user;
     console.log(Loguser)
     setisSigninLoading(false);
-    toast.success("Login Sucessfull")
-    navigate("/")
+    toast.success("Login Sucessful as")
+    toast.success("Wellcome to your admin panel")
+    navigate("/admin")
   })
   .catch((error) => {
     const errorCode = error.code;

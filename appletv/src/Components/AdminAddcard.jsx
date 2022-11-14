@@ -1,9 +1,10 @@
-import React,{ useState }  from 'react'
+import React,{  useState }  from 'react'
 import {Flex,Box,FormControl,FormLabel,Input,Stack,Button, Heading, Text, useColorModeValue, Container,} from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ADD_DATA } from '../Redux/App/action';
 import { toast } from 'react-toastify';
 export const AdminAddcard =()=> {
+  
 const [form, setForm]= useState({
   title: "",
   image: "",

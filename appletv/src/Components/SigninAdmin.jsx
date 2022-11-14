@@ -25,9 +25,8 @@ signInWithPopup(UserAuth, provider)
   .then((result) => {
   
     const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
     toast.success("Login Sucessfull")
+    toast.success("Wellcome to your admin panel")
     navigate("/admin")
     // ...
   }).catch((error) => {
@@ -35,7 +34,7 @@ signInWithPopup(UserAuth, provider)
     const errorMessage = error.message;
     const email = error.customData.email;
     toast.error("Login Failed")
-    toast.error(errorCode,errorMessage)
+    toast.error(errorCode,errorMessage,email)
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   })};
@@ -48,8 +47,9 @@ signInWithEmailAndPassword(UserAuth, email, password)
     const Loguser = userCredential.user;
     console.log(Loguser)
     setisSigninLoading(false);
-    toast.success("Login Sucessfull")
-    navigate("/")
+    toast.success("Login Sucessful as")
+    toast.success("Wellcome to your admin panel")
+    navigate("/admin")
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -85,7 +85,7 @@ signInWithEmailAndPassword(UserAuth, email, password)
             Sign In
           </Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-          Wellcome Back.
+          manage your content
           </Text>
         </Stack>
         <Box

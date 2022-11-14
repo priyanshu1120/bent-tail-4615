@@ -101,7 +101,7 @@ const handleChange = (e) => {
       align={'center'}
       justify={'center'}
    >
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+      <Stack spacing={8} mx={'auto'} maxW={'lg'}  px={6}>
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
             Sign up
@@ -173,7 +173,7 @@ const handleChange = (e) => {
               bg: 'blue.500',
             }}
             type="submit"  onClick={handleSubmit} >
-            Sing Up
+            Sign Up
           </Button>
         </Stack>
             </form>

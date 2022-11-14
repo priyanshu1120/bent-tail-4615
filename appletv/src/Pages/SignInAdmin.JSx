@@ -1,19 +1,22 @@
-import { Flex, Image } from '@chakra-ui/react'
+import {  Box, Heading, HStack, Image,  Stack } from '@chakra-ui/react'
 import React from 'react'
 import { Footer } from '../Components/Footer'
-import { SigninAdmin } from '../Components/SigninAdmin'
+import { SignupAdmin } from '../Components/SignupAdmin'
+
 
 const SigninAdminPage = () => {
   return (
-    <>
-    <Flex m={"auto"}  alignItems={"center"} justifyContent={"space-evenly"} backgroundImage={
-        'url(https://storyset.com/illustration/reset-password/cuate)'
-      } width="full" height={"full"} >
-        <Image w={400} src={"https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7962.jpg?w=2000"}/>
-        <SigninAdmin/>
-    </Flex>
-    <Footer/>
-    </>
+            <>
+                  <Heading   fontSize={'4xl'} textAlign={'center'}>Wellcome Back</Heading>
+        <HStack align={"center"} justify={"center"}>
+         <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }} spacing={[2,50,60]}>
+           <Stack align={"center"} justify={"center"}>
+            <Image w={[300,500,500]} src={"https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7962.jpg?w=2000"}/></Stack>
+            <Box> <SignupAdmin/></Box>
+        </Stack>
+        </HStack>
+        <Footer/>
+            </>
   )
 }
 

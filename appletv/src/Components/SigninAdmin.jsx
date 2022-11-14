@@ -25,8 +25,6 @@ signInWithPopup(UserAuth, provider)
   .then((result) => {
   
     const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
     toast.success("Login Sucessfull")
     toast.success("Wellcome to your admin panel")
     navigate("/admin")
@@ -36,7 +34,7 @@ signInWithPopup(UserAuth, provider)
     const errorMessage = error.message;
     const email = error.customData.email;
     toast.error("Login Failed")
-    toast.error(errorCode,errorMessage)
+    toast.error(errorCode,errorMessage,email)
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   })};

@@ -20,7 +20,7 @@ export const Nextpage = () => {
     console.log(category)
 
 const SingleData =()=>{
-axios.get(`/${category}/${id}`)
+axios.get(`https://jewel-sneaky-dingo.glitch.me//${category}/${id}`)
 .then((res)=>{setSinglepagedata(res.data)})
 .catch((err)=>{console.log(err)})
 }

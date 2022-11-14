@@ -1,7 +1,7 @@
 import React,{ useState }  from 'react'
 import {Flex,Box,FormControl,FormLabel,Input,Stack,Button, Heading, Text, useColorModeValue, Container,} from '@chakra-ui/react';
 import { useDispatch,  } from 'react-redux';
-import {  EDIT_DATA, GET_PRODUCTS } from '../Redux/App/action';
+import {  EDIT_DATA} from '../Redux/App/action';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoMdArrowRoundBack } from "react-icons/io";
@@ -33,13 +33,17 @@ const {id} =useParams();
     if(movieSeason !== ""){
       payload.season = movieSeason 
     }
-    console.log(payload,"payload")
       dispatch(EDIT_DATA(id,payload))
       .then(()=>{
-        dispatch(GET_PRODUCTS())
+       
       });
+     
+      toast.success("Content Deleted from server")
       navigate("/admin")
-      
+      setMoviename("")
+      setMovieDes("")
+      setMovieImage("")
+      setMovieSeason("")
     }
   return (
     <Stack justifyContent={"center"} alignItems={"center"} spacing={4} >

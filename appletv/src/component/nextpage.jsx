@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Box, Button, Image, Stack, VStack } from "@chakra-ui/react"
+import { Box, Button, Image, Stack, Text, VStack } from "@chakra-ui/react"
 import { Cast } from './cast'
 import { Carausel } from './carausel'
 import tv from "../video/tv.mp4"
@@ -26,6 +26,7 @@ useEffect(()=>{
 SingleData()
 
 },[])
+
 const style={
     height :"30px",
     width : "180px",
@@ -41,7 +42,7 @@ fontWeight : "600"
     <Box  style={{border  : "1px solid transparent" , position:"absolute" ,marginLeft :"100px",
 marginTop:"40px" ,color:"white"
 }}   
-><h2>{singlepagedata.title}</h2></Box>
+><Text zIndex={10}>{singlepagedata.title}</Text></Box>
 {
     singlepagedata.video ?   <iframe  title='video' style={{height :"500px", width:"100%",padding:"10px"}}   src= {tv} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
 }

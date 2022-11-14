@@ -24,7 +24,6 @@ navigate(`/${id}`)
 }
 const params = useParams()
     let category =params.category
-
 return(
   <div className='pre-wrapper'>
     <h2 className='ppp'>{category} Movies</h2>

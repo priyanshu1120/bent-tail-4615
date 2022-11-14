@@ -2,7 +2,7 @@ import React,{ useEffect, useState,  }  from 'react'
 import {Flex,Box,Stack,Button, Heading, Text,  Container, VStack,  Image,} from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
-import { DELETE_DATA, GET_PRODUCTS } from '../Redux/App/action';
+import { DELETE_DATA, DELETE_DATA_TO_WATCH_PRE, GET_PRODUCTS } from '../Redux/App/action';
 import { useNavigate,  } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { UserAuth } from '../Utils/firebase';
@@ -12,8 +12,8 @@ const AdmindataManage  = () => {
     const dispatch =useDispatch();
     const navigate =useNavigate();
     const handelDeletedata =(id)=>{
-        console.log(id)
         dispatch(DELETE_DATA(id))  
+        // dispatch(DELETE_DATA_TO_WATCH_PRE(id))
     }
     const handleEdit =(id)=>{
        navigate(`/${displayName}/${id}/edit`)

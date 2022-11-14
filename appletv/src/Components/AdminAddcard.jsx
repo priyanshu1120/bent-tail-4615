@@ -1,7 +1,7 @@
 import React,{  useState }  from 'react'
 import {Flex,Box,FormControl,FormLabel,Input,Stack,Button, Heading, Text, useColorModeValue, Container,} from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
-import { ADD_DATA } from '../Redux/App/action';
+import { ADD_DATA, ADD_DATA_TO_WATCH_PRE } from '../Redux/App/action';
 import { toast } from 'react-toastify';
 export const AdminAddcard =()=> {
   
@@ -36,11 +36,14 @@ const OnsubmitPress =(e)=>{
 
     dispatch(ADD_DATA({...form})).then((r)=>{
     })
+    dispatch(ADD_DATA_TO_WATCH_PRE({...form})).then((r)=>{
+    })
     setForm({
-      title: "",
-      image: "",
-      description:"",
-      season: ""
+      ...form,
+        title: "",
+        image: "",
+        description:"",
+        season: ""
     })
     toast.success("Data added sucesfully")
   }

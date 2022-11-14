@@ -1,9 +1,12 @@
 
 import {  SimpleGrid, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, {} from 'react'
+
 import { AdminAddcard } from '../Components/AdminAddcard'
 import AdmindataManage from '../Components/AdmindataManage'
+
 export const Admin = () => {
+
   return (
     <><Text fontSize={'4xl'} textAlign={'center'}>Admin's admin panel</Text>
     <SimpleGrid columns={[1,2,2]} m={"auto"}  alignItems={"center"} justifyContent={"space-evenly"} backgroundImage={

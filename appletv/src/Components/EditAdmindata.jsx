@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ADD_DATA, EDIT_DATA, GET_PRODUCTS } from '../Redux/App/action';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { MdOutlineBookmarkAdded } from "react-icons/md";
 export const EditCartData =()=> {
     const[moviename,setMoviename]=useState("");
     const[movieDes,setMovieDes]=useState("");
@@ -18,18 +20,27 @@ const {id} =useParams();
     const navigate =useNavigate();
  const handelUpdate =()=>{
       const payload={
-        title: moviename,
-        image: movieimage,
-        description:movieDes,
-        season: movieSeason
       }
+      if(moviename !== ""){
+        payload.title = moviename 
+     }
+     if(movieDes !== ""){
+       payload.description = movieDes 
+     }
+     if(movieimage !== ""){
+       payload.image = movieimage
+    }
+    if(movieSeason !== ""){
+      payload.season = movieSeason 
+    }
+    console.log(payload,"payload")
       dispatch(EDIT_DATA(id,payload))
       .then(()=>{
-        toast.success("Data added sucesfully")
-        navigate("/admin")});
-      ;
+        dispatch(GET_PRODUCTS())
+      });
+      navigate("/admin")
+      
     }
-console.log(id)
   return (
     <Container p={0} m={0} border={0}>
     <Flex 
@@ -41,10 +52,10 @@ console.log(id)
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} >
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
-            Admin Add Product
+            Admin Edit Product
           </Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-          item will be added
+          item will be Edited
           </Text>
         </Stack>
         <Box
@@ -54,33 +65,34 @@ console.log(id)
           p={8}>
           <Stack spacing={4}>
           <form>
-            <FormControl id="Title" isRequired>
+            <FormControl id="Title" >
                   <FormLabel>Title</FormLabel>
                   <Input type="text" value={moviename} onChange={(e)=>setMoviename(e.target.value)}  />
                 </FormControl>
-            <FormControl id="Image" isRequired>
+            <FormControl id="Image" >
               <FormLabel>Image</FormLabel>
               <Input type="Text" value={movieimage} onChange={(e)=>setMovieImage(e.target.value)}  />
             </FormControl>
-            <FormControl id="Description" isRequired>
+            <FormControl id="Description" >
                   <FormLabel>Description</FormLabel>
                   <Input type="text" value={movieDes} onChange={(e)=>setMovieDes(e.target.value)}   />
                 </FormControl>
-            <FormControl id="Time" isRequired>
+            <FormControl id="Time" >
               <FormLabel>Seasons</FormLabel>
               <Input type="text" value={movieSeason} onChange={(e)=>setMovieSeason(e.target.value)} />
             </FormControl>   
             <Stack pt={5} spacing={6} direction={['column', 'row']}>
-          <Box><Button
+          <Box><Button leftIcon={<IoMdArrowRoundBack/>}
             bg={'red.400'}
             color={'white'}
             w="full"
             _hover={{
               bg: 'red.500',
            }}c onClick={formclear}>
-            Cancel
+            Go Back
           </Button></Box>
-          <Button
+          <Button 
+          rightIcon={<MdOutlineBookmarkAdded/>}
             bg={'blue.400'}
             color={'white'}
             w="full"
@@ -88,7 +100,7 @@ console.log(id)
               bg: 'blue.500',
             }}
             type="submit"  onClick={handelUpdate }  >
-            Add
+            Submit
           </Button>
         </Stack>
             </form>

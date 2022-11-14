@@ -30,24 +30,22 @@ export const DELETE_PRODUCT_FAILURE_fn=()=>{
 
 export const GET_PRODUCTS =(params) =>(dispatch)=>{
     dispatch(GET_PRODUCT_LOADING_fn())
-   return axios.get("http://localhost:8080/products",params)
+   return axios.get("https://bubbly-blossom-witch.glitch.me/products",params)
     .then((r)=> {dispatch(GET_PRODUCT_SUCESS_fn(r.data))})
     .catch((e)=>{GET_PRODUCT_FAILURE_fn(e)})
 }
 export const ADD_DATA=(payload)=>(dispatch)=>{
     dispatch(ADD_PRODUCT_REQUESTfn)
-   return axios.post("http://localhost:8080/products",payload)
+   return axios.post("https://bubbly-blossom-witch.glitch.me/products",payload)
     .then((r)=>{ 
       dispatch(ADD_PRODUCT__SUCESS_fn(r.data))
       dispatch(GET_PRODUCTS())
     })
-      
-               
-    .catch((e)=>{ADD_PRODUCT__FAILURE_fn(e)})
+ .catch((e)=>{ADD_PRODUCT__FAILURE_fn(e)})
 }
 export const DELETE_DATA=(id)=>(dispatch)=>{
     dispatch(DELETE_PRODUCT_REQUEST_fn)
-   return axios.delete(`http://localhost:8080/products/${id}`)
+   return axios.delete(`https://bubbly-blossom-witch.glitch.me/products/${id}`)
     .then((r)=>{ 
         console.log(r.data,"delete")
       dispatch(DELETE_PRODUCT__SUCESS_fn())
@@ -58,7 +56,7 @@ export const DELETE_DATA=(id)=>(dispatch)=>{
 // Patch Request-------------------------------------------->
 export const EDIT_DATA =(id,payload) =>(dispatch)=>{
     dispatch({type:PATCH_BOOK_LOADING})
-   return axios.patch(`http://localhost:8080/books/${id}`,payload)
+   return axios.patch(`https://bubbly-blossom-witch.glitch.me/products/${id}`,payload)
     .then((r)=> ({type:PATCH_BOOK_SUCESS,payload:r.data}))
     .catch((e)=>({type:PATCH_BOOK_FAILURE,e}))
 }

@@ -173,7 +173,7 @@ const handleChange = (e) => {
               bg: 'blue.500',
             }}
             type="submit"  onClick={handleSubmit} >
-            Sing Up
+            Sign Up
           </Button>
         </Stack>
             </form>

@@ -1,10 +1,11 @@
-import React,{ useEffect, useState }  from 'react'
-import {Flex,Box,FormControl,FormLabel,Input,Stack,Button, Heading, Text, useColorModeValue, Container, VStack, Center, Image,} from '@chakra-ui/react';
+import React,{ useEffect, useState,  }  from 'react'
+import {Flex,Box,Stack,Button, Heading, Text,  Container, VStack,  Image,} from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import { DELETE_DATA, GET_PRODUCTS } from '../Redux/App/action';
-import { useNavigate } from 'react-router-dom';
-const AdmindataManage = () => {
+import { useNavigate,  } from 'react-router-dom';
+import CommonDetailSlider from '../CustomComponents/CommonDetailSlider';
+const AdmindataManage  = () => {
     const PRODUCTS= useSelector((state)=> state.AppReducer.products)
     const dispatch =useDispatch();
     const navigate =useNavigate();
@@ -20,9 +21,35 @@ const AdmindataManage = () => {
           dispatch(GET_PRODUCTS())
       }
   },[])
-  console.log(PRODUCTS,"prog")
+
+
+  const [watchPremiresdata,setWatchPremiresData]=useState([]);
+let D=[];
+useEffect(()=>{
+    fetchBothdata()
+},[])
+
+const fetchBothdata = async () => {
+  try {
+    const res = await Promise.all([
+      fetch("https://appletv-server.vercel.app/watchPremiers"),
+      fetch("https://bubbly-blossom-witch.glitch.me/products")
+      
+    ]);
+    const data = await Promise.all(res.map(r => r.json()))
+    data.forEach((i)=>
+    D.push(...i.data)
+    )
+    setWatchPremiresData(D) 
+    console.log(...D,"both data")
+  } catch {
+    throw Error("Promise failed");
+  }
+
+};
   return (
-    <Container position={"relative"} p={0} m={0} border={0}>
+    <>
+    {PRODUCTS.length> 0  ?<Container position={"relative"} p={0} m={0} border={0}>
     <Flex 
       minH={'50vh'}
       align={'center'}
@@ -35,7 +62,9 @@ const AdmindataManage = () => {
             Admin's added Products
           </Heading>
           {/* maping----------------------------------> */}
+         
           {PRODUCTS.length> 0 && PRODUCTS.map((item)=>
+
                     <VStack key={item.id} bg={"whiteAlpha.800"} color={"blackAlpha.900"} p={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
                     <Image m={0} width={100} height={57} src={item.image} alt={item.title}/>
                     <VStack>
@@ -69,12 +98,11 @@ const AdmindataManage = () => {
                   </Button>
                 </Stack>
                   </VStack>
-          )}
-
-        </Stack>
+          )}</Stack>
        </Stack>
     </Flex>
-    </Container>
+    </Container>:""}
+    </>
   )
 }
 

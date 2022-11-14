@@ -3,17 +3,15 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { background, Box, Button, Image, VStack } from "@chakra-ui/react"
-import { Episode } from './episode'
+import { Box, Button, Image, Stack, VStack } from "@chakra-ui/react"
 import { Cast } from './cast'
 import { Carausel } from './carausel'
 import tv from "../video/tv.mp4"
 import { SinglepageFooter } from './singlepagefooter'
-import Video from './NextPage_video';
+
 
 export const Nextpage = () => {
     const [singlepagedata,setSinglepagedata] = useState({})
-    const kali = "tv.mp4"
     const params = useParams()
     let id =params.id
     let category =params.category
@@ -24,9 +22,6 @@ axios.get(`https://jewel-sneaky-dingo.glitch.me//${category}/${id}`)
 .then((res)=>{setSinglepagedata(res.data)})
 .catch((err)=>{console.log(err)})
 }
-
-
-console.log(singlepagedata.episode)
 useEffect(()=>{
 SingleData()
 
@@ -40,14 +35,7 @@ color :"black",
 borderColor :"transparent",
 fontWeight : "600"
 }
-const sty={
-    frameborder:"0" ,
-            marginheight:"0" ,
-            marginwidth:"0", 
-            width:"100%" ,
-            height:"100%" ,
-            scrolling:"auto"
-}
+
   return (
    <Box  >
     <Box  style={{border  : "1px solid transparent" , position:"absolute" ,marginLeft :"100px",
@@ -55,7 +43,7 @@ marginTop:"40px" ,color:"white"
 }}   
 ><h2>{singlepagedata.title}</h2></Box>
 {
-    singlepagedata.video ?   <iframe  style={{height :"500px", width:"100%",padding:"10px"}}   src= {tv} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
+    singlepagedata.video ?   <iframe  title='video' style={{height :"500px", width:"100%",padding:"10px"}}   src= {tv} allowFullScreen /> :  <Image src={singlepagedata.image} w={"100%"}  />     
 }
 
     <VStack display="flex" margin="auto" direction='column'
@@ -68,6 +56,7 @@ marginTop:"40px" ,color:"white"
     </VStack>
 
 
+<Stack>
 <Box height="25px" width ="auto"  border="1px solid transparent"  ml ="250px" position="absolute"
 mt="-100px" color="white"
 >
@@ -82,7 +71,7 @@ mt="-100px" color="white"
 <Box>
     <Cast  id={id} />
 </Box>
-
+</Stack>
 
 <Box border ="1px solid transparent " backgroundColor="#f0f0f3"   >
     <SinglepageFooter />

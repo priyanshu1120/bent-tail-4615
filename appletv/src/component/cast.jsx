@@ -12,12 +12,9 @@ export const Cast = () => {
     .then((res)=>{setData(res.data)})
     .catch((err)=>{console.log(err)})
     }
-    
     useEffect(()=>{
     Getdata()
     },[])
-
-
   return (
     <div>
 <Carausel2  data={data?.cast}  />

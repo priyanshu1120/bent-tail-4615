@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {} from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Nextpage } from '../component/nextpage'
 import Navbar from '../Components/Navbar'
@@ -15,6 +15,7 @@ import Payments from '../Components/Payment/Payment'
 import PrivateRoute from '../Auth/PrivateRoutes'
 import SignupAdminPage from '../Pages/SignupAdminPage'
 import { SignupAdmin } from '../Components/SignupAdmin'
+import WrongRoute from '../Components/WrongRoute'
 
 export const MainRoutes = () => {
   return (
@@ -29,9 +30,10 @@ export const MainRoutes = () => {
         <Route path="/adminlogin" element={<SignupAdmin/>} />
         <Route path="/adminsignup" element={<SignupAdminPage/>} />
         <Route path="/reset-password" element={<ResetPassword/>} />
-        <Route path="/admin/:editdata/:id" element={<EditCartData/>} /> 
-        <Route path="/category/:id" element={<Nextpage/>} />
+        <Route path={`/:displayName/:id/edit`} element={<EditCartData/>} /> 
+        <Route path="/:category/:id/:title" element={<Nextpage/>} />
       <Route path="/payment" element={<PrivateRoute><Payments/></PrivateRoute>} />
+      <Route path="*" element={<WrongRoute/>} />
       </Routes>
     </div>
   );

@@ -1,7 +1,7 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/skyblue';
 import '@splidejs/react-splide/css/sea-green';
-import { useRef, useState } from 'react';
+import {  useState } from 'react';
 import { useEffect } from 'react';
 import axios from "axios";
 import { Img } from '@chakra-ui/react';

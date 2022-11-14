@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import React from "react";
 import "./herovideo.css";
 import Payment from "./Payment/Payment";
 
@@ -9,7 +8,7 @@ const Herovideo = () => {
     <div className="title-video-container">
       <div className="mask">
         
-        <video className="base-img" autoPlay playsInline >
+        <video className="base-img" autoPlay={true} playsInline >
           <source src={src} type="video/mp4" />
         </video>
       </div>

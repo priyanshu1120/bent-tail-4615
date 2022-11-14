@@ -1,7 +1,7 @@
-import React,{ useEffect, useState }  from 'react'
+import React,{ useState }  from 'react'
 import {Flex,Box,FormControl,FormLabel,Input,Stack,Button, Heading, Text, useColorModeValue, Container,} from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ADD_DATA, EDIT_DATA, GET_PRODUCTS } from '../Redux/App/action';
+import { useDispatch,  } from 'react-redux';
+import {  EDIT_DATA, GET_PRODUCTS } from '../Redux/App/action';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoMdArrowRoundBack } from "react-icons/io";
@@ -42,7 +42,7 @@ const {id} =useParams();
       
     }
   return (
-    <Stack justifyContent={"center"} alignItems={"center"}>
+    <Stack justifyContent={"center"} alignItems={"center"} spacing={4} >
     <Container p={0} m={0} border={0}>
     <Flex 
       minH={'50vh'}
@@ -64,7 +64,7 @@ const {id} =useParams();
           bg={useColorModeValue('white', 'gray.700')}
           boxShadow={'lg'}
           p={8}>
-          <Stack spacing={4}>
+          <Stack >
           <form>
             <FormControl id="Title" >
                   <FormLabel>Title</FormLabel>

@@ -1,36 +1,12 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback } from "react";
 import useRazorpay from "react-razorpay";
 import logo from "../../Img/mytv.jpg";
-import SuccessAlert from "./SuccessAlert";
-import swal from "sweetalert";
-import { onAuthStateChanged } from "firebase/auth";
-import { UserAuth } from "../../Utils/firebase";
 
+import swal from "sweetalert";
 export default function Payments({ price, label }) {
   const Razorpay = useRazorpay();
-  const [success, setSuccess] = useState(false);
-  const [avatar,setAvatar] =useState(true);
-  useEffect(()=>{
-    onAuthStateChanged(UserAuth, (user) => {
-      if (user) {
-        setAvatar(true)
-      } else {
-        setAvatar(false)
-      }
-    });
-  },[])
-
-  useEffect(() => {
-    // setTimeout(() => {
-    //   handlePayment();
-    // }, 100);
-
-    console.log("somehting");
-  }, []);
-
   const handlePayment = useCallback(async () => {
     const order = {
-      //   amount: 500,
       currency: "INR",
       receipt: "qwsaq1",
     };
@@ -66,7 +42,6 @@ export default function Payments({ price, label }) {
     const rzpay = new Razorpay(options);
     rzpay.open();
   }, [Razorpay]);
-  console.log(success);
   return (
     <div className="App">
       <button

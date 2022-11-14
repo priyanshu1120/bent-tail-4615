@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, extendTheme, ChakraProvider, Menu,   Center, MenuDivider, MenuItem, Tooltip, VStack, MenuGroup, AccordionPanel, AccordionItem, AccordionButton, AccordionIcon, Accordion } from '@chakra-ui/react';
+import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, extendTheme, ChakraProvider, Menu} from '@chakra-ui/react';
 import {  CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
-import { Link, NavLink, useNavigate, } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Weblogo from "../Img/mytv.jpg"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { MdOutlineManageAccounts } from "react-icons/md";
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged,  } from 'firebase/auth';
 import { UserAuth } from '../Utils/firebase';
-import { toast } from 'react-toastify';
-import { GiPowerButton } from 'react-icons/gi';
 import { Drawers } from './Drawer';
 import { useEffect } from 'react';
 const modaltheme = extendTheme({
@@ -26,26 +24,14 @@ const modaltheme = extendTheme({
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-  const [displayName,setDisplayName]=useState('');
-  const navigate =useNavigate();
+
   const [avatar,setAvatar] =useState(false);
-  
-  const HandleLogOut =()=>{
-  signOut(UserAuth).then(() => {
-  toast.success("Logout Sucessfull")
-  navigate("/admin")
-}).catch((error) => {
-  toast.error(error.massege)
-})};
 
 useEffect(()=>{
   onAuthStateChanged(UserAuth, (user) => {
     if (user) {
-      const uid = user.uid;
-      setDisplayName(user.displayName)
       setAvatar(true);
     } else {
-      setDisplayName('')
       setAvatar(false)
     }
   });
@@ -83,7 +69,7 @@ useEffect(()=>{
               <InputGroup >
               <InputLeftElement pointerEvents='none' children={<SearchIcon/>} /> 
               <Input color={"whiteAlpha.900"}  type='text' htmlSize={12} width="auto" placeholder='Search' />
-              </InputGroup>
+              </InputGroup> 
               {avatar?"":<InputGroup><Link ><Button onClick={onOpen} leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' variant='solid'>Sign up</Button></Link></InputGroup>}
               <Menu><Drawers/></Menu>
               </HStack>

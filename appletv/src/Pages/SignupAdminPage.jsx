@@ -1,4 +1,4 @@
-import {  Box, Flex, Heading, HStack, Image,  Stack } from '@chakra-ui/react'
+import {  Box, Heading, HStack, Image,  Stack } from '@chakra-ui/react'
 import React from 'react'
 import { Footer } from '../Components/Footer'
 import { SignupAdmin } from '../Components/SignupAdmin'

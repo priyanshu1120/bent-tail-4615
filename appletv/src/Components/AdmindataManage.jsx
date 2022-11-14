@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import { DELETE_DATA, GET_PRODUCTS } from '../Redux/App/action';
 import { useNavigate,  } from 'react-router-dom';
-import CommonDetailSlider from '../CustomComponents/CommonDetailSlider';
+import { onAuthStateChanged } from 'firebase/auth';
+import { UserAuth } from '../Utils/firebase';
 const AdmindataManage  = () => {
+  const [displayName,setDisplayName]=useState('');
     const PRODUCTS= useSelector((state)=> state.AppReducer.products)
     const dispatch =useDispatch();
     const navigate =useNavigate();
@@ -14,39 +16,23 @@ const AdmindataManage  = () => {
         dispatch(DELETE_DATA(id))  
     }
     const handleEdit =(id)=>{
-       navigate(`/admin/editdata/${id}`)
+       navigate(`/${displayName}/${id}/edit`)
     }
     useEffect(()=>{
       if(PRODUCTS.length===0){
           dispatch(GET_PRODUCTS())
       }
   },[])
+  useEffect(()=>{
+    onAuthStateChanged(UserAuth, (user) => {
+      if (user) {
+        setDisplayName(user.displayName)
+      } else {
+        setDisplayName('')
+      }
+    });
+  },[])
 
-
-  const [watchPremiresdata,setWatchPremiresData]=useState([]);
-let D=[];
-useEffect(()=>{
-    fetchBothdata()
-},[])
-
-const fetchBothdata = async () => {
-  try {
-    const res = await Promise.all([
-      fetch("https://appletv-server.vercel.app/watchPremiers"),
-      fetch("https://bubbly-blossom-witch.glitch.me/products")
-      
-    ]);
-    const data = await Promise.all(res.map(r => r.json()))
-    data.forEach((i)=>
-    D.push(...i.data)
-    )
-    setWatchPremiresData(D) 
-    console.log(...D,"both data")
-  } catch {
-    throw Error("Promise failed");
-  }
-
-};
   return (
     <>
     {PRODUCTS.length> 0  ?<Container position={"relative"} p={0} m={0} border={0}>
@@ -56,16 +42,27 @@ const fetchBothdata = async () => {
       justify={'center'}
       p={0} m={0}
    >
-      <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} >
+      <Stack  mx={'auto'} maxW={'lg'} >
         <Stack align={'center'}>
           <Heading fontSize={'4xl'} textAlign={'center'}>
             Admin's added Products
           </Heading>
           {/* maping----------------------------------> */}
-         
+          
+         <Box border={"1px solid red"} overflow="auto" h={300} mt={5}  
+  sx={{
+    '&::-webkit-scrollbar': {
+      width: '16px',
+      borderRadius: '8px',
+      backgroundColor: `rgba(0, 0, 0, 0.05)`,
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: `rgba(0, 0, 0, 0.05)`,
+    },
+  }}>
           {PRODUCTS.length> 0 && PRODUCTS.map((item)=>
 
-                    <VStack key={item.id} bg={"whiteAlpha.800"} color={"blackAlpha.900"} p={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
+                    <VStack  key={item.id} bg={"whiteAlpha.800"} color={"blackAlpha.900"} p={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
                     <Image m={0} width={100} height={57} src={item.image} alt={item.title}/>
                     <VStack>
                         <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {item.title}</Text>
@@ -98,10 +95,14 @@ const fetchBothdata = async () => {
                   </Button>
                 </Stack>
                   </VStack>
-          )}</Stack>
+          )}</Box></Stack>
+           <Text mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>
+          <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length}</Text>
        </Stack>
     </Flex>
-    </Container>:""}
+    </Container>:
+    <Image src='https://media.istockphoto.com/id/841884438/vector/empty-shopping-bag-icon-cute-disappointed-shopping-bag-flat-thin-line-design-isolated-vector.jpg?s=612x612&w=0&k=20&c=q4-NaJiL4BG8kIEIsU5N0Wgy_9zv6_dJutV1qfs1_x4=' alt="You Din't added any thing yet" />}
+    
     </>
   )
 }

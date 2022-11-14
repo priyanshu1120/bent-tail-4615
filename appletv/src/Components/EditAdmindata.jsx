@@ -42,6 +42,7 @@ const {id} =useParams();
       
     }
   return (
+    <Stack justifyContent={"center"} alignItems={"center"}>
     <Container p={0} m={0} border={0}>
     <Flex 
       minH={'50vh'}
@@ -109,5 +110,6 @@ const {id} =useParams();
       </Stack>
     </Flex>
     </Container>
+    </Stack>
   );
 }

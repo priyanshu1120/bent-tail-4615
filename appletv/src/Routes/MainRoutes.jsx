@@ -30,7 +30,7 @@ export const MainRoutes = () => {
         <Route path="/adminsignup" element={<SignupAdminPage/>} />
         <Route path="/reset-password" element={<ResetPassword/>} />
         <Route path="/admin/:editdata/:id" element={<EditCartData/>} /> 
-        <Route path="/:category/:id" element={<Nextpage/>} />
+        <Route path="/category/:id" element={<Nextpage/>} />
       <Route path="/payment" element={<PrivateRoute><Payments/></PrivateRoute>} />
       </Routes>
     </div>

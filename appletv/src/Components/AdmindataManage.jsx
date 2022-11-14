@@ -14,7 +14,7 @@ const AdmindataManage  = () => {
         dispatch(DELETE_DATA(id))  
     }
     const handleEdit =(id)=>{
-       navigate(`/editdata/${id}`)
+       navigate(`/admin/editdata/${id}`)
     }
     useEffect(()=>{
       if(PRODUCTS.length===0){

@@ -74,7 +74,7 @@ export const  Drawers =()=> {
                         <Center><Text as={"b"} fontSize="3xl">{diplayName}</Text> </Center>
                         </VStack>:
                         <VStack>
-                            <Box flex='1'color={"blackAlpha.700"}  as={"b"} textAlign="left">For Users</Box><Spacer/>
+                            <Box flex='1' color={"blackAlpha.700"}  as={"b"} textAlign="left">For Users</Box><Spacer/>
                            <Link to={"/signup"}> <Button colorScheme='blue' size={"lg"} variant='outline'>Sign Up as a User</Button></Link><Spacer/>
                            <Link to={"/login"}> <Button colorScheme='blue' size={"lg"} variant='outline'>Sign In as a User</Button></Link>
                            <Spacer/>

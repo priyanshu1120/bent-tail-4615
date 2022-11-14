@@ -118,7 +118,7 @@ function CommonDetailSlider({ url }) {
         {data.map((item) => (
           <div className="common-detail-slider-card" key={item.id}>
             <div className="common-detail-slider-card-top">
-              <Link to={`/${pathurl}/${item.id}/${item.title}`}>
+              <Link to={`/${pathurl}/${item.id}/${item.title}/movie`}>
                 <img
                   src={
                     defaultImage[item.title] === item.title

@@ -31,7 +31,7 @@ export const MainRoutes = () => {
         <Route path="/adminsignup" element={<SignupAdminPage/>} />
         <Route path="/reset-password" element={<ResetPassword/>} />
         <Route path={`/:displayName/:id/edit`} element={<EditCartData/>} /> 
-        <Route path="/:category/:id/:title" element={<Nextpage/>} />
+        <Route path="/:category/:id/:title/movie" element={<Nextpage/>} />
       <Route path="/payment" element={<PrivateRoute><Payments/></PrivateRoute>} />
       <Route path="*" element={<WrongRoute/>} />
       </Routes>

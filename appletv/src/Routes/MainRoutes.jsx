@@ -11,10 +11,11 @@ import { EditCartData } from '../Components/EditAdmindata'
 import ResetPassword from '../Pages/ResetPassword'
 import SignupPage from '../Pages/SignupPage'
 import SigninPage from '../Pages/SigninPage'
-import { SigninAdmin } from '../Components/SigninAdmin'
-import { SignupAdmin } from '../Components/SignupAdmin'
 import Payments from '../Components/Payment/Payment'
 import PrivateRoute from '../Auth/PrivateRoutes'
+import SignupAdminPage from '../Pages/SignupAdminPage'
+import { SignupAdmin } from '../Components/SignupAdmin'
+
 export const MainRoutes = () => {
   return (
     <div>
@@ -25,11 +26,11 @@ export const MainRoutes = () => {
         <Route path="/signup" element={<SignupPage/>} />
         <Route path="/login" element={<SigninPage/>} />
         <Route path="/admin" element={<Admin/>} />
-        <Route path="/adminlogin" element={<SigninAdmin/>} />
-        <Route path="/adminsignup" element={<SignupAdmin/>} />
+        <Route path="/adminlogin" element={<SignupAdmin/>} />
+        <Route path="/adminsignup" element={<SignupAdminPage/>} />
         <Route path="/reset-password" element={<ResetPassword/>} />
-        <Route path="/:editdata/:id" element={<EditCartData/>} /> 
-      <Route path="/:category/:id" element={<Nextpage/>} />
+        <Route path="/admin/:editdata/:id" element={<EditCartData/>} /> 
+        <Route path="/:category/:id" element={<Nextpage/>} />
       <Route path="/payment" element={<PrivateRoute><Payments/></PrivateRoute>} />
       </Routes>
     </div>

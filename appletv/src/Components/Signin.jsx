@@ -85,7 +85,6 @@ signInWithEmailAndPassword(UserAuth, email, password)
             Sign In
           </Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
-          Wellcome Back.
           </Text>
         </Stack>
         <Box

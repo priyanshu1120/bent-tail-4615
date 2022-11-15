@@ -1,12 +1,20 @@
 
-import {  Heading, Image, SimpleGrid } from '@chakra-ui/react'
-import React, {} from 'react'
+import {  Heading, SimpleGrid } from '@chakra-ui/react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { AdminAddcard } from '../Components/AdminAddcard'
 import AdmindataManage from '../Components/AdmindataManage'
+import { GET_PRODUCTS } from '../Redux/App/action'
 
 export const Admin = () => {
-
+  const PRODUCTS= useSelector((state)=> state.AppReducer.products)
+  const dispatch =useDispatch();
+  useEffect(()=>{
+    if(PRODUCTS.length>=0){
+        dispatch(GET_PRODUCTS())
+    }
+},[])
   return (
     <>
     <Heading   fontSize={'4xl'} textAlign={'center'}>Admin's panel</Heading>

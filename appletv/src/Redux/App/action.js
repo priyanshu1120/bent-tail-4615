@@ -45,13 +45,14 @@ export const DELETE_PRODUCT__SUCESS_AGAIN_fn=(id)=>{
 export const DELETE_PRODUCT_FAILURE_AGAIN_fn=()=>{
     return {type: DELETE_PRODUCT_FAILURE_AGAIN}
 }
-
+// Get Products at Admin-------------------------------------------------------------------------------->
 export const GET_PRODUCTS =(params) =>(dispatch)=>{
     dispatch(GET_PRODUCT_LOADING_fn())
    return axios.get("https://bubbly-blossom-witch.glitch.me/products",params)
     .then((r)=> {dispatch(GET_PRODUCT_SUCESS_fn(r.data))})
     .catch((e)=>{GET_PRODUCT_FAILURE_fn(e)})
 }
+// Add data to Admin------------------------------------------------------------------------------------>
 export const ADD_DATA=(payload)=>(dispatch)=>{
     dispatch(ADD_PRODUCT_REQUESTfn)
    return axios.post("https://bubbly-blossom-witch.glitch.me/products",payload)
@@ -61,6 +62,7 @@ export const ADD_DATA=(payload)=>(dispatch)=>{
     })
  .catch((e)=>{ADD_PRODUCT__FAILURE_fn(e)})
 }
+// Add data to Watchpremiers----------------------------------------------------------------------------->
 export const ADD_DATA_TO_WATCH_PRE=(payload)=>(dispatch)=>{
     dispatch(ADD_PRODUCT_REQUEST_AGAIN_fn)
    return axios.post("https://jewel-sneaky-dingo.glitch.me/watchPremiers",payload)
@@ -70,6 +72,7 @@ export const ADD_DATA_TO_WATCH_PRE=(payload)=>(dispatch)=>{
     })
  .catch((e)=>{ADD_PRODUCT__FAILURE_AGAIN_fn(e)})
 }
+// Delete Data from Admin--------------------------------------------------------------------------------->
 export const DELETE_DATA=(id)=>(dispatch)=>{
     dispatch(DELETE_PRODUCT_REQUEST_fn)
    return axios.delete(`https://bubbly-blossom-witch.glitch.me/products/${id}`)
@@ -78,17 +81,27 @@ export const DELETE_DATA=(id)=>(dispatch)=>{
       dispatch(GET_PRODUCTS())
     }).catch((e)=>{DELETE_PRODUCT_FAILURE_fn(e)})
 }
-// export const DELETE_DATA_TO_WATCH_PRE=(id)=>(dispatch)=>{
-//     dispatch(DELETE_PRODUCT_REQUEST_AGAIN_fn)
-//    return axios.delete(`https://jewel-sneaky-dingo.glitch.me/watchPremiers/${id}`)
-//     .then((r)=>{ 
-//       dispatch(DELETE_PRODUCT__SUCESS_AGAIN_fn())
-//     }).catch((e)=>{DELETE_PRODUCT_FAILURE_AGAIN_fn(e)})
-// }
-// Patch Request-------------------------------------------->
+// Delete Data from WatchPremires------------------------------------------------------------------------->
+export const DELETE_DATA_TO_WATCH_PRE=(id)=>(dispatch)=>{
+    dispatch(DELETE_PRODUCT_REQUEST_AGAIN_fn)
+   return axios.delete(`https://jewel-sneaky-dingo.glitch.me/watchPremiers/${id}`)
+    .then((r)=>{ 
+      dispatch(DELETE_PRODUCT__SUCESS_AGAIN_fn())
+      dispatch(GET_PRODUCTS())
+    }).catch((e)=>{DELETE_PRODUCT_FAILURE_AGAIN_fn(e)})
+}
+// Edit data from Admin ----------------------------------------------------------------------------------->
 export const EDIT_DATA =(id,payload) =>(dispatch)=>{
     dispatch({type:PATCH_BOOK_LOADING})
    return axios.patch(`https://bubbly-blossom-witch.glitch.me/products/${id}`,payload)
+    .then((r)=>  ({type:PATCH_BOOK_SUCESS,payload:r.data}))
+    .catch((e)=>({type:PATCH_BOOK_FAILURE,e}))
+    
+}
+// Edit data from Watchpremires ---------------------------------------------------------------------------->
+export const EDIT_DATA_AGAIN =(id,payload) =>(dispatch)=>{
+    dispatch({type:PATCH_BOOK_LOADING})
+   return axios.patch(`https://jewel-sneaky-dingo.glitch.me/watchPremiers/${id}`,payload)
     .then((r)=>  ({type:PATCH_BOOK_SUCESS,payload:r.data}))
     .catch((e)=>({type:PATCH_BOOK_FAILURE,e}))
 }

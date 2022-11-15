@@ -6,6 +6,7 @@ import { DELETE_DATA, DELETE_DATA_TO_WATCH_PRE, GET_PRODUCTS } from '../Redux/Ap
 import { useNavigate,  } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { UserAuth } from '../Utils/firebase';
+import { toast } from 'react-toastify';
 const AdmindataManage  = () => {
   const [displayName,setDisplayName]=useState('');
     const PRODUCTS= useSelector((state)=> state.AppReducer.products)
@@ -13,13 +14,15 @@ const AdmindataManage  = () => {
     const navigate =useNavigate();
     const handelDeletedata =(id)=>{
         dispatch(DELETE_DATA(id))  
-        // dispatch(DELETE_DATA_TO_WATCH_PRE(id))
+        dispatch(DELETE_DATA_TO_WATCH_PRE(id))
+        toast.success("Content Deleted Successfully")
+        
     }
-    const handleEdit =(id)=>{
+    const handleEdit =(id,title)=>{
        navigate(`/${displayName}/${id}/edit`)
     }
     useEffect(()=>{
-      if(PRODUCTS.length===0){
+      if(PRODUCTS.length>=0){
           dispatch(GET_PRODUCTS())
       }
   },[])
@@ -61,8 +64,8 @@ const AdmindataManage  = () => {
     },
   }}>
           {PRODUCTS.length> 0 && PRODUCTS.map((item)=>
-
-                    <VStack  key={item.id} bg={"whiteAlpha.800"} color={"blackAlpha.900"} p={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
+  item.title && item.image && item.season&& item.season?
+                  <VStack  key={item.id} bg={"whiteAlpha.800"} color={"blackAlpha.900"} p={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
                     <Image m={0} width={100} height={57} src={item.image} alt={item.title}/>
                     <VStack>
                         <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {item.title}</Text>
@@ -78,7 +81,7 @@ const AdmindataManage  = () => {
                     size='sm'
                     _hover={{
                       bg: 'red.500',
-                    }}  onClick={()=>handelDeletedata(item.id)} >
+                    }}  onClick={()=>handelDeletedata(item.id,item.title)} >
                     Delete
                   </Button></Box>
                   <Button
@@ -95,9 +98,11 @@ const AdmindataManage  = () => {
                   </Button>
                 </Stack>
                   </VStack>
+                  :""
           )}</Box></Stack>
-           <Text mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>
-          <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length}</Text>
+          
+          {PRODUCTS.length>2?<Text mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>:""}
+          <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length -1}</Text>
        </Stack>
     </Flex>
     </Container>:

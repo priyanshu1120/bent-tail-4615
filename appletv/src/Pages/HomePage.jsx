@@ -1,5 +1,5 @@
 import { Box,Img,Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { } from 'react'
 import Faq from '../Components/Faq'
 import { Footer } from '../Components/Footer'
 import Herovideo from '../Components/Herovideo'
@@ -9,8 +9,9 @@ import StaticSlider2 from '../Components/StaticSlider/StaticSlider2'
 import CommonDetailSlider from '../CustomComponents/CommonDetailSlider'
 import CommonSlider from '../CustomComponents/CommonSlider'
 
-
 const HomePage = () => {
+
+
   
   return (
     <div>

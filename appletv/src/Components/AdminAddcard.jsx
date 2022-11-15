@@ -14,6 +14,7 @@ const [form, setForm]= useState({
 const dispatch = useDispatch();
 const formclear =()=>{
   setForm({
+    ...form,
     title: "",
     image: "",
     description:"",
@@ -23,7 +24,7 @@ const formclear =()=>{
 }
 
 const OnChangeValue =(e)=>{
-  let{name:key,value,}= e.target ;
+  let{name:key,value}= e.target ;
 setForm({
       ...form,
       [key]:value
@@ -75,7 +76,7 @@ const OnsubmitPress =(e)=>{
           <form>
             <FormControl id="Title" isRequired>
                   <FormLabel>Title</FormLabel>
-                  <Input type="text"onChange={OnChangeValue}  name="title" />
+                  <Input type="text"onChange={OnChangeValue}   name="title" />
                 </FormControl>
             <FormControl id="Image" isRequired>
               <FormLabel>Image</FormLabel>
@@ -83,11 +84,11 @@ const OnsubmitPress =(e)=>{
             </FormControl>
             <FormControl id="Description" isRequired>
                   <FormLabel>Description</FormLabel>
-                  <Input type="text" onChange={OnChangeValue} name="description"  />
+                  <Input type="text" onChange={OnChangeValue}  name="description"  />
                 </FormControl>
             <FormControl id="Time" isRequired>
               <FormLabel>Seasons</FormLabel>
-              <Input type="text" onChange={OnChangeValue} name="season"/>
+              <Input type="text" onChange={OnChangeValue}  name="season"/>
             </FormControl>   
             <Stack pt={5} spacing={6} direction={['column', 'row']}>
           <Box><Button

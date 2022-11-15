@@ -1,11 +1,14 @@
 # bent-tail-4615
+## Firebase Deploy Link1 : https://mytvapp-3fd31.web.app/
+## Vercel Deploy Link1 : https://appletv-iakashmondal.vercel.app/
+## Vercel Deploy Link2 : https://appletv-phi.vercel.app/
 
 ## Team Mambers
-- priyanshu kasuhik ==  simple courser home page component, features= future release, section2,search, payment gatway
-- shahil khan-api generator backend, search, payment gatway
+- priyanshu kasuhik ==  simple courser home page component, features= future release, section2, payment gatway
+- shahil khan-api generator backend,  payment gatway
 - prateek = single movie page, hero section ,crouser with api, 
-- akash mandol = navbar , footer,search, loginfunctionality, signup functionality
-- risav = api generator backend ,  search, crouser with api, section 3 
+- akash mandol = navbar , footer,search, loginfunctionality with firebase, signup functionality with firebase,Admin panel,F.a.q,Routig,Debuging
+- risav = api generator backend ,  crouser with api, section 3 
 
 movies  = [
   

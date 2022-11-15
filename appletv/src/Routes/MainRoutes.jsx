@@ -14,8 +14,8 @@ import SigninPage from '../Pages/SigninPage'
 import Payments from '../Components/Payment/Payment'
 import PrivateRoute from '../Auth/PrivateRoutes'
 import SignupAdminPage from '../Pages/SignupAdminPage'
-import { SignupAdmin } from '../Components/SignupAdmin'
 import WrongRoute from '../Components/WrongRoute'
+import SigninAdminPage from '../Pages/SignInAdmin.jsx'
 
 export const MainRoutes = () => {
   return (
@@ -27,7 +27,7 @@ export const MainRoutes = () => {
         <Route path="/signup" element={<SignupPage/>} />
         <Route path="/login" element={<SigninPage/>} />
         <Route path="/admin" element={<Admin/>} />
-        <Route path="/adminlogin" element={<SignupAdmin/>} />
+        <Route path="/adminlogin" element={<SigninAdminPage/>} />
         <Route path="/adminsignup" element={<SignupAdminPage/>} />
         <Route path="/reset-password" element={<ResetPassword/>} />
         <Route path={`/:displayName/:id/edit`} element={<EditCartData/>} /> 

@@ -14,29 +14,34 @@ export const EditCartData =()=> {
     const[movieDes,setMovieDes]=useState("");
     const [movieimage, setMovieImage]= useState("")
     const [movieSeason, setMovieSeason]= useState("")
-    const [viewPrevData, setviewPrevData]= useState(false)
-    const [viewCruntData, setviewCruntData]= useState(false)
+    // const [viewPrevData, setviewPrevData]= useState(false)
+    // const [viewCruntData, setviewCruntData]= useState(false)
+    const[newEditItem,setEditItem]=useState([])
+const id=useParams();
+console.log("🚀 ~ file: EditAdmindata.jsx ~ line 20 ~ EditCartData ~ Parḁms_id", id)
+    const navigate =useNavigate();
+
     const PRODUCTS= useSelector((state)=> state.AppReducer.products)
-const handelviewPrevData=()=>{
-  setviewPrevData(true);
-}
-const handelviewCruntData=()=>{
-  setviewCruntData(false);
-}
-const handelHidePrevData=()=>{
-  setviewPrevData(true);
-}
-const handelHideCruntData=()=>{
-  setviewCruntData(false);
-}
+// const handelviewPrevData=()=>{
+//   setviewPrevData(true);
+// }
+// const handelviewCruntData=()=>{
+//   setviewCruntData(false);
+// }
+// const handelHidePrevData=()=>{
+//   setviewPrevData(true);
+// }
+// const handelHideCruntData=()=>{
+//   setviewCruntData(false);
+// }
 const dispatch = useDispatch();
 const formclear =()=>{
 navigate("/admin")
   toast.success("Edit Cancled")
 }
-const {id} =useParams();
-    const navigate =useNavigate();
+
  const handelUpdate =()=>{
+
       const payload={
       }
       if(moviename !== ""){
@@ -70,17 +75,23 @@ const {id} =useParams();
       if(PRODUCTS.length>=0){
           dispatch(GET_PRODUCTS())   
       }},[])
-      console.log(viewPrevData)
+  //  useEffect(()=>{
+  //   if(id){
+  //     const olddḁ̥̥̥ta= PRODUCTS.map((item)=>
+
+  //     )
+  //   }
+  //  },[])
   return (
     <SimpleGrid  mt={20} columns={[1,3,3]}>
 <HStack  justify={"center"} align={"center"}>
   <VStack>
-<HStack ><Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>Privous Data</Text>
+{/* <HStack ><Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>Privous Data</Text>
 <>{viewPrevData?<Button onClick={handelHidePrevData} variant={"ghost"} color='red.500' ><GrFormView size={30} /></Button>
 :<Button variant={"ghost"} onClick={handelviewPrevData}  color='red.500' ><GrFormViewHide size={30} /></Button>}</>
-</HStack>
-
-{viewPrevData?<>{PRODUCTS.length> 0 && PRODUCTS.map((item) =>{
+</HStack> */}
+<Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>Privous Data</Text>
+<>{PRODUCTS.length> 0 && PRODUCTS.map((item) =>{
 
 return (
   item.title && item.image && item.season&& item.season?
@@ -98,20 +109,21 @@ return (
                     </VStack>
               </>
                   </VStack>:"")})}
-  </>:""}
+  </>
                   </VStack>
                   </HStack>
 
 
-                  <HStack ><Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Data</Text>
+                  {/* <HStack ><Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Data</Text>
 <>{viewCruntData?<Button onClick={handelviewCruntData} variant={"ghost"} color='red.500' ><GrFormView size={30} /></Button>
 :<Button variant={"ghost"} onClick={handelHideCruntData}  color='red.500' ><GrFormViewHide size={30} /></Button>}</>
-</HStack>
+</HStack> */}
 
 
-{viewCruntData?<HStack  justify={"center"} align={"center"}>
+<HStack  justify={"center"} align={"center"}>
+<Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Data</Text>
   <VStack>
-<Text  color={"blue.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}></Text>
+<Text  color={"blue.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Date Preview</Text>
 <VStack  bg={"whiteAlpha.800"} h={450} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
               <>
                     <Image  borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"}  src={movieimage} alt={moviename}/>
@@ -129,7 +141,7 @@ return (
               </>
                   </VStack>
                   </VStack>
-                  </HStack>:""}
+                  </HStack>
 
     <Stack justifyContent={"center"} alignItems={"center"} spacing={4} >
     <Container p={0} m={0} border={0}>

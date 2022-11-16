@@ -9,6 +9,8 @@ import { onAuthStateChanged,  } from 'firebase/auth';
 import { UserAuth } from '../Utils/firebase';
 import { Drawers } from './Drawer';
 import { useEffect } from 'react';
+import SearchBar from './SearchBar';
+import { useCallback } from 'react';
 const modaltheme = extendTheme({
   components: {
     Modal: {
@@ -24,22 +26,27 @@ const modaltheme = extendTheme({
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-
+  const [ SearchInputText,setSearchInputText]=useState("");
   const [avatar,setAvatar] =useState(false);
-
-useEffect(()=>{
-  onAuthStateChanged(UserAuth, (user) => {
-    if (user) {
-      setAvatar(true);
-    } else {
-      setAvatar(false)
-    }
-  });
-},[])
+  const handelQuery = (e) => {
+    setSearchInputText(e.target.value)
+  }
+  const handelsetSearchInputText= useCallback((value)=>{
+    setSearchInputText(value) ;
+  },[])
+  useEffect(()=>{
+      onAuthStateChanged(UserAuth, (user) => {
+          if (user) {
+                setAvatar(true);
+          } else {
+              setAvatar(false)
+          }
+      });
+  },[])
   return (
     <>
       <div >
-        <Box zIndex={"10"} position="fixed" top={0} left={0} w={"100%"} bg={useColorModeValue('black', 'gray.600')} px={10} as="header"  >
+        <Box zIndex={1000} position="fixed"p={0}  top={0} left={0} w={"100%"} bg={useColorModeValue('black', 'gray.600')} px={10} as="header"  >
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'} px={[2, 3, 2]} >
           <IconButton
             size={'md'}
@@ -68,7 +75,8 @@ useEffect(()=>{
 
               <InputGroup >
               <InputLeftElement pointerEvents='none' children={<SearchIcon/>} /> 
-              <Input color={"whiteAlpha.900"}  type='text' htmlSize={12} width="auto" placeholder='Search' />
+              <Input color={"whiteAlpha.900"} value={ SearchInputText}  onChange={handelQuery}  type='text' htmlSize={12} width="auto" placeholder='Search' />
+              <SearchBar query={SearchInputText} setQuary={handelsetSearchInputText} />
               </InputGroup> 
               {avatar?"":<InputGroup><Link ><Button onClick={onOpen} leftIcon={<MdOutlineManageAccounts />} colorScheme='twitter' variant='solid'>Sign up</Button></Link></InputGroup>}
               <Menu><Drawers/></Menu>

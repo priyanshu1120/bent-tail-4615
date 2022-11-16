@@ -6,41 +6,45 @@ import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 const Faq = () => {
 
   return (
-    <Box p={50} 
-    bg={useColorModeValue('blackAlpha.800', 'blackAlpha.800')}
-    color={useColorModeValue('white', 'white')}>
+    <Box p={50} bg={useColorModeValue('blackAlpha.800', 'blackAlpha.800')}
+                 color={useColorModeValue('white', 'white')}>
       <Text pb={5} textAlign={"center"} fontSize={["2xl","5xl","5xl"]}>Questions? & Answers</Text>
       <Container >
-      <Accordion allowToggle>
-  <AccordionItem>
-    <h2>
-      <AccordionButton _expanded={{ bg: 'black', color: 'white' }}>
-        <Box flex='1' textAlign='left'>
-          What is My Tv+?
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-    Apple TV+ is a streaming service from Apple. It features exclusive Apple Original shows and movies from some of the industry's top talent, with new premieres arriving each month.  Browse all of the available content on Apple TV+ inside the Apple TV app on the “Apple TV+” tab or here on
-    </AccordionPanel>
-  </AccordionItem>
+        <Accordion allowToggle>
+            <AccordionItem>
+              <h2>
+                <AccordionButton _expanded={{ bg: 'black', color: 'white' }}>
+                  <Box flex='1' textAlign='left'>
+                    What is My Tv+?
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4}>
+                  My TV+ is a streaming service from My. It features exclusive My Original shows and movies from some of the industry's top talent,
+                  with new premieres arriving each month.  Browse all of the available content on My TV+ inside the My TV app on the “My TV+” 
+                  tab or here on
+              </AccordionPanel>
+            </AccordionItem>
 
-  <AccordionItem>
-    <h2>
-      <AccordionButton _expanded={{ bg: 'black', color: 'white' }}>
-        <Box flex='1' textAlign='left'>
-          What dose My Tv includes?
-        </Box>
-        <AccordionIcon />
-      </AccordionButton>
-    </h2>
-    <AccordionPanel pb={4}>
-    Apple TV+ includes Apple Original films and series—which are original shows and movies made exclusively for Apple. It also includes free access for anyone to watch Friday Night Baseball, provided through Apple TV+ in partnership with MLB (Major League Baseball). New shows and movies are being added to the streaming service often, so browse inside the Apple TV app or visit 
-    </AccordionPanel>
-  </AccordionItem>
-</Accordion>
-</Container>
+            <AccordionItem>
+              <h2>
+                <AccordionButton _expanded={{ bg: 'black', color: 'white' }}>
+                  <Box flex='1' textAlign='left'>
+                    What dose My Tv includes?
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4}>
+                  My TV+ includes My Original films and series—which are original shows and movies made exclusively for My.
+                  It also includes free access for anyone to watch Friday Night Baseball, provided through My TV+ in partnership 
+                  with MLB (Major League Baseball). New shows and movies are being added to the streaming service often,
+                  so browse inside the My TV app or visit 
+              </AccordionPanel>
+            </AccordionItem>
+        </Accordion>
+    </Container>
 <Box 
      
         borderStyle={'solid'}

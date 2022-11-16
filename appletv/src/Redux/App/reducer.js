@@ -4,17 +4,23 @@ const initialState = {
     isLoading: false,
     isError: false,
     basket: [],
+    NavbarSearch:[]
   };
   
   export const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
-      case types.GET_PRODUCTS_REQUEST: {
+      case types.GET_PRODUCTS_REQUEST:
+        case types.GET_PRODUCTS_REQUEST_SEARCHBAR: {
         return { ...state, isLoading: true, isError: false };
       }
       case types.GET_PRODUCTS_SUCCESS: {
         return { ...state, isLoading: false, products: payload, isError: false };
       }
-      case types.GET_PRODUCTS_FAILURE: {
+      case types.GET_PRODUCTS_SUCCESS_SEARCHBAR: {
+        return { ...state, isLoading: false, NavbarSearch: payload, isError: false };
+      }
+      case types.GET_PRODUCTS_FAILURE:
+        case types.GET_PRODUCTS_FAILURE_SEARCHBAR: {
         return { ...state, isLoading: false, isError: true };
       }
       case types.ADD_PRODUCT_REQUEST: 

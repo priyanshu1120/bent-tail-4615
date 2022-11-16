@@ -16,6 +16,21 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 - Node js and Express for backend
 - glitch for deployement the backend
 
+# Features of My Tv+ WebApp -
+## User Page & Admin page,
+### For User site:
+- Full Authentication With Firebase(SingUp,SignIn with Gmail Account & Also Email id & Password, Profile update, passWord reset & logout )
+- Movie Searcing In Home Page for Users & by Clicking get access of the Movie ,
+- Theme change of the web app,
+- watch individual Movies Preview or the Photo ofthe movie,
+- Get Fake Payment with razor pay QR code or valid UPI id.
+### For Admin site:
+- Full Authentication With Firebase(SingUp,SignIn with Gmail Account & Also Email id & Password, Profile update, passWord reset & logout )
+- Admin Panel,
+- Add Movies To The User site,
+- Edit Movies from Admin panel,
+- Delete Movie from Admin panel.
+
 # Some Glimpse and Screenshots of our website:-
 
 # Home Page-

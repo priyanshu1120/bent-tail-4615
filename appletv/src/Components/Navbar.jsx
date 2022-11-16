@@ -39,7 +39,7 @@ useEffect(()=>{
   return (
     <>
       <div >
-        <Box zIndex={"10"} position="sticky" bg={useColorModeValue('black', 'gray.600')} px={10} as="header"  >
+        <Box zIndex={"10"} position="fixed" top={0} left={0} w={"100%"} bg={useColorModeValue('black', 'gray.600')} px={10} as="header"  >
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'} px={[2, 3, 2]} >
           <IconButton
             size={'md'}

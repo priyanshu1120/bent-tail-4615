@@ -15,6 +15,7 @@ export const Admin = () => {
         dispatch(GET_PRODUCTS())
     }
 },[])
+
   return (
     <>
       <Heading   mt={20} fontSize={'4xl'} textAlign={'center'}>Admin's panel</Heading>

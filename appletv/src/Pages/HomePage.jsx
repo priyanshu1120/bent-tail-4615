@@ -1,4 +1,4 @@
-import { Box,Img,Text } from '@chakra-ui/react'
+import { Box,Img, Text,} from '@chakra-ui/react'
 import React, { } from 'react'
 import Faq from '../Components/Faq'
 import { Footer } from '../Components/Footer'

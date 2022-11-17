@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, extendTheme, ChakraProvider, Menu} from '@chakra-ui/react';
 import {  CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
 import { Link, NavLink } from 'react-router-dom';
-import Weblogo from "../Img/mytv.jpg"
+import Weblogo from "../Assets/Img/mytv.jpg"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { MdOutlineManageAccounts } from "react-icons/md";
 import { onAuthStateChanged,  } from 'firebase/auth';
@@ -11,7 +11,6 @@ import { Drawers } from './Drawer';
 import { useEffect } from 'react';
 import SearchBar from './SearchBar';
 import { useCallback } from 'react';
-import { Test } from './Test';
 const modaltheme = extendTheme({
   components: {
     Modal: {

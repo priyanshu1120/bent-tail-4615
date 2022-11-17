@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import { Box, Button, Image, Stack, Text, VStack } from "@chakra-ui/react"
 import { Cast } from './cast'
 import { Carausel } from './carausel'
-import tv from "../video/tv.mp4"
+import tv from "../Assets/video/tv.mp4"
 import { SinglepageFooter } from './singlepagefooter'
 
 

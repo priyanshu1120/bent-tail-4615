@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import useRazorpay from "react-razorpay";
-import logo from "../../Img/mytv.jpg";
+import logo from "../../Assets/Img/mytv.jpg";
 
 import swal from "sweetalert";
 export default function Payments({ price, label }) {

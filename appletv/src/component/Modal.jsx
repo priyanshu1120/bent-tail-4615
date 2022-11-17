@@ -6,7 +6,6 @@ import {
    ModalBody,
     ModalCloseButton,
     useDisclosure,
-    Button
   } from '@chakra-ui/react'
 
 function Modals() {

@@ -8,12 +8,12 @@ const WrongRoute = () => {
         navigate("/")
     }
   return (
-  
     <VStack align={"center"} justify={"center"} h={834} bg={"black"} >
-    <Image position={"sticky"} src='https://kfg6bckb.media.zestyio.com/yalantis-interactive-404.gif' alt={"Wrongpage Logo"}/>
-    <Button  bg={'red.400'} color={'white'}leftIcon={<IoMdArrowRoundBack/>}
-     size='lg'_hover={{ bg: 'red.500', }}  onClick={HandleGoback}>Go Back to Home
-     </Button>
+      <Image position={"sticky"} src='https://kfg6bckb.media.zestyio.com/yalantis-interactive-404.gif' alt={"Wrongpage Logo"}/>
+      <Button  bg={'red.400'} color={'white'}leftIcon={<IoMdArrowRoundBack/>}
+               size='lg'_hover={{ bg: 'red.500', }}  onClick={HandleGoback}>
+                Go Back to Home
+      </Button>
     </VStack>
   )
 }

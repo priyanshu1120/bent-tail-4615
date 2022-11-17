@@ -102,7 +102,7 @@ const AdmindataManage  = () => {
           )}</Box></Stack>
           
           {PRODUCTS.length>2?<Text mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>:""}
-          <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length -1}</Text>
+          <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length }</Text>
        </Stack>
     </Flex>
     </Container>:

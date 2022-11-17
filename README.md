@@ -73,15 +73,25 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 
 -image paste here
 
-# deployed link
-- https://appletv-iakashmondal.vercel.app/
+# deployed live link
+- Vercel DeployedLink  1  : https://appletv-iakashmondal.vercel.app/
+- Vercel Deployed Link 2 : https://appletv-phi.vercel.app/
+- Firebase Deployed Link : https://mytvapp-3fd31.web.app/
 
-# Our Team Members:-
-- Priyanshu Kaushik
-- Prateek Soni
-- Akash Mandol
-- Sahil Khan
-- Rishav Kumar
+## Our Team Members:-
+# Priyanshu Kaushik
+
+# Prateek Soni
+
+# Akash Mandol
+- Responsibilities : Navbar,Searching,Authentication,Admin page,
+    Managing Admin's data (Add,delete,edit at live data),debuging,Routing,Live edit data view.
+- Portfolio : https://iakashmondal-iakashmondal.vercel.app/
+- Linkdin: https://www.linkedin.com/in/akash-mondal-859b4b228/
+
+# Sahil Khan
+
+# Rishav Kumar
 
 
 

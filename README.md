@@ -36,9 +36,9 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 # Home Page-
 - This is the main landing page of our website. Here clicking on any option on the Navbar will redirect the user to the respective  Pages.
 - In all the Pages Navbar Have Toggle Button for rediercting content of pages.
+- user & Admin can search movies and watch it by clicking on it.
 - There are many slider of diffrent type of movies and shows 
-
-![Screenshot (714)](https://user-images.githubusercontent.com/105913828/201961685-e32fa9aa-5c52-4b52-b6ab-1f6af55f6609.png)
+![Homepage](https://user-images.githubusercontent.com/102036593/202556067-64e122c9-c22b-45eb-bf21-54239216a2de.jpg)
 
 ![Screenshot (719)](https://user-images.githubusercontent.com/105913828/201962096-8f93fd36-aea7-4d7f-ad31-18a64148dc6b.png)
 
@@ -49,7 +49,7 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 - After filling correct creadential user will be redirect to the home page proceed further.
 - user and adimn can be sign in via Google 
 
-
+![SigninPage](https://user-images.githubusercontent.com/102036593/202557008-6c23d642-4d3a-49ff-a216-2e01f30eddc6.jpg)
 
 # Sign Up From -
 - if the user and admin is not a existing visitor then he/she can create new account by using sign up feature
@@ -66,14 +66,21 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 
 ![Screenshot (717)](https://user-images.githubusercontent.com/105913828/201963374-96c80817-d167-4d10-826a-4aec572ff6b1.png)
 
-
 # Single Movies  Page
 - In this page user can see the movies 
-- User see the details of movie and related episode and cast etc.
+- User
+- see the details of movie and related episode and cast etc.
 
--image paste here
+![SingleMoviePage](https://user-images.githubusercontent.com/102036593/202558076-764556ea-4357-4874-81a9-64ffd099bb22.jpg)
 
-# deployed live link
+# Edit Data Page
+- admin Can add new Movie to the user site.
+- admin can Delete His Movies.
+- admin can change previus data(Name,Image,Description,Season) related to his movies.
+
+![EditDataPage](https://user-images.githubusercontent.com/102036593/202557539-3cb7a0e9-9378-40fc-babd-5493e07e15f1.jpg)
+
+# Deployed live link
 - Vercel DeployedLink  1  : https://appletv-iakashmondal.vercel.app/
 - Vercel Deployed Link 2 : https://appletv-phi.vercel.app/
 - Firebase Deployed Link : https://mytvapp-3fd31.web.app/

@@ -16,11 +16,6 @@ export const EditCartData =()=> {
     const [movieSeason, setMovieSeason]= useState("")
     // const [viewPrevData, setviewPrevData]= useState(false)
     // const [viewCruntData, setviewCruntData]= useState(false)
-    const[newEditItem,setEditItem]=useState([])
-const id=useParams();
-console.log("🚀 ~ file: EditAdmindata.jsx ~ line 20 ~ EditCartData ~ Parḁms_id", id)
-    const navigate =useNavigate();
-
     const PRODUCTS= useSelector((state)=> state.AppReducer.products)
 // const handelviewPrevData=()=>{
 //   setviewPrevData(true);
@@ -39,9 +34,9 @@ const formclear =()=>{
 navigate("/admin")
   toast.success("Edit Cancled")
 }
-
+const {id} =useParams();
+    const navigate =useNavigate();
  const handelUpdate =()=>{
-
       const payload={
       }
       if(moviename !== ""){
@@ -75,22 +70,12 @@ navigate("/admin")
       if(PRODUCTS.length>=0){
           dispatch(GET_PRODUCTS())   
       }},[])
-  //  useEffect(()=>{
-  //   if(id){
-  //     const olddḁ̥̥̥ta= PRODUCTS.map((item)=>
 
-  //     )
-  //   }
-  //  },[])
   return (
-    <SimpleGrid  mt={20} columns={[1,3,3]}>
-<HStack  justify={"center"} align={"center"}>
+    <SimpleGrid  mt={20} columns={[1,2,2]}>
+{/* <HStack  justify={"center"} align={"center"}>
   <VStack>
-{/* <HStack ><Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>Privous Data</Text>
-<>{viewPrevData?<Button onClick={handelHidePrevData} variant={"ghost"} color='red.500' ><GrFormView size={30} /></Button>
-:<Button variant={"ghost"} onClick={handelviewPrevData}  color='red.500' ><GrFormViewHide size={30} /></Button>}</>
-</HStack> */}
-<Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>Privous Data</Text>
+  <Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>Privous Data</Text>
 <>{PRODUCTS.length> 0 && PRODUCTS.map((item) =>{
 
 return (
@@ -110,32 +95,27 @@ return (
               </>
                   </VStack>:"")})}
   </>
-                  </VStack>
-                  </HStack>
+                  </VStack> */}
+                  {/* </HStack> */}
 
-
-                  {/* <HStack ><Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Data</Text>
-<>{viewCruntData?<Button onClick={handelviewCruntData} variant={"ghost"} color='red.500' ><GrFormView size={30} /></Button>
-:<Button variant={"ghost"} onClick={handelHideCruntData}  color='red.500' ><GrFormViewHide size={30} /></Button>}</>
-</HStack> */}
 
 
 <HStack  justify={"center"} align={"center"}>
   <VStack>
-<Text  color={"blue.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Date Preview</Text>
+<Text  color={"blue.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Data</Text>
 <VStack  bg={"whiteAlpha.800"} h={450} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
               <>
                     <Image  borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"}  src={movieimage} alt={moviename}/>
                     <VStack>
                     <FormControl > <FormLabel color={"black"} as="b" >New Title</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
-                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  isTruncated > {moviename?`${moviename}`:`${Priviousdata}`}</Text></Box></FormControl>
+                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {moviename?`${moviename}`:`${Priviousdata}`}</Text></Box></FormControl>
                         <VStack>
                      <FormControl> <FormLabel color={"black"} as="b">New Description</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"50px"} overflowX={"auto"}>
-                         <Text  isTruncated px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieDes?`${movieDes}`:`${Priviousdata}`}</Text></Box></FormControl>
+                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieDes?`${movieDes}`:`${Priviousdata}`}</Text></Box></FormControl>
                      {movieDes===""?"":  <Text  mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>}
                        </VStack>
                        <FormControl> <FormLabel color={"black"} as="b">New Season</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
-                         <Text  isTruncated px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieSeason?`${movieSeason}`:`${Priviousdata}`}</Text></Box></FormControl>
+                         <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieSeason?`${movieSeason}`:`${Priviousdata}`}</Text></Box></FormControl>
                     </VStack>
               </>
                   </VStack>

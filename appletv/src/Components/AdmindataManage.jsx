@@ -106,7 +106,7 @@ const AdmindataManage  = () => {
        </Stack>
     </Flex>
     </Container>:
-    <Image src='https://media.istockphoto.com/id/841884438/vector/empty-shopping-bag-icon-cute-disappointed-shopping-bag-flat-thin-line-design-isolated-vector.jpg?s=612x612&w=0&k=20&c=q4-NaJiL4BG8kIEIsU5N0Wgy_9zv6_dJutV1qfs1_x4=' alt="You Din't added any thing yet" />}
+    <Stack justify={"center"} align="center"><Image src="https://media.tenor.com/wpSo-8CrXqUAAAAi/loading-loading-forever.gif" alt='Loading...' /></Stack>}
     
     </>
   )

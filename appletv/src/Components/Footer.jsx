@@ -1,6 +1,6 @@
 import { Box,Container,Flex, Image,SimpleGrid,Stack,Text,useColorModeValue,VStack,} from '@chakra-ui/react';
 import {  NavLink, } from 'react-router-dom';
-import Weblogo from "../Img/mytv.jpg"
+import Weblogo from "../Assets/Img/mytv.jpg"
 import { BiMobileLandscape } from "react-icons/bi"
 import {  RiMacbookLine } from "react-icons/ri" 
 import { MdAirplay } from "react-icons/md"

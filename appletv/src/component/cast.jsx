@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Carausel2 } from './carosel2'
+import { CarouselTwo } from './CarouselTwo'
+
 export const Cast = () => {
     const [data,setData] = useState([])
     const params = useParams()
@@ -17,7 +18,7 @@ export const Cast = () => {
     },[])
   return (
     <div>
-<Carausel2  data={data?.cast}  />
+<CarouselTwo data={data?.cast}  />
 
     </div>
   )

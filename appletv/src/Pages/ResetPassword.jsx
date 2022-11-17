@@ -2,7 +2,6 @@ import {  Image, SimpleGrid } from '@chakra-ui/react'
 import React from 'react'
 import { Footer } from '../Components/Footer'
 import { Reset } from '../Components/Reset'
-// https://storyset.com/illustration/computer-troubleshooting/rafiki#263238FF&hide=&hide=complete
 const ResetPassword = () => {
   return (
     <>

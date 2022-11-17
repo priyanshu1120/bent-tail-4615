@@ -1,5 +1,4 @@
-import { SettingsIcon } from '@chakra-ui/icons';
-import { Box, HStack, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, HStack, Image, Stack, Text } from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,20 +35,22 @@ const SearchBar = ({query,setQuary}) => {
     },[query])
 
   return (
-    <>
+    <Box mt={20} px={40}>
     {!!suggestion.length &&(
-    <Box bg={"white"} zIndex={15} overflow={"auto"} border={"1px solid red"} w={200} h={45}>
+    <Box bg={"white"} zIndex={15} position={"absolute"} overflow={"auto"} border={"3px solid #0073b4"} w={450} h={223}>
     {suggestion.map((item,i)=>
        <Link key={item.id} to={`/watchPremiers/${item.id}/${item.title}/movie`}> 
-            <HStack h={10} gap={3}>
-                <Text as={"b"} color={"black"}>{item.title}</Text>
-                <Image alignContent={"flex-end"} src={item.image} w={16} h={9}  />
+            <HStack  lineHeight={"15px"} mt={"3px"} bg={"RGBA(0, 0, 0, 0.64)"} h={10} >
+
+              <Flex flex={5}> <Text px={2} isTruncated as={"b"} color={"black"}>{item.title}</Text></Flex> 
+              <Flex flex={1}><Image alignContent={"flex-end"} src={item.image} w={16} h={9}  /></Flex>
+
             </HStack> 
       </Link>
     )}
      </Box>
  )} 
-  </>
+  </Box>
   )
 }
 

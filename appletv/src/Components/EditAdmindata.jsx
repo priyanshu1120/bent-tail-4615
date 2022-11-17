@@ -121,7 +121,6 @@ return (
 
 
 <HStack  justify={"center"} align={"center"}>
-<Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Data</Text>
   <VStack>
 <Text  color={"blue.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Date Preview</Text>
 <VStack  bg={"whiteAlpha.800"} h={450} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
@@ -129,14 +128,14 @@ return (
                     <Image  borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"}  src={movieimage} alt={moviename}/>
                     <VStack>
                     <FormControl > <FormLabel color={"black"} as="b" >New Title</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
-                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {moviename?`${moviename}`:`${Priviousdata}`}</Text></Box></FormControl>
+                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  isTruncated > {moviename?`${moviename}`:`${Priviousdata}`}</Text></Box></FormControl>
                         <VStack>
                      <FormControl> <FormLabel color={"black"} as="b">New Description</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"50px"} overflowX={"auto"}>
-                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieDes?`${movieDes}`:`${Priviousdata}`}</Text></Box></FormControl>
+                         <Text  isTruncated px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieDes?`${movieDes}`:`${Priviousdata}`}</Text></Box></FormControl>
                      {movieDes===""?"":  <Text  mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>}
                        </VStack>
                        <FormControl> <FormLabel color={"black"} as="b">New Season</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
-                         <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieSeason?`${movieSeason}`:`${Priviousdata}`}</Text></Box></FormControl>
+                         <Text  isTruncated px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieSeason?`${movieSeason}`:`${Priviousdata}`}</Text></Box></FormControl>
                     </VStack>
               </>
                   </VStack>

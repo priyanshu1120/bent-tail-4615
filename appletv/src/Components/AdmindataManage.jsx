@@ -19,7 +19,7 @@ const AdmindataManage  = () => {
         
     }
     const handleEdit =(id,title)=>{
-       navigate(`/${displayName}/${id}/edit`)
+       navigate(`/${displayName}/${id}/${title}/edit`)
     }
     useEffect(()=>{
       if(PRODUCTS.length>=0){
@@ -105,8 +105,11 @@ const AdmindataManage  = () => {
           <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length -1}</Text>
        </Stack>
     </Flex>
-    </Container>:
-    <Stack justify={"center"} align="center"><Image src="https://media.tenor.com/wpSo-8CrXqUAAAAi/loading-loading-forever.gif" alt='Loading...' /></Stack>}
+    </Container>: <Flex justify={"center"} align="center" border={"1px solid red"} overflow="auto" h={300} w={450} mt={5}  >
+    <Stack position={"relative"} justify={"center"} align="center"><Image src="https://media.tenor.com/wpSo-8CrXqUAAAAi/loading-loading-forever.gif" alt='Loading...' /></Stack>
+    <Stack position={"absolute"} justify={"center"} align="center"><Text as={"b"} color={"blackAlpha.900"}>Loading...</Text></Stack>
+    </Flex>}
+   
     
     </>
   )

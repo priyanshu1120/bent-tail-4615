@@ -56,6 +56,7 @@ export const DELETE_PRODUCT_FAILURE_AGAIN_fn=()=>{
 }
 // Get Products at Admin-------------------------------------------------------------------------------->
 export const GET_PRODUCTS =(params) =>(dispatch)=>{
+    console.log(params,"pars-now")
     dispatch(GET_PRODUCT_LOADING_fn())
    return axios.get("https://bubbly-blossom-witch.glitch.me/products",params)
     .then((r)=> {dispatch(GET_PRODUCT_SUCESS_fn(r.data))})
@@ -114,7 +115,6 @@ export const EDIT_DATA_AGAIN =(id,payload) =>(dispatch)=>{
     .then((r)=>  ({type:PATCH_BOOK_SUCESS,payload:r.data}))
     .catch((e)=>({type:PATCH_BOOK_FAILURE,e}))
 }
-
 
 // Get Products at NAvBAR Search------------------------------------------------------------------------>
 export const GET_PRODUCT_SEARCH =(params) =>(dispatch)=>{

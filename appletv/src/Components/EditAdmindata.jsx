@@ -14,8 +14,11 @@ export const EditCartData =()=> {
     const[movieDes,setMovieDes]=useState("");
     const [movieimage, setMovieImage]= useState("")
     const [movieSeason, setMovieSeason]= useState("")
+    const[previousdata,setPreviousData]=useState({});
+    const {id} =useParams();
     // const [viewPrevData, setviewPrevData]= useState(false)
     // const [viewCruntData, setviewCruntData]= useState(false)
+
     const PRODUCTS= useSelector((state)=> state.AppReducer.products)
 // const handelviewPrevData=()=>{
 //   setviewPrevData(true);
@@ -34,8 +37,8 @@ const formclear =()=>{
 navigate("/admin")
   toast.success("Edit Cancled")
 }
-const {id} =useParams();
-    const navigate =useNavigate();
+
+ const navigate =useNavigate();
  const handelUpdate =()=>{
       const payload={
       }
@@ -67,36 +70,41 @@ const {id} =useParams();
       setMovieSeason("")
     }
     useEffect(()=>{
-      if(PRODUCTS.length>=0){
-          dispatch(GET_PRODUCTS())   
-      }},[])
-
+      if(id){
+          const previousId = PRODUCTS.find(PRODUCTS=> PRODUCTS.id === Number(id))
+            setPreviousData(previousId)
+          
+      }},[id])
+console.log(previousdata,"dataP")
   return (
-    <SimpleGrid  mt={20} columns={[1,2,2]}>
-{/* <HStack  justify={"center"} align={"center"}>
+    <SimpleGrid  mt={20} columns={[1,3,3]}>
+
+<HStack  justify={"center"} align={"center"}>
   <VStack>
   <Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>Privous Data</Text>
-<>{PRODUCTS.length> 0 && PRODUCTS.map((item) =>{
-
-return (
-  item.title && item.image && item.season&& item.season?
-  <VStack  key={item.id} bg={"whiteAlpha.800"} h={450} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
-              <>
-                    <Image borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"} src={item.image} alt={item.image}/>
-                    <VStack>
-                    <FormControl > <FormLabel color={"black"} as="b" >New Title</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
-                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {item.title}</Text></Box></FormControl>
-                        <VStack>
-                     <FormControl> <FormLabel color={"black"} as="b">New Description</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"50px"} overflow={"auto"}>
-                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"} > {item.description}</Text></Box></FormControl>
-                       </VStack>
-                        <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  ><Text color={"black"} as="b">New Season:</Text> {item.season}</Text>
-                    </VStack>
-              </>
-                  </VStack>:"")})}
+  <>
+   
+        <VStack  bg={"whiteAlpha.800"} h={450} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
+                    <>
+                          <Image borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"} src={previousdata.image} alt={previousdata.image}/>
+                          <VStack>
+                          <FormControl > <FormLabel color={"black"} as="b" >New Title</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
+                              <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {previousdata.title}</Text></Box></FormControl>
+                              <VStack>
+                          <FormControl> <FormLabel color={"black"} as="b">New Description</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"50px"} overflow={"auto"}>
+                              <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"} > {previousdata.description}</Text></Box></FormControl>
+                              <Text color={"red.500"} as={"i"} fontSize={"2xs"}>Scroll down to read Description</Text>
+                            </VStack>
+                            <FormControl> <FormLabel color={"black"} as="b">Season</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
+                         <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {previousdata.season}</Text></Box></FormControl>
+                          </VStack>
+                    </>
+                        </VStack>
+  
+    
   </>
-                  </VStack> */}
-                  {/* </HStack> */}
+                        </VStack> 
+                        </HStack>
 
 
 

@@ -38,7 +38,8 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 - In all the Pages Navbar Have Toggle Button for rediercting content of pages.
 - user & Admin can search movies and watch it by clicking on it.
 - There are many slider of diffrent type of movies and shows 
-![Homepage](https://user-images.githubusercontent.com/102036593/202556067-64e122c9-c22b-45eb-bf21-54239216a2de.jpg)
+
+![all new search bar](https://user-images.githubusercontent.com/102036593/202791355-4f220ecf-77b6-4a76-a8b2-709e19c2415d.jpg)
 
 ![Screenshot (719)](https://user-images.githubusercontent.com/105913828/201962096-8f93fd36-aea7-4d7f-ad31-18a64148dc6b.png)
 
@@ -76,9 +77,10 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 # Edit Data Page
 - admin Can add new Movie to the user site.
 - admin can Delete His Movies.
-- admin can change previus data(Name,Image,Description,Season) related to his movies.
+- admin can see Previous data, new live view of data that will be updated and submited in form & a form to update his conteny.
+- admin can change previus data(Name,Image,Description,Season) all together or individualy or any combination related to his movies.
 
-![EditDataPage](https://user-images.githubusercontent.com/102036593/202557539-3cb7a0e9-9378-40fc-babd-5493e07e15f1.jpg)
+![New Edit Page](https://user-images.githubusercontent.com/102036593/202791683-75111405-8620-4515-bd9e-e512eaba3f0b.jpg)
 
 # Deployed live link
 - Vercel DeployedLink  1  : https://appletv-iakashmondal.vercel.app/

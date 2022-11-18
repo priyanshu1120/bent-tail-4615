@@ -15,7 +15,6 @@ export const Nextpage = () => {
     const params = useParams()
     let id =params.id
     let category =params.category
-    console.log(category)
 
 const SingleData =()=>{
 axios.get(`https://jewel-sneaky-dingo.glitch.me//${category}/${id}`)
@@ -25,7 +24,7 @@ axios.get(`https://jewel-sneaky-dingo.glitch.me//${category}/${id}`)
 useEffect(()=>{
 SingleData()
 
-},[])
+},[SingleData])
 
 const style={
     height :"30px",

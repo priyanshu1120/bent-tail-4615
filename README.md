@@ -100,7 +100,7 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 
 # Sahil Khan
 
-# Rishav Kumar
+# Rishav Neogi
 
 
 

@@ -32,6 +32,7 @@ export const MainRoutes = () => {
         <Route path="/reset-password" element={<ResetPassword/>} />
         <Route path="/:displayName/:id/:title/edit" element={<EditCartData/>} /> 
         <Route path="/:category/:id/:title/movie" element={<Nextpage/>} />
+        <Route path="/:category/:id/" element={<Nextpage/>} />
       <Route path="/payment" element={<PrivateRoute><Payments/></PrivateRoute>} />
       <Route path="*" element={<WrongRoute/>} />
       </Routes>

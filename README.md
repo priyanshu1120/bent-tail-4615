@@ -101,7 +101,9 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 # Sahil Khan
 
 # Rishav Neogi
-
+- Responsibilities : Manage whole backend api and made custom slider for all data to display.
+- Portfolio : https://nrishav007.github.io/
+- Linkdin: https://www.linkedin.com/in/rishav-neogi/
 
 
 

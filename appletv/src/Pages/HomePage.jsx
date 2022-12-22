@@ -1,14 +1,19 @@
 import { Box,Img, Text,} from '@chakra-ui/react'
-import React, { } from 'react'
+import React, { useEffect, useState } from 'react'
 import Faq from '../Components/Faq'
 import { Footer } from '../Components/Footer'
 import Herovideo from '../Components/Herovideo'
-import Static from '../Components/StaticSlider/Static'
-import { sliderdata2, sliderdata3 } from '../Components/StaticSlider/StaticData'
-import StaticSlider2 from '../Components/StaticSlider/StaticSlider2'
+import { StaticData2, StaticData1 , StaticData3 } from '../Components/StaticSlider/StaticData'
+import StaticSlider from '../Components/StaticSlider/StaticSlider'
 import CommonDetailSlider from '../Components/CustomComponents/CommonDetailSlider'
 
 const HomePage = () => { 
+ 
+  const [size, setSize] = useState(window.innerWidth);
+  const updateSize = () =>
+    setSize(window.innerWidth);
+  useEffect(() => (window.onresize = updateSize), []);
+
   return (
     <Box>
       <Herovideo />
@@ -43,14 +48,18 @@ const HomePage = () => {
         <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/futureRelease"  />
       </Box>
 
-      <Box mt={"20px"} >
+      <Box mt={"30px"} >
         <Box>
           <Img  src="https://is4-ssl.mzstatic.com/image/thumb/Features122/v4/b5/aa/57/b5aa5705-1a39-af37-805b-257af57ad42a/db917410-1e16-4f3a-96f6-4f11a8f78fa2.png/2638x988sr.webp" alt="img"/>
         </Box>
-        <Box >
+        <Box mt={"30px"}  >
           <Text fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Future Releases</Text>
           <Text fontSize="19px" fontWeight={400} pl={[1,2,4,7]}>Add to Up Next now</Text>
-          <StaticSlider2  data = { sliderdata2 } />
+        {
+        size > 720 ? 
+        (<StaticSlider  data = {StaticData2} slideshow={3} slidesToScroll ={2}  />)
+         : size<720 && size>420? <StaticSlider  data = {StaticData2} slideshow={2} slidesToScroll ={2} />
+         :<StaticSlider  data = {StaticData2} slideshow={1} slidesToScroll ={1} /> }  
         </Box>
       </Box>
      {/* <=========videospace========> */}     
@@ -77,11 +86,21 @@ const HomePage = () => {
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Nonfiction Films & Series </Text>
         <Text fontSize="19px" fontWeight={400} pl={[1,2,4,7]}>Explore facinating stories that inspire and enlighten</Text>
-        <StaticSlider2 data = { sliderdata3 } />
+        {
+        size > 720 ? 
+        (<StaticSlider  data = {StaticData3} slideshow={3} slidesToScroll ={2} />)
+         : size<720 && size>420? <StaticSlider  data = {StaticData3} slideshow={2} slidesToScroll ={2} />
+         :<StaticSlider data = {StaticData3} slideshow={1} slidesToScroll ={1} />
+        }  
       </Box>
 
-      <Box>
-      <Static/>
+      <Box mt="20px">
+      {
+      size > 720 ? 
+      (<StaticSlider data = {StaticData1} slideshow={1} slidesToScroll ={1}  />)
+       : size<720 && size>420? <StaticSlider  data = {StaticData1} slideshow={1} slidesToScroll ={1} />
+       :<StaticSlider data = {StaticData1} slideshow={1} slidesToScroll ={1} />
+      }  
      </Box>
 
      <Box mt="60px">
@@ -104,7 +123,6 @@ const HomePage = () => {
         <Text fontSize="19px" fontWeight={400} pl={[1,2,4,7]}>Discover Shows And Movies Filled With Wonder and Series</Text>
         <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/funForAll"/>
       </Box>
-
      <Footer />
       <Faq/>
     </Box>

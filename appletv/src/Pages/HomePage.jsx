@@ -8,7 +8,7 @@ import StaticSlider from '../Components/StaticSlider/StaticSlider'
 import CommonDetailSlider from '../Components/CustomComponents/CommonDetailSlider'
 
 const HomePage = () => { 
- 
+        const base_url=process.env.REACT_APP_BASE_URL;
   const [size, setSize] = useState(window.innerWidth);
   const updateSize = () =>
     setSize(window.innerWidth);
@@ -19,33 +19,33 @@ const HomePage = () => {
       <Herovideo />
       <Box mt="10px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Watch Premieres for free </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/watchPremiers" description={true} />
+        <CommonDetailSlider url={`${base_url}/watchPremiers`} description={true} />
       </Box>
       <Box mt="50px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1 , 2, 4,7]}>Most Popular </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/mostPopular"  />
+        <CommonDetailSlider url={`${base_url}/mostPopular`}  />
       </Box>
 
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Watch Entire Seasons </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/allFeatureFilms"  />
+        <CommonDetailSlider url={`${base_url}/allFeatureFilms`}  />
       </Box>
         
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Entire Originals</Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/drama"   />
+        <CommonDetailSlider url={`${base_url}/watchPremiers`} />
       </Box>
     
 
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Latest Originals </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/latestOriginals"  />
+        <CommonDetailSlider url={`${base_url}/latestOriginals`} />
       </Box>
 
       <Box mt={"50px"}>
         <Text fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Included with apple TV+</Text>
         <Text fontSize="19px" fontWeight={400} pl={[1,2,4,7]}>Watch unforgotable hits as a limited time subscriber bonus </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/futureRelease"  />
+        <CommonDetailSlider url={`${base_url}/futureRelease`} />
       </Box>
 
       <Box mt={"30px"} >
@@ -65,22 +65,22 @@ const HomePage = () => {
      {/* <=========videospace========> */}     
      <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Like a Boss </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/drama"   />
+        <CommonDetailSlider url={`${base_url}/drama`} />
      </Box>
      
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Nail-Biting Thrills </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/latestOriginals" description={true} />
+        <CommonDetailSlider url={`${base_url}/latestOriginals`} />
       </Box>
 
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Defining Moment </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/allDramaFilms"  />
+        <CommonDetailSlider url={`${base_url}/allDramaFilms`} />
       </Box>
 
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Mystery & Mischief </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/allComedyFilms"  />
+        <CommonDetailSlider url={`${base_url}/allComedyFilms`} />
       </Box>
 
       <Box mt="15px">
@@ -105,23 +105,23 @@ const HomePage = () => {
 
      <Box mt="60px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Major League Baseball </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/mostPopular"  />
+        <CommonDetailSlider url={`${base_url}/mostPopular`} />
       </Box>
 
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Watch Entire Seasons </Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/allFeatureFilms"  />
+        <CommonDetailSlider url={`${base_url}/allFeatureFilms`} />
       </Box>
         
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Ted Lesso:Winner of 4 Emmey Awards</Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/allComedyFilms"  />
+        <CommonDetailSlider url={`${base_url}/watchPremiers`} />
       </Box>
      
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Kids & Family</Text>
         <Text fontSize="19px" fontWeight={400} pl={[1,2,4,7]}>Discover Shows And Movies Filled With Wonder and Series</Text>
-        <CommonDetailSlider url="https://jewel-sneaky-dingo.glitch.me/funForAll"/>
+        <CommonDetailSlider url={`${base_url}/funForAll`} />
       </Box>
      <Footer />
       <Faq/>

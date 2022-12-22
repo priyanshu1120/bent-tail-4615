@@ -14,7 +14,7 @@ import Payments from '../Components/Payment/Payment'
 import PrivateRoute from '../Auth/PrivateRoutes'
 import SignupAdminPage from '../Pages/SignupAdminPage'
 import WrongRoute from '../Components/WrongRoute'
-import SigninAdminPage from '../Pages/SignInAdmin.Jsx'
+import SigninAdminPage from '../Pages/SignInAdmin.jsx'
 import { Nextpage } from '../Pages/Nextpage';
 
 export const MainRoutes = () => {

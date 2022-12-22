@@ -20,6 +20,7 @@ const SigninAdminPage = () => {
     <Footer/>
   </>
   )
+  
 }
 
 export default SigninAdminPage

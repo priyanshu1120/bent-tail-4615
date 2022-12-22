@@ -11,13 +11,14 @@ import { SinglepageFooter } from './singlepagefooter'
 
 
 export const Nextpage = () => {
+    const base_url=process.env.REACT_APP_BASE_URL;
     const [singlepagedata,setSinglepagedata] = useState({})
     const params = useParams()
     let id =params.id
     let category =params.category
 
 const SingleData =()=>{
-axios.get(`https://jewel-sneaky-dingo.glitch.me//${category}/${id}`)
+axios.get(`${base_url}/${category}/${id}`)
 .then((res)=>{setSinglepagedata(res.data)})
 .catch((err)=>{console.log(err)})
 }

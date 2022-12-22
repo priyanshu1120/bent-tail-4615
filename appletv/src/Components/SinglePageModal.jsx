@@ -12,7 +12,7 @@ function Modals() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
       <>
-        <h2 onClick={onOpen}  style={{color:"blue"}} >More</h2>
+        <h2 onClick={onOpen}  style={{color:"blue",cursor:"pointer"}} >More</h2>
   
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
@@ -22,8 +22,6 @@ function Modals() {
             <ModalBody>
               <h4>This quick-witted spy drama follows a dysfunctional team of MI5 agents—and their obnoxious boss, the notorious Jackson Lamb—as they navigate the espionage world’s smoke and mirrors to defend England from sinister forces.</h4>
             </ModalBody>
-  
-           
           </ModalContent>
         </Modal>
       </>

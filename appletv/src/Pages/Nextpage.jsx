@@ -4,10 +4,10 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Box, Button, Image, Stack, Text, VStack } from "@chakra-ui/react"
-import { Cast } from './cast'
-import { Carausel } from './carausel'
+import { Cast } from '../Components/cast'
+import { Carausel } from '../Components/carausel'
 import tv from "../Assets/video/tv.mp4"
-import { SinglepageFooter } from './singlepagefooter'
+import { SinglePageFooter } from '../Components/SinglePageFooter'
 
 
 export const Nextpage = () => {
@@ -40,7 +40,7 @@ fontWeight : "600"
   return (
    <Box  >
     <Box  style={{border  : "1px solid transparent" , position:"absolute" ,marginLeft :"100px",
-marginTop:"40px" ,color:"white"
+     marginTop:"40px" ,color:"white"
 }}   
 ><Text zIndex={10}>{singlepagedata.title}</Text></Box>
 {
@@ -75,11 +75,11 @@ mt="-100px" color="white"
 </Stack>
 
 <Box border ="1px solid transparent " backgroundColor="#f0f0f3"   >
-    <SinglepageFooter />
+    <SinglePageFooter />
 </Box>
 
 
-   </Box>
+</Box>
       
 
     

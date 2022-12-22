@@ -1,7 +1,7 @@
 import { Box} from '@chakra-ui/react'
-import {  Modals } from './Modal'
+import {  Modals } from './SinglePageModal'
 
-const SinglepageFooter =()=>{
+const SinglePageFooter =()=>{
 
 return(
     <div  style={{border:"1px solid transparent" , width :"100%" , margin:"auto", padding:"0 10px 0 10px " }}  >
@@ -10,8 +10,6 @@ return(
 <Box border="1px solid transparent" borderRadius="7px"  mb="10px"   w = {{ sm:"100%" ,md:"60%"}} backgroundColor="white" >
 <h1 style={{fontWeight:"700"}} >Slow Horse</h1>
 This quick-witted spy drama follows a dysfunctional team of MI5 agents—and their obnoxious boss, the notorious Jackson Lamb—as they navigate the espionage < Modals />
-
-
 </Box>
 
 <hr style={{borderBlockColor:"black"}}></hr>
@@ -66,12 +64,9 @@ This quick-witted spy drama follows a dysfunctional team of MI5 agents—and the
 </Box>
 
 </Box>
-
-
-
     </div>
 )
 
 }
 
-export {SinglepageFooter}
+export {SinglePageFooter}

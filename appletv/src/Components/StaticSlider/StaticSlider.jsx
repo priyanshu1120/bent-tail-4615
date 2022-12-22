@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './StaticSlider2.css';
+import './StaticSlider.css';
 
 
 
-function StaticSlider2({data}) {
+function StaticSlider({data,slideshow, slidesToScroll}) {
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -35,8 +35,8 @@ function StaticSlider2({data}) {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: slideshow,
+    slidesToScroll: slidesToScroll,
     initialSlide: 0,
     prevArrow: <SampleNextArrow/> ,
     nextArrow: <SamplePrevArrow />,
@@ -46,8 +46,8 @@ function StaticSlider2({data}) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: slideshow,
+          slidesToScroll:slidesToScroll,
           infinite: true,
           dots: false,
           prevArrow: <SampleNextArrow/> ,
@@ -57,8 +57,8 @@ function StaticSlider2({data}) {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow:slideshow,
+          slidesToScroll:slidesToScroll,
           initialSlide: 2,
           prevArrow: <SampleNextArrow/> ,
           nextArrow: <SamplePrevArrow />,
@@ -67,8 +67,8 @@ function StaticSlider2({data}) {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow:slideshow,
+          slidesToScroll:  slidesToScroll,
         },
       },
     ],
@@ -95,4 +95,4 @@ function StaticSlider2({data}) {
   );
 }
 
-export default StaticSlider2;
+export default StaticSlider;

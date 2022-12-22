@@ -1,60 +1,35 @@
-export const  StaticData = [
+export const  StaticData1 = [
     {
-      image: "https://is1-ssl.mzstatic.com/image/thumb/Features122/v4/26/b9/09/26b90992-e05e-5543-67bb-10f6bbe92533/afa01abf-9dd9-4a8b-afef-33c88a248881.png/1319x494sr.webp",
+      linkImg: "https://is1-ssl.mzstatic.com/image/thumb/Features122/v4/26/b9/09/26b90992-e05e-5543-67bb-10f6bbe92533/afa01abf-9dd9-4a8b-afef-33c88a248881.png/1319x494sr.webp",
     },
 
     {
-      image: "https://is5-ssl.mzstatic.com/image/thumb/Features122/v4/fa/08/b5/fa08b55d-9e77-43c3-1c61-3271035fe1a1/1d8cc21a-b9cb-4c60-9e6e-e0b1682d9c99.png/1998x748sr.webp",
+      linkImg: "https://is5-ssl.mzstatic.com/image/thumb/Features122/v4/fa/08/b5/fa08b55d-9e77-43c3-1c61-3271035fe1a1/1d8cc21a-b9cb-4c60-9e6e-e0b1682d9c99.png/1998x748sr.webp",
     },
 
     {
-      image: "https://is3-ssl.mzstatic.com/image/thumb/Features122/v4/80/61/6e/80616e81-7ec9-a6b9-46f9-d3efe9d5a329/9f9ae409-8a1b-4ab2-bc97-ef3b488b3f41.png/999x374sr.webp",
+      linkImg: "https://is3-ssl.mzstatic.com/image/thumb/Features122/v4/80/61/6e/80616e81-7ec9-a6b9-46f9-d3efe9d5a329/9f9ae409-8a1b-4ab2-bc97-ef3b488b3f41.png/999x374sr.webp",
     },
     {
-        image: "https://is3-ssl.mzstatic.com/image/thumb/Features112/v4/4b/75/e8/4b75e836-e89d-3133-7bb5-952ab6bb199d/356abd94-9324-404a-afc3-0ffc03283736.png/1319x494sr.webp",
+      linkImg: "https://is3-ssl.mzstatic.com/image/thumb/Features112/v4/4b/75/e8/4b75e836-e89d-3133-7bb5-952ab6bb199d/356abd94-9324-404a-afc3-0ffc03283736.png/1319x494sr.webp",
      },
   
      {
-        image: "https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/75/68/c1/7568c183-0aa6-682b-0fce-ddb127ca9122/ca680115-7e6f-4244-9fa4-22cbc8c60ae7.png/1319x494sr.webp",
+      linkImg: "https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/75/68/c1/7568c183-0aa6-682b-0fce-ddb127ca9122/ca680115-7e6f-4244-9fa4-22cbc8c60ae7.png/1319x494sr.webp",
     },
     {
-        image:"https://is4-ssl.mzstatic.com/image/thumb/Features122/v4/16/a9/ac/16a9ac3a-1393-438b-6a58-74ecbee7310d/c57aa982-fc8f-4ed2-9c2d-ee218db83880.png/1319x494sr.webp"
+      linkImg:"https://is4-ssl.mzstatic.com/image/thumb/Features122/v4/16/a9/ac/16a9ac3a-1393-438b-6a58-74ecbee7310d/c57aa982-fc8f-4ed2-9c2d-ee218db83880.png/1319x494sr.webp"
     },
     {
-       image:"https://is3-ssl.mzstatic.com/image/thumb/Features122/v4/7a/b2/62/7ab262f1-e794-f2a6-0e54-6077976a0389/2f2f924b-070d-49b0-8c5c-68dabac961b6.png/2638x988sr.webp"
+      linkImg:"https://is3-ssl.mzstatic.com/image/thumb/Features122/v4/7a/b2/62/7ab262f1-e794-f2a6-0e54-6077976a0389/2f2f924b-070d-49b0-8c5c-68dabac961b6.png/2638x988sr.webp"
     },
     {
-        image:"https://is2-ssl.mzstatic.com/image/thumb/Features122/v4/f5/3e/79/f53e7943-0141-8f79-0166-64b0506a4ba3/46e266e1-afb9-4b04-a19d-1f9eb7a47763.png/2638x988sr.webp"
+      linkImg:"https://is2-ssl.mzstatic.com/image/thumb/Features122/v4/f5/3e/79/f53e7943-0141-8f79-0166-64b0506a4ba3/46e266e1-afb9-4b04-a19d-1f9eb7a47763.png/2638x988sr.webp"
     }
   ];
 
 
-  export const  static2 = [
-    {
-      image: "https://is1-ssl.mzstatic.com/image/thumb/Features112/v4/43/6c/99/436c9926-2923-ba9e-4b53-2d1f81d17937/be42058d-d26b-444d-b57f-37c78213344e.png/400x610tc.webp",
-    },
-
-    {
-      image: "https://is1-ssl.mzstatic.com/image/thumb/Features122/v4/b1/86/10/b186109b-98e8-73a6-3262-8c336f50ea39/e0c7fc1e-3932-4a86-a430-0892362a82d9.png/800x1220tc.webp",
-    },
-
- 
-    {
-        image: "https://is2-ssl.mzstatic.com/image/thumb/Features122/v4/c4/35/35/c43535a9-ec6f-0972-4b06-38b21e859de7/07260630-e569-4c62-9e5b-7327e46b4c5c.png/800x1220tc.webp",
-     },
-  
-     {
-      image: "https://is1-ssl.mzstatic.com/image/thumb/Features122/v4/b1/86/10/b186109b-98e8-73a6-3262-8c336f50ea39/e0c7fc1e-3932-4a86-a430-0892362a82d9.png/800x1220tc.webp",
-    },
-    {
-        image:"https://is2-ssl.mzstatic.com/image/thumb/Features122/v4/c4/35/35/c43535a9-ec6f-0972-4b06-38b21e859de7/07260630-e569-4c62-9e5b-7327e46b4c5c.png/800x1220tc.webp"
-    }
-
-  ];
-
-
-
-  export const sliderdata2 = [
+  export const StaticData2  = [
     {
    
       linkImg:
@@ -94,7 +69,7 @@ export const  StaticData = [
   ];
 
 
-  export const sliderdata3 = [
+  export const StaticData3 = [
     {
    
       linkImg:

@@ -7,11 +7,11 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function CommonDetailSlider({ url }) {
+function CommonDetailSlider({ url ,description}) {
   const [data, setData] = useState([]);
   const [defaultImage, setDefaultImage] = useState({});
   const [pathurl, setPathurl] = useState("");
-
+console.log(description)
   const handleErrorImage = (data) => {
     setDefaultImage((prev) => ({
       ...prev,
@@ -113,10 +113,10 @@ function CommonDetailSlider({ url }) {
   };
 
   return (
-    <div className="slider4">
+    <div className="main-slider">
       <Slider {...settings}>
         {data.map((item) => (
-          <div className="common-detail-slider-card" key={item.id}>
+          <div className={description?"common-detail-slider-card":"common-slider-card" } key={item.id}>
             <div className="common-detail-slider-card-top">
               <Link to={`/${pathurl}/${item.id}/${item.title}/movie`}>
                 <img
@@ -128,15 +128,19 @@ function CommonDetailSlider({ url }) {
                   alt={item.title}
                   onError={handleErrorImage}
                 />
-                <p style={{ fontWeight: "600" }}>
-                  {item.title}{" "}
-                  {item.image ?<span style={{ fontWeight: "500" }}>
+                {
+                  description ? <>
+                  <p style={{ fontWeight: "600" }}>
+                  {item.title} {item.image ?<span style={{ fontWeight: "500" }}>
                    | S{item.season} | E{item.id}
                   </span>:""}
                 </p>
-                <p style={{ color: "light", fontWeight: "600" }}>
+                <p style={{ color: "light", fontWeight: "400" }}>
                   {item.description}
                 </p>
+                  </>:<></>
+                }
+       
               </Link>
             </div>
           </div>

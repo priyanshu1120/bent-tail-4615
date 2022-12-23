@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 function CommonDetailSlider({ url ,description}) {
   const [data, setData] = useState([]);
+  const [loading,setLoading] = useState(false)
   const [defaultImage, setDefaultImage] = useState({});
   const [pathurl, setPathurl] = useState("");
   const handleErrorImage = (data) => {
@@ -21,8 +22,10 @@ function CommonDetailSlider({ url ,description}) {
   };
 
   useEffect(() => {
+    setLoading(true)
     axios.get(url).then((r) => {
       setData(r.data);
+      setLoading(false)
       if (url.includes("watchPremiers")) {
         setPathurl("watchPremiers");
       } else if (url.includes("latestOriginals")) {
@@ -46,7 +49,7 @@ function CommonDetailSlider({ url ,description}) {
       }
     });
   }, []);
-
+  console.log(loading)
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -114,7 +117,11 @@ function CommonDetailSlider({ url ,description}) {
   return (
     <div className="main-slider">
       <Slider {...settings}>
-        {data.map((item) => (
+        {
+         
+         loading? <div><img src="https://media.tenor.com/wfEN4Vd_GYsAAAAM/loading.gif" width="100px"  height="100px" alt="loading..."/></div>:
+        
+        data.map((item) => (
           <div className={description?"common-detail-slider-card":"common-slider-card" } key={item.id}>
             <div className="common-detail-slider-card-top">
               <Link to={`/${pathurl}/${item.id}/${item.title}/movie`}>

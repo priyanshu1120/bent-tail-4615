@@ -9,13 +9,13 @@ export const Cast = () => {
     const params = useParams()
     let id =params.id
     let category =params.category
-    const Getdata =()=>{
+    const getData =()=>{
         axios.get(`${base_url}/${category}/${id}`)
     .then((res)=>{setData(res.data)})
     .catch((err)=>{console.log(err)})
     }
     useEffect(()=>{
-    Getdata()
+      getData()
     },[])
   return (
     <div>

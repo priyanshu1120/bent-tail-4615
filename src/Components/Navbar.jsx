@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
-import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, extendTheme, ChakraProvider, Menu} from '@chakra-ui/react';
+import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode,InputGroup, Input, InputLeftElement, Modal, ModalOverlay, ModalContent, ModalCloseButton, ModalHeader, ModalBody, ModalFooter, extendTheme, ChakraProvider, Menu, Tooltip, Text} from '@chakra-ui/react';
 import {  CloseIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Weblogo from "../Assets/Img/mytv.jpg"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { MdOutlineManageAccounts } from "react-icons/md";
-import { onAuthStateChanged,  } from 'firebase/auth';
+import { onAuthStateChanged, signOut,  } from 'firebase/auth';
 import { UserAuth } from '../Utils/firebase';
 import { Drawers } from './Drawer';
 import { useEffect } from 'react';
 import SearchBar from './SearchBar';
 import { useCallback } from 'react';
+import { toast } from 'react-toastify';
+import { GiPowerButton } from 'react-icons/gi';
 const modaltheme = extendTheme({
   components: {
     Modal: {
@@ -28,6 +30,7 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const [ SearchInputText,setSearchInputText]=useState("");
   const [avatar,setAvatar] =useState(false);
+  const navigate = useNavigate()
   const handelQuery = (e) => {
     setSearchInputText(e.target.value)
   }
@@ -43,6 +46,14 @@ const Navbar = () => {
           }
       });
   },[])
+  const handleLogOut =()=>{
+    signOut(UserAuth).then(() => {
+    toast.success("Logout Sucessfull")
+    navigate("/")
+  }).catch((error) => {
+    toast.error(error.massege)
+  })};
+
   return (
     <>
       <div >
@@ -102,16 +113,23 @@ const Navbar = () => {
             <Modal isOpen={isOpen} onClose={onClose} size={["xs","xl","xl"]}  >
               <ModalOverlay  bg='blackAlpha.300' backdropFilter='blur(10px) hue-rotate(90deg)'/>
               <ModalContent>
-                <ModalHeader mt={[5,10,20]} textAlign={"center"}>Choose your Dashboard panel</ModalHeader>
+                <ModalHeader mt={[5,10,20]} textAlign={"center"}>{avatar?"Click For Logout":"Choose your Dashboard panel"}</ModalHeader>
                 <ModalCloseButton  color={"red.500"} />
                 <ModalBody mb={[5,10,20]} >
+
                 <ModalFooter justifyContent={"center"} gap={3} >
-                  <Link to={"/signup"}><Button colorScheme='green'  onClick={onClose} >
+          
+                  {
+                    avatar? "" :   <>
+                    <Link to={"/signup"}><Button colorScheme='green'  onClick={onClose} >
                     User
                   </Button></Link>
                   <Link to={"/adminsignup"}><Button colorScheme='twitter'  onClick={onClose}>
                     Admin
-                  </Button></Link>
+                  </Button></Link></>
+                 }
+               
+                  {avatar?<Button colorScheme={"red"} onClick={handleLogOut} onClose={onClose}>Logout</Button>:""}
                 </ModalFooter>
                 </ModalBody>
               </ModalContent>

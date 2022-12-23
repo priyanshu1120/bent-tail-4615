@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {  GET_PRODUCT_SEARCH } from '../Redux/App/action';
 
-const SearchBar = ({query,setQuary}) => {
+const SearchBar = ({query}) => {
    
     const [suggestion,setSuggestion]=useState([]);
-    const [active,setActiveOption]=useState(0);
     const dispatch =useDispatch();
     const PRODUCTS=useSelector((state)=> state.AppReducer.NavbarSearch)
     
@@ -23,11 +22,13 @@ const SearchBar = ({query,setQuary}) => {
              setSuggestion([]);  
         }
         else{
-            const optimiseddQuery = query.trim().toLowerCase();
-            let newSuggestion =PRODUCTS.filter((item)=>{
-                 return  item.title.trim().toLowerCase().indexOf(optimiseddQuery) !== -1 
-                 ?true:
-                 false ;
+            const searchQuery = query.trim().toLowerCase();
+           let newSuggestion =   PRODUCTS.filter((el)=>{
+              if(el.title!=undefined){
+             if(el.title.includes(searchQuery)){
+                   return el
+               }
+              }
             })
             setSuggestion(newSuggestion);
         }
@@ -35,7 +36,7 @@ const SearchBar = ({query,setQuary}) => {
 
   return (
     <Box opacity={"100%"} mt={"60px"} px={40}>
-    {!!suggestion.length &&(
+    {suggestion.length>0 &&(
     <Box bg={"black"} zIndex={25} position={"absolute"} overflow={"auto"} border={"3px solid #1a202c"} w={450} h={423}>
     {suggestion.map((item,i)=>
        <Link key={item.id} to={`/watchPremiers/${item.id}/${item.title}/movie`}> 

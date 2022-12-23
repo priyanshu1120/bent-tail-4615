@@ -51,7 +51,7 @@ export const Drawers = () => {
 
   const navigate = useNavigate();
   const firstField = useRef();
-  const handleLogOut = () => {
+  const HandleLogOut = () => {
     signOut(UserAuth)
       .then(() => {
         toast.success("Logout Sucessfull");
@@ -286,22 +286,7 @@ export const Drawers = () => {
                 </Button>
               </HStack>
               <Divider />
-              <Link to={"/Payment"}>
-                <HStack alignItems={"center"} justifyContent={"center"}>
-                  <Text as={"b"} color={"blackAlpha.800"} fontSize={"lg"}>
-                    Subscripe our plan
-                  </Text>
-                  <Button
-                    p={0}
-                    m={0}
-                    bg={"transparent"}
-                    color={"blackAlpha.700"}
-                  >
-                    <BsFillCreditCard2FrontFill size={20} />
-                  </Button>
-                </HStack>
-              </Link>{" "}
-              <Divider />
+
               {avatar ? (
                 <HStack alignItems={"center"} justifyContent={"center"}>
                   <Text as={"b"} color={"red.500"} fontSize={"3xl"}>
@@ -312,7 +297,7 @@ export const Drawers = () => {
                     <Button
                       bg={"gray.300"}
                       color={"red.500"}
-                      onClick={handleLogOut}
+                      onClick={HandleLogOut}
                       onClose={onClose}
                     >
                       <Tooltip hasArrow label="Logout" bg="red.600">

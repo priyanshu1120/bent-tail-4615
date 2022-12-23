@@ -124,8 +124,7 @@ export const  Drawers =()=> {
                         </Accordion>:""}
                         <HStack  alignItems={"center"} justifyContent={"center"}><Text as={"b"} fontSize={"1xl"} >Change Theme</Text> <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button></HStack>
                         <Divider/>
-                        <Link to={"/payment"}><HStack  alignItems={"center"} justifyContent={"center"}><Text as={"b"} color={"blackAlpha.800"} fontSize={"lg"} >Subscripe our plan</Text>
-                         <Button p={0} m={0} bg={"transparent"} color={"blackAlpha.700"}><BsFillCreditCard2FrontFill size={20}/></Button></HStack></Link> <Divider/>
+                      
                         {avatar?<HStack   alignItems={"center"} justifyContent={"center"}><Text as={"b"} color={"red.500"} fontSize={"3xl"} >Logout</Text><Link to={"/"}> <Button   bg={"gray.300"} color={"red.500"}  onClick={HandleLogOut} onClose={onClose}><Tooltip hasArrow label='Logout' bg='red.600'><GiPowerButton size={20} color={"red.500"}/></Tooltip></Button></Link></HStack>:""}
                         <Divider/>
               </Stack>

@@ -3,9 +3,32 @@ import useRazorpay from "react-razorpay";
 import logo from "../../Assets/Img/mytv.jpg";
 
 import swal from "sweetalert";
-export default function Payments({ price, label }) {
+import { onAuthStateChanged } from "firebase/auth";
+import { useState } from "react";
+import { useEffect } from "react";
+import { UserAuth } from "../../Utils/firebase";
+import { useNavigate } from "react-router-dom";
+
+export default function Payment() {
+  const navigate = useNavigate()
+  const [auth,setAuth] =useState(false);
+  useEffect(()=>{
+    onAuthStateChanged(UserAuth, (user) => {
+      if (user) {
+        setAuth(true)
+  
+      } else {
+        setAuth(false)
+      }
+    });
+  },[])
+
+  const handleNavigate = ()=>{
+       navigate("/login")
+  }
+
   const Razorpay = useRazorpay();
-  const handlePayment = useCallback(async () => {
+  const handlePayment = async () => {
     const order = {
       currency: "INR",
       receipt: "qwsaq1",
@@ -41,16 +64,13 @@ export default function Payments({ price, label }) {
 
     const rzpay = new Razorpay(options);
     rzpay.open();
-  }, [Razorpay]);
-  return (
-    <div className="App">
-      <button
-        onClick={() => {
-          handlePayment();
-        }}
-      >
-        Start Free Trial
-      </button>
-    </div>
-  );
+  };
+ return  (
+     <>
+     {
+      auth?<button onClick= {()=>handlePayment()}>Start Free Trial</button>
+      :<button onClick= {handleNavigate}>Start Free Trial</button>
+     }
+     </>
+ )
 }

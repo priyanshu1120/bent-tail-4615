@@ -11,7 +11,6 @@ function CommonDetailSlider({ url ,description}) {
   const [data, setData] = useState([]);
   const [defaultImage, setDefaultImage] = useState({});
   const [pathurl, setPathurl] = useState("");
-console.log(description)
   const handleErrorImage = (data) => {
     setDefaultImage((prev) => ({
       ...prev,

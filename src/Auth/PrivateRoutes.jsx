@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import {} from 'react-redux'
 import { Navigate, useLocation } from 'react-router-dom'
 import { UserAuth } from '../Utils/firebase'
+import Payments from '../Components/Payment/Payment'
+
 
 const PrivateRoute = ({children}) => {
   const [auth,setAuth] =useState(false);
@@ -19,11 +21,11 @@ const PrivateRoute = ({children}) => {
   },[])
   
     const location =useLocation();
-    console.log(auth,"auth")
+  
     if(!auth){
        return  <Navigate to="/signup" replace state={{data:location.pathname}}/>
     }
-  return <Navigate to="/payment"/> ;
+  return <Navigate to="/Payment" />
 }
 
 export default PrivateRoute

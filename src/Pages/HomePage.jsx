@@ -33,7 +33,7 @@ const HomePage = () => {
         
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Entire Originals</Text>
-        <CommonDetailSlider url={`${base_url}/watchPremiers`} />
+        <CommonDetailSlider url={`${base_url}/drama`} />
       </Box>
     
 
@@ -65,7 +65,7 @@ const HomePage = () => {
      {/* <=========videospace========> */}     
      <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Like a Boss </Text>
-        <CommonDetailSlider url={`${base_url}/drama`} />
+        <CommonDetailSlider url={`${base_url}/drama`}  />
      </Box>
      
       <Box mt="15px">
@@ -75,10 +75,10 @@ const HomePage = () => {
 
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Defining Moment </Text>
-        <CommonDetailSlider url={`${base_url}/allDramaFilms`} />
+        <CommonDetailSlider url={`${base_url}/allDramaFilms`} description={true}  />
       </Box>
 
-      <Box mt="15px">
+      <Box mt="55px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}> Mystery & Mischief </Text>
         <CommonDetailSlider url={`${base_url}/allComedyFilms`} />
       </Box>
@@ -115,7 +115,7 @@ const HomePage = () => {
         
       <Box mt="15px">
         <Text pt="10px" fontSize="22px" fontWeight={700} pl={[1,2,4,7]}>Ted Lesso:Winner of 4 Emmey Awards</Text>
-        <CommonDetailSlider url={`${base_url}/watchPremiers`} />
+        <CommonDetailSlider url={`${base_url}/allComedyFilms`} />
       </Box>
      
       <Box mt="15px">

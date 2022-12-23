@@ -10,12 +10,14 @@ import { EditCartData } from '../Components/EditAdmindata'
 import ResetPassword from '../Pages/ResetPassword'
 import SignupPage from '../Pages/SignupPage'
 import SigninPage from '../Pages/SigninPage'
-import Payments from '../Components/Payment/Payment'
+// import Payments from '../Components/Payment/Payment'
 import PrivateRoute from '../Auth/PrivateRoutes'
 import SignupAdminPage from '../Pages/SignupAdminPage'
 import WrongRoute from '../Components/WrongRoute'
 import SigninAdminPage from '../Pages/SignInAdmin.jsx'
 import { Nextpage } from '../Pages/Nextpage';
+import Payment from '../Components/Payment/Payment';
+
 
 export const MainRoutes = () => {
   return (
@@ -32,7 +34,8 @@ export const MainRoutes = () => {
         <Route path="/reset-password" element={<ResetPassword/>} />
         <Route path="/:displayName/:id/:title/edit" element={<EditCartData/>} /> 
         <Route path="/:category/:id/:title/movie" element={<Nextpage/>} />
-      <Route path="/payment" element={<PrivateRoute><Payments/></PrivateRoute>} />
+      <Route path="/Payment" element={<PrivateRoute><Payment/></PrivateRoute>} />
+
       <Route path="*" element={<WrongRoute/>} />
       </Routes>
     </div>

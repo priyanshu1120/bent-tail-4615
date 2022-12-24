@@ -4,6 +4,9 @@ Before I start my blog writing on the clone of the website, I want to thank Masa
 # Project Details 
 MyTv+ is the website for watching Movies and shows. its have a subscription functionality and high security authentication with firebase for the users and admin both and we can see different type of category in movies and shows.
 
+# Deployed live link
+vercel - https://bent-tail-4615.vercel.app/
+
 # Tech Stacks used -
 - React:
 - Redux :
@@ -82,10 +85,6 @@ MyTv+ is the website for watching Movies and shows. its have a subscription func
 
 ![New Edit Page](https://user-images.githubusercontent.com/102036593/202791683-75111405-8620-4515-bd9e-e512eaba3f0b.jpg)
 
-# Deployed live link
-- Vercel DeployedLink  1  : https://appletv-iakashmondal.vercel.app/
-- Vercel Deployed Link 2 : https://appletv-phi.vercel.app/
-- Firebase Deployed Link : https://mytvapp-3fd31.web.app/
 
 ## Our Team Members:-
 # Priyanshu Kaushik

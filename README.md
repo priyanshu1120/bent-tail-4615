@@ -5,7 +5,7 @@ Before I start my blog writing on the clone of the website, I want to thank Masa
 MyTv+ is the website for watching Movies and shows. its have a subscription functionality and high security authentication with firebase for the users and admin both and we can see different type of category in movies and shows.
 
 # Deployed live link
-vercel - https://bent-tail-4615.vercel.app/
+netlify - https://bymeclone.netlify.app/
 
 # Tech Stacks used -
 - React:

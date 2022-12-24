@@ -64,3 +64,24 @@
     margin: 10px 20px;
   }
   
+
+  .card {
+    border: 1px solid #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    height: auto;
+    color: white;
+    cursor: pointer;
+  }
+  
+
+  .card-top > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: black;
+  }
+  
+  .card-bottom {
+    margin: 10px 20px;
+  } 

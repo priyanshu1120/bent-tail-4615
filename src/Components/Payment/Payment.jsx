@@ -1,7 +1,6 @@
-import { useCallback } from "react";
+
 import useRazorpay from "react-razorpay";
 import logo from "../../Assets/Img/mytv.jpg";
-
 import swal from "sweetalert";
 import { onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
@@ -68,7 +67,7 @@ export default function Payment() {
  return  (
      <>
      {
-      auth?<button onClick= {()=>handlePayment()}>Start Free Trial</button>
+      auth?<button className="btn" onClick= {()=>handlePayment()}>Start Free Trial</button>
       :<button onClick= {handleNavigate}>Start Free Trial</button>
      }
      </>

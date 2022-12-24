@@ -86,23 +86,13 @@ vercel - https://bent-tail-4615.vercel.app/
 ![New Edit Page](https://user-images.githubusercontent.com/102036593/202791683-75111405-8620-4515-bd9e-e512eaba3f0b.jpg)
 
 
-## Our Team Members:-
-# Priyanshu Kaushik
+# Our Team Members:-
+## Priyanshu Kaushik
+## Prateek Soni
+## Akash Mandol
+## Sahil Khan
+## Rishav Neogi
 
-# Prateek Soni
-
-# Akash Mandol
-- Responsibilities : Navbar,Searching,Authentication,Admin page,
-    Managing Admin's data (Add,delete,edit at live data),debuging,Routing,Live edit data view.
-- Portfolio : https://iakashmondal-iakashmondal.vercel.app/
-- Linkdin: https://www.linkedin.com/in/akash-mondal-859b4b228/
-
-# Sahil Khan
-
-# Rishav Neogi
-- Responsibilities : Manage whole backend api and made custom slider for all data to display.
-- Portfolio : https://nrishav007.github.io/
-- Linkdin: https://www.linkedin.com/in/rishav-neogi/
 
 
 

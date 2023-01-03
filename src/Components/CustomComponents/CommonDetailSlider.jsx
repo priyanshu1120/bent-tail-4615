@@ -9,10 +9,12 @@ import { Link } from "react-router-dom";
 import {slideSetting} from '../../Utils/CommonFunction';
 
 function CommonDetailSlider({ url ,description,slideshow,slidesToScroll}) {
+  // const base_url=process.env.REACT_APP_BASE_URL;
   const [data, setData] = useState([]);
   const [loading,setLoading] = useState(false)
   const [defaultImage, setDefaultImage] = useState({});
   const [pathurl, setPathurl] = useState("");
+
   const handleErrorImage = (data) => {
     setDefaultImage((prev) => ({
       ...prev,
@@ -43,7 +45,7 @@ function CommonDetailSlider({ url ,description,slideshow,slidesToScroll}) {
         setPathurl("allFeatureFilms");
       } else if (url.includes("allDramaFilms")) {
         setPathurl("allDramaFilms");
-      } else if (url.includes("watchPremiers")) {
+      } else if (url.includes("allComedyFilms")) {
         setPathurl("allComedyFilms");
       } else if (url.includes("funForAll")) {
         setPathurl("funForAll");
